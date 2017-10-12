@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/cropper.min.css" />
+		<link rel="stylesheet" href="../../css/mui.cropper.css" />
+		<style type="text/css">
+			.content {
+				margin-top: 5px;
+				width: 95%;
+			}
+			
+			img {
+				width: 100px;
+				height: 100px;
+				margin: 10px;
+				float: left;
+			}
+			
+			.mui-bar .mui-icon span {
+				font-size: 18px;
+			}
+			
+			.mui-icon-checkmarkempty {
+				color: #007aff;
+				float: right;
+				margin-right: 5px;
+			}
+			
+			.mui-icon-location {
+				color: #007aff;
+			}
+			
+			.mui-table-view {
+				margin: 8px;
+			}
+			
+			.position {
+				width: 80%;
+				text-align: center;
+				background: white;
+				line-height: 30px;
+				font-size: 20px;
+			}
+			#dwtupiao{
+				width:20px;
+				height: 20px;
+				float:left;
+				margin: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-icon mui-action-back mui-icon-arrowleft mui-icon-back mui-badge-primary mui-badge-inverted"> </div>
+			<h1 id="xinzen" class="mui-title mui-badge-primary mui-badge-inverted">发布动态</h1>
+			<div id="finish" class="mui-icon mui-icon-checkmarkempty"></div>
+		</header>
+
+		<div class="mui-content">
+			<div style="text-align: center;">
+				<textarea id="content" class="content" placeholder=" " rows="6"></textarea>
+			</div>
+			<ul class="mui-table-view">
+				<li id="getPosition" class="mui-table-view-cell"> 
+					 <img id="dwtupiao" src="../../images/Assets.xcassets/location.imageset/location@2x.png" />
+					 <p id="dwtext">东北大学</p>
+				</li>
+			</ul>
+			<div style="text-align: center;">
+				<div id="photos">
+				</div>
+				<a id="pick" href="#cropper-sheet">
+					<img id="image" src="../../images/Assets.xcassets/+.imageset/+@2x.png" />
+				</a>
+			</div>
+
+			<!--选择照片-->
+			<div id="cropper-sheet" class="mui-popover mui-popover-bottom mui-popover-action">
+				<!-- 可选择菜单 -->
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a id="paizhao" data-type="camera">拍照</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a id="xiangce" data-type="gallery">相册</a>
+					</li>
+				</ul>
+				<!--取消菜单 
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="#cropper-sheet"><b style="color: #ff0000;">取消</b></a>
+					</li>
+				</ul>-->
+			</div>
+		</div>
+
+		</div>
+		<script type="text/javascript" src="../../js/cropper.min.js"></script>
+		<script type="text/javascript" src="../../js/new_dynamics.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kTXsdvEmz65B7bef2MAVKG2nx4wlA9It"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var address;
+			mui.plusReady(function() {
+				//翻译
+				ready();
+				//上传图片
+				createUploader();
+				//获取位置
+				getGeocode();
+			})
+			mui('#cropper-sheet').on('tap', '.mui-table-view-cell > a', function() {
+				var type = this.getAttribute('data-type');
+				mui("#cropper-sheet").popover('hide');
+				switch(type) {
+					case 'camera':
+						clickCamera();
+						break;
+					case 'gallery':
+						clickGallery();
+						break;
+					default:
+						break;
+				}
+			})
+			document.getElementById('getPosition').addEventListener('tap', function() {
+					getGeocode();
+			})
+			// 通过定位模块获取位置信息
+			function getGeocode() {
+				plus.nativeUI.showWaiting();
+				var getOptions = { //是否使用高精度设备，如GPS。默认是true  
+					enableHighAccuracy: true,
+					//超时时间，单位毫秒，默认为0  
+					timeout: 5000,
+					//使用设置时间内的缓存数据，单位毫秒  
+					//默认为0，即始终请求新数据  
+					//如设为Infinity，则始终使用缓存数据  
+					maximumAge: 0
+				};
+				plus.geolocation.getCurrentPosition(showLocation, function(e) {
+					plus.nativeUI.closeWaiting();
+					document.getElementById('dwtext').innerHTML='获取位置失败'; 
+				}, getOptions);
+			}
+			//处理定位后的信息
+			function showLocation(r) {
+				jingDu = r.coords.longitude;
+				weiDu = r.coords.latitude;
+				address = r.addresses;
+				plus.nativeUI.closeWaiting();
+				document.getElementById('dwtext').innerHTML=address;
+				//	centerPointer = new BMap.Point(r.coords.longitude, r.coords.latitude);
+				//	exchange();
+			}
+		</script>
+	</body>
+
+</html>

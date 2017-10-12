@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+				.mui-title{
+				color: #007AFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="xinzen" class="mui-title" style="color: #007AFF;">新建</h1>
+			<div id='finish' class="mui-icon mui-icon-checkmarkempty mui-pull-right"></div>
+		</header>
+		<div class="mui-content">
+			<textarea id="content" rows="10"></textarea>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function() {
+				ready();
+			})
+			var content;
+			var finish = document.getElementById('finish');
+			var phoneNum = localStorage.getItem('phoneNum');
+			var companyId = localStorage.getItem('companyId');
+
+			finish.addEventListener('tap', function() {
+				content = document.getElementById('content').value;
+				addTixing();
+			})
+
+			function addTixing() {
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Tixing/addtixingshixiang', {
+					data: {
+						userid: phoneNum,
+						companyid: companyId,
+						content: content,
+					},
+					timeout: 1000,
+					type: 'post',
+					success: function(data) {
+						mui.toast(data.msg);
+						var reminder = plus.webview.getWebviewById('reminder_sub.html');
+						mui.fire(reminder, 'refresh', {});
+						mui.openWindow({
+							url: 'reminder_main.html',
+							id: 'reminder_main.html',
+						})
+					},
+					error: function() {
+						mui.alert('error');
+					}
+				})
+			}
+		</script>
+	</body>
+
+</html>

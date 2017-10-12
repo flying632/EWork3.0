@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/cropper.min.css" />
+		<link rel="stylesheet" href="../../css/imageViewer.css" />
+		<link rel="stylesheet" href="../../css/mui.cropper.css" />
+		<style>
+			.mui-title{
+				color: #007AFF;
+			}
+			.mui-content{
+				text-align: center;
+			}
+			#headImg{
+				margin: 0 auto;
+				height: 200px;
+			}
+			.headImg{
+				float: right;
+				font-size: 14px;
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 id="touxiang" class="mui-title">头像</h1>
+		     <a id="pick" href="#cropper-sheet" class="headImg">更换头像</a>
+		</header>
+		<div class="mui-content">
+		   		<img id="headImg"   data-preview-src="" data-preview-group="1" onerror="imgerror(this)" />
+		</div>
+			<!--选择照片-->
+			<div id="cropper-sheet" class="mui-popover mui-popover-bottom mui-popover-action">
+				<!-- 可选择菜单 -->
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a id="paizhao" data-type="camera">拍照</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a id="xiangce" data-type="gallery">相册</a>
+					</li>
+				</ul>
+				<!--取消菜单 
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="#cropper-sheet"><b style="color: #ff0000;">取消</b></a>
+					</li>
+				</ul>-->
+			</div>
+		
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/cropper.min.js"></script>
+		<script type="text/javascript" src="../../js/changeImg.js" ></script>
+		<script type="text/javascript" src="../../js/mui.zoom.js"></script>
+		<script type="text/javascript" src="../../js/mui.previewimage.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+		<script type="text/javascript">
+			var result;
+			//实现查看大图 
+			mui.previewImage();
+			mui.init();
+			mui.plusReady(function(){
+				ready(); 
+				result = JSON.parse(localStorage.getItem("personInfo")).result; 
+				document.getElementById('headImg').src=result.personlogo;
+				createUploader();
+			})
+			mui('#cropper-sheet').on('tap', '.mui-table-view-cell > a', function() {
+				var type = this.getAttribute('data-type');
+				mui("#cropper-sheet").popover('hide');
+				switch(type) {
+					case 'camera':
+						clickCamera();
+						break;
+					case 'gallery':
+						clickGallery();
+						break;
+					default:
+						break;
+				}
+			})
+			 function imgerror(img){
+			 	img.src="../../images/Assets.xcassets/default_empty_photo.imageset/default_empty_photo.png";
+				img.onerror=null;
+			 }
+		    
+		</script>
+	</body>
+
+</html>

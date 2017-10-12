@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			.mui-bar h1 {
+				font-size: 20px;
+			}
+			
+			.touxiang {
+				width: 60px;
+				height: 60px;
+				float: left;
+				margin: auto, auto;
+			}
+			
+			.content {
+				float: left;
+				margin-left: 10px;
+			}
+			
+			.username {
+				font-size: 18px;
+				font-weight: bold;
+			}
+			
+			.tel {
+				margin-top: 10px;
+				width: 10%;
+				float:left;
+			}
+			.number{
+				float:left; 
+			}
+			.mui-content .mui-table-view {
+				margin-top: 20px;
+			}
+			
+			.my img {
+				float: left;
+				width: 30px;
+				height: 30px;
+			}
+			
+			.my li span {
+				margin-left: 10px;
+				line-height: 30px;
+			}
+			
+			.mui-table-view-cell .mui-navigate-right span {
+				font-family: "微软雅黑";
+				font-size: 14px;
+			}
+		</style>
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/mui.min.js"></script>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a id="person" class='mui-navigate-right'>
+						<img class="touxiang" src="../../images/lunnbo2.jpg" />
+						<div class="content">
+							<p class="username">刘国奇</p>
+							<p class="tel">13591402086</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+
+			<ul id="choice" class="mui-table-view my">
+				<!--<li id="scan.html" class="mui-table-view-cell">
+					<div class='mui-navigate-right'>
+						<img src="../../images/Assets.xcassets/scanning.imageset/scanning@2x.png" /><span id="saoyisao">扫一扫</span>
+					</div>
+				</li>
+				<li id="myCard.html" class="mui-table-view-cell">
+					<a class='mui-navigate-right'>
+						<img src="../../images/Assets.xcassets/card.imageset/card@2x.png" /><span id="wodemingpian">我的名片</span>
+					</a>
+				</li>-->
+				<li id="myDynamics_main.html" class="mui-table-view-cell">
+					<a class='mui-navigate-right'>
+						<img src="../../images/Assets.xcassets/Tabbar/moment.imageset/moment@2x.png" /><span id="wodedongtai">我的动态</span>
+					</a>
+				</li>
+			 
+				<li id="searchfriend.html" class="mui-table-view-cell">
+					<a class='mui-navigate-right'>
+						<img src="../../images/Assets.xcassets/find.imageset/find@2x.png" /><span id="sousuohaoyou">搜索好友</span>
+					</a>
+				</li>
+			</ul>
+
+			<ul id="setting" class="mui-table-view my">
+				<li class="mui-table-view-cell">
+				  		<a class='mui-navigate-right'>
+						<img src= "../../images/Assets.xcassets/setting.imageset/setting@2x.png" /><span id="shezhi">设置</span>
+					</a>
+				</li>
+			</ul>
+
+		</div>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+	</body>
+	<script type="text/javascript">
+		mui.init({
+			preloadPages: [{
+				url: 'myDynamics_main.html',
+				id: 'myDynamics_main.html'
+			}]
+		});
+		mui.plusReady(function() {
+			ready();
+			getPersonInfo();
+		});
+	 
+		//请求个人信息
+		function getPersonInfo() {
+
+			var this_phoneNum = localStorage.getItem('phoneNum');
+			mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Search/person_info/', {
+				data: {
+					phoneNum: this_phoneNum,
+					objectID: this_phoneNum
+				},
+				dataType: 'json',
+				type: 'post',
+				timeout: 10000,
+				success: function(data) {
+					 
+					if(data.flag == '200') { 
+						var result = data.result;
+						var person = document.getElementById('person');
+						person.getElementsByTagName('img')[0].setAttribute('src',result.personlogo);
+						person.getElementsByClassName('username')[0].innerHTML = result.name;
+						person.getElementsByClassName('tel')[0].innerHTML =  this_phoneNum;
+					}
+				},
+				error: function(xhr, type, errorThrown) {
+					//异常处理
+					mui.alert("error");
+				}
+
+			});
+		}
+		var btn_person = document.getElementById('person');
+		btn_person.addEventListener('tap', function() {
+			mui.openWindow({
+				url: 'person.html',
+			});
+		});
+	 
+		mui('#choice').on('tap','.mui-table-view-cell',function(){
+			var id = this.getAttribute('id');
+			mui.openWindow({ 
+				url:id,
+			});
+		});
+		mui('#setting').on('tap','.mui-table-view-cell',function(){
+			mui.openWindow({
+				id:'setting.html',
+				url:'setting.html'
+			})
+		})
+		window.addEventListener('refresh',function(){
+			getPersonInfo();
+		})
+	</script>
+
+</html>

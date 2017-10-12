@@ -1,0 +1,442 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/imageViewer.css" />
+		<style type="text/css">
+			.mui-title {
+				color: #007AFF;
+				font-family: "微软雅黑";
+			}
+			
+			.top img {
+				width: 50px;
+				height: 50px;
+				float: left;
+				margin-right: 10px;
+			}
+			
+			.top .information {
+				padding-top: 10px;
+				font-size: 22px;
+				font-weight: bold;
+			}
+			
+			.top .information .date {
+				font-weight: lighter;
+				font-size: 16px;
+				color: #B6B6B6;
+			}
+			
+			.confirm {
+				font-size: 12px;
+				padding: 3px;
+			}
+			
+			.small_content {
+				margin-top: 20px;
+				padding-left: 60px;
+			}
+			
+			.small_content div {
+				font-size: 16px;
+				font-family: "微软雅黑";
+				margin-bottom: 5px;
+			}
+			
+			.headImg {
+				max-width: 45px;
+				max-height: 45px;
+				margin: 5px;
+				float: left;
+				line-height: 45px;
+			}
+			
+			.username {
+				float: left;
+				line-height: 45px;
+			}
+			
+			.mui-table-view {
+				margin-top: 0px;
+			}
+			
+			.mui-navigate-right {
+				font-size: 20px;
+			}
+			
+			.mui-navigate-right .mui-pull-right {
+				margin-right: 20px;
+				font-size: 18px;
+				color: #B6B6B6;
+			}
+			
+			.reply {
+				float: left;
+				width: 30px;
+				height: 30px;
+			}
+			
+			.photo {
+				max-width: 200px;
+				max-width: 200px;
+				float: left;
+				margin: 3px;
+				width: 30%;
+				height: 150px;
+			}
+			
+			.reply_span {
+				margin-left: 10px;
+				line-height: 30px;
+				color: #AAAAAA;
+				font-size: 16px;
+			}
+			
+			.top .information_below {
+				padding-top: 10px;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			.top .information_below .date {
+				font-weight: lighter;
+				font-size: 14px;
+				color: #B6B6B6;
+				margin: 5px;
+			}
+			
+			#finish {
+				color: #007aff;
+				float: right;
+				font-size: 14px;
+				margin-top: 5px;
+				display: none;
+			}
+			
+			.renwuhuifu {
+				width: 100%;
+				height: 50px;
+				position: absolute;
+				bottom: 0;
+			}
+			
+			.mui-input-row {
+				width: 100%;
+				height: 50px;
+				position: absolute;
+				bottom: 0;
+			}
+			
+			.mui-input-row input {
+				width: 85%;
+			}
+			
+			 
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="xiangqing" class="mui-title">任务详情</h1>
+			<div id="finish" class="mui-pull-right mui-icon">结束任务</div>
+		</header>
+		<div id='content' class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="top">
+						<img src="images/Assets.xcassets/AppIcon.appiconset/logo_58.png" />
+						<div class="information">
+							刘国奇
+							<span class="date">45分钟前</span>
+							<button class="mui-btn mui-btn-warning mui-pull-right mui-btn-nav mui-btn-outlined confirm">未确认</button>
+						</div>
+					</div>
+					<div class="small_content">
+						<div>消消乐过关了</div>
+						<div class="picture">
+							<img src="images/icon/tabbar_image.png" />
+							<img src="images/icon/tabbar_image.png" />
+						</div>
+					</div>
+					<div>
+						<button id="queren" class="mui-btn mui-btn-block mui-btn-yellow mui-btn-outlined mui-btn-link">
+							点击确认收到
+						</button>
+					</div>
+				</li>
+			</ul>
+
+			<ul class="mui-table-view" style="margin-top: 1px;">
+				<li class="mui-table-view-cell mui-collapse">
+					<a class="mui-navigate-right " href="#"> 回复</a>
+					<div class="mui-collapse-content">
+						<div>
+							<div class="top">
+								<img src="images/Assets.xcassets/AppIcon.appiconset/logo_58.png" />
+								<div class="information_below">
+									刘国奇
+									<span class="date">45分钟前</span>
+								</div>
+								<div class="small_content">
+									<div>恭喜恭喜</div>
+								</div>
+							</div>
+						</div> 
+
+					</div>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-collapse">
+					<a class="mui-navigate-right" href="#">接收人</a>
+					<div class="mui-collapse-content">
+						<div class="mui-row"><img class="headImg" src="../../images/lunnbo2.jpg" />
+							<div class="username">刘国奇</div>
+						</div>
+						<div class="mui-row"><img class="headImg" src="../../images/lunnbo2.jpg" />
+							<div class="username">刘国奇</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-collapse">
+					<a class="mui-navigate-right" href="#">未接收人</a>
+
+				</li>
+			</ul>
+
+			<div class="mui-input-row">
+				<input type="text" id="huifu" class="mui-input" placeholder=" ">
+				<button class="mui-icon mui-icon-paperplane" onclick="sendhuifu()"> </button>
+			</div>
+
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.zoom.js"></script>
+		<script type="text/javascript" src="../../js/mui.previewimage.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+		<script type="text/javascript">
+			//实现查看大图 
+			mui.previewImage();
+			mui.init()
+			var id;
+			var phoneNum;
+			var name;
+			var personlogo;
+			var weidunum;
+			var url = 'http://121.42.29.124/workoa/index.php?s=/Api/Renwu/addrenwureport';
+			mui.plusReady(function() {
+				ready();
+				var self = plus.webview.currentWebview();
+				phoneNum = localStorage.getItem('phoneNum');
+				id = self.theId;
+				sendRequest();
+				document.getElementById('finish').addEventListener('tap', function() {
+					var btnArray = ['否', '是'];
+					mui.confirm('结束任务，确认？', '', btnArray, function(e) {
+						if(e.index == 1) {
+							finish();
+						}
+					})
+				})
+
+			})
+
+			function sendRequest() {
+				//	console.log(id);
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Renwu/searchrenwubyid/', {
+					data: {
+						userid: phoneNum,
+						renwuid: id,
+					},
+					type: 'post',
+					timeout: 10000,
+					success: function(data) {
+						var finish = document.getElementById('finish');
+						//mui.alert(JSON.stringify(data));
+						mui.toast(data.msg);
+						if(data.flag == 200) {
+							if(data.renwushuxing == 10 && data.flag == 10) {
+								finish.style.display = 'block';
+							} else {
+								finish.style.display = 'none';
+							}
+							var content = document.getElementById('content');
+							var result = data.result[0];
+							var status = "已结束";
+							weidunum = result.weidurenwushu;
+							if(result.flag == 10) {
+								status = "进行中";
+							}
+
+							var innerCode = '<ul class="mui-table-view"><li class="mui-table-view-cell">	<div class="top">' +
+								'<img src="' + result.personlogo + '" /><div class="information">' + result.name + '<span class="date">' + result.fabudate + '</span>' +
+								'<button class="mui-btn mui-btn-warning mui-pull-right mui-btn-nav mui-btn-outlined confirm">' + status + '</button>' +
+								'	</div></div><div class="small_content"><div>' + result.content + '</div>';
+							innerCode += '</div><div>';
+							var numOfPhotos = result.photourls.length;
+
+							if(numOfPhotos != 0) {
+								if(numOfPhotos == 1) {
+									innerCode += '<div class="photos"> <img class="photo" style="width:100%;" src="' + result.photourls[0].renwupic + '" data-preview-src="" data-preview-group="' + 1 + '"/> </div>';
+
+								} else if(numOfPhotos == 2) {
+									innerCode += '<div class="photos"><img class="photo" style="width:40%;" src="' + result.photourls[0].remwupic + '" data-preview-src="" data-preview-group="' + 1 + '"/>' +
+										'<img class="photo" style="width:40%;" src="' + result.photourls[1].renwupic + '" data-preview-src="" data-preview-group="' + 1 + '"/> </div>';
+								} else {
+									innerCode += '<div class="photos">';
+									for(var j = 0; j < numOfPhotos; j++) {
+										innerCode += '<img class="photo"  src="' + result.photourls[j].renwupic + '" data-preview-src="" data-preview-group="' + 1 + '"/>';
+									}
+									innerCode += '</div>';
+								}
+							} 
+							if(result.flag == 50) {
+								innerCode += '</ul>';
+								var huifu = result.huifu_list;
+								innerCode += '<ul class="mui-table-view" >	<li class="mui-table-view-cell mui-collapse"> <a class="mui-navigate-right " href="#">回复('+huifu.length+')</a>';
+								innerCode += '<div class="mui-collapse-content">';
+								var huifu = result.huifu_list;
+								for(var i = 0; i < huifu.length; i++) {
+									innerCode += '<div>	<div class="top">	<img src="' + huifu[i].personlogo + '" />' +
+										'<div class="information_below">' + huifu[i].huifuname + '<span class="date">' + huifu[i].huifudate + '</span>' +
+										'</div><div class="small_content"><div>' + huifu[i].huifucontent + '</div></div></div></div>';
+								} 
+								innerCode += '</div></li></ul>';
+
+								innerCode += ' <div class="mui-input-row"><input type="text" id="huifu"   class="mui-input" placeholder=" "><button class="mui-icon mui-icon-paperplane" onclick="sendhuifu()"> </button></div>';
+								content.innerHTML = innerCode;
+								return;
+							}
+							var flag = false;
+							for(var i = 0; i < result.weidu_list.length; i++) {
+								if(phoneNum == result.weidu_list[i].jieshouzheid) {
+									flag = true;
+									break;
+								}
+							}
+
+							//	console.log(flag);
+							if(flag) {
+								console.log("asd");
+								innerCode += '<button onclick="queren()" class="mui-btn mui-btn-block mui-btn-yellow mui-btn-outlined mui-btn-link">点击确认收到</button></div></li></ul>';
+							} else {
+								innerCode += '</div></li></ul>';
+							}
+
+							innerCode += '<ul class="mui-table-view"><li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">接收人(' + result.yidurenwushu + ')</a>';
+							innerCode += '<div class="mui-collapse-content">';
+							for(var i = 0; i < result.yidu_list.length; i++) {
+								innerCode += '<div class="mui-row"><img class="headImg" src="' + result.weidu_list[i].personlogo + '" /><div class="username">' + result.weidu_list[i].jieshouzhename + '</div></div>';
+							}
+
+							innerCode += '</div></li></ul>';
+							innerCode += '<ul class="mui-table-view"><li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">未接收人(' + result.weidurenwushu + ')</a>';
+							innerCode += '<div class="mui-collapse-content">';
+							for(var i = 0; i < result.weidu_list.length; i++) {
+								innerCode += '<div class="mui-row"><img class="headImg" src="' + result.weidu_list[i].personlogo + '" /><div class="username">' + result.weidu_list[i].jieshouzhename + '</div></div>';
+							}
+
+							innerCode += '</div></li></ul>';
+							var huifu = result.huifu_list;
+							innerCode += '<ul class="mui-table-view"  >	<li class="mui-table-view-cell mui-collapse"> <a class="mui-navigate-right " href="#">回复('+huifu.length+')</a>';
+							innerCode += '<div class="mui-collapse-content">';
+							
+							for(var i = 0; i < huifu.length; i++) {
+								innerCode += '<div>	<div class="top">	<img src="' + huifu[i].personlogo + '" />' +
+									'<div class="information_below">' + huifu[i].huifuname + '<span class="date">' + huifu[i].huifudate + '</span>' +
+									'</div><div class="small_content"><div>' + huifu[i].huifucontent + '</div></div></div></div>';
+							}
+							innerCode += '</div></li></ul>';
+								innerCode += ' <div class="mui-input-row"><input type="text" id="huifu"   class="mui-input" placeholder=" "><button class="mui-icon mui-icon-paperplane" onclick="sendhuifu()"> </button></div>';
+							content.innerHTML = innerCode;
+						}
+					},
+					error: function() {
+						mui.alert('task_detail.html');
+					}
+				})
+			}
+
+			function queren() {
+				//mui.alert("asd");
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/renwu/yidu_renwu', {
+					data: {
+						renwuid: id,
+						jieshouzheid: phoneNum //之后得把这个换了 传进来的值
+					},
+					dataType: 'json',
+					type: 'get',
+					timeout: 10000,
+					headers: {
+						'content-Type': 'application/json'
+					},
+					success: function(change_data) {
+						plus.nativeUI.toast(change_data.msg);
+						console.log(change_data.msg);
+						if(change_data.flag == 200 && weidunum == 1) {
+							finish();
+						}
+					}
+				});
+
+			}
+
+			function finish() {
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Renwu/renwu_edit', {
+					data: {
+						renwuid: id,
+					},
+					timeout: 1000,
+					type: 'post',
+					success: function(data) {
+						sendRequest();
+						console.log(data.flag);
+					}
+
+				})
+			}
+			var old_back = mui.back;
+			mui.back = function() {
+				var view = plus.webview.getWebviewById('view/task/task.html');
+				mui.fire(view, "refresh", {});
+				old_back();
+			}
+			var url = 'http://121.42.29.124/workoa/index.php?s=/Api/Renwu/addrenwureport';
+
+			function sendhuifu() {
+				var content = document.getElementById('huifu').value;
+				console.log(content);
+				mui.ajax(url, {
+					data: {
+						renwuid: id,
+						huifucontent:content,
+						huifuid: phoneNum,
+						
+					},
+					timeout: 1000,
+					type: 'post',
+					success: function(data) {
+						//mui.alert(JSON.stringify(data));
+						sendRequest()
+					},
+					error: function() {
+						mui.toast("error");
+					}
+				})
+			}
+			 
+		</script>
+	</body>
+
+</html>

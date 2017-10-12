@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-content {
+				background-color: white;
+				line-height: 30px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<button class="mui-btn mui-btn-link mui-btn-nav mui-pull-right">
+				<span class="mui-icon mui-icon-checkmarkempty"></span>
+			</button>
+			<h1 id="xiangqing" class="mui-title" style="color: #007AFF;">记事本</h1>
+		</header>
+		<div contenteditable="true"   class="mui-content">
+			<span id="content"></span>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			var id;
+			var noteData ;
+			mui.plusReady(function(){
+				ready();
+				var self = plus.webview.currentWebview();
+				id = self.the_id;
+				console.log(id);
+				noteData= JSON.parse(localStorage.getItem('notepadData'))
+				showContent();
+			})
+			function showContent(){
+				var data = noteData.result;				
+				for(var i=0;i<data.length;i++){ 
+					if(data[i].id==id){
+						console.log(data[i].id);
+						document.getElementById('content').innerText=data[i].content;
+						break;
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

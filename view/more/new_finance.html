@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
+		<link href="../../css/mui.dtpicker.css" rel="stylesheet" />
+
+		<style type="text/css">
+			header h1 {
+				font-family: "微软雅黑";
+			}
+			
+			.mui-content .reason .small_title {
+				padding: 10px;
+				font-family: "微软雅黑";
+				font-size: 16px;
+				color: #777777;
+			}
+			
+			.mui-content .mui-table-view .mui-table-view-cell {
+				font-size: 18px;
+			}
+			
+			.mui-content .mui-table-view .mui-table-view-cell .mui-pull-right {
+				padding-right: 20px;
+				color: #BBBBBB;
+				font-size: 16px;
+			}
+			
+			label {
+				font-size: 18px;
+			}
+			
+			input {
+				width: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<button class="mui-btn mui-btn-primary mui-btn-nav mui-btn-link mui-pull-right">
+				<span id="finish" class="mui-icon mui-icon-checkmarkempty"></span>
+			</button>
+			<h1 id="xinzen" class="mui-title" style="color: #007AFF;">新增财务请示</h1>
+		</header>
+
+		<div class="mui-content">
+			<div class="reason">
+				<div id="liyou" class="small_title">请示内容</div>
+				<div class="mui-input-row">
+					<textarea id="content" rows="10"></textarea>
+				</div>
+			</div>
+
+			<ul class="mui-table-view">
+				<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label id="piaojuzhangshu">票据张数</label>
+						<input id="number" style="width:20%;" class="mui-pull-right" type="text" class="mui-input-clear" />
+					</div>
+					<div class="mui-input-row">
+						<label id="jine">财务总价</label>
+						<input id="money" style="width:20%;" class="mui-pull-right" type="text" class="mui-input-clear" />
+					</div>
+				</form>
+				<li class="mui-table-view-cell" id="category">
+					<a class="mui-navigate-right">
+						<span id="leixing">财务类型</span>
+						<div class="mui-pull-right" id="selet_category"> </div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="requestList" class="mui-navigate-right">
+						<span id="jieshouren"></span>
+						<span id="requesttext" class="mui-pull-right"> </span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.picker.js"></script>
+		<script type="text/javascript" src="../../js/mui.poppicker.js"></script>
+		<script type="text/javascript" src="../../js/mui.dtpicker.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			var phoneNum = localStorage.getItem('phoneNum');
+			var companyId = localStorage.getItem('companyId');
+			//参数
+			var typeId; //财务类型
+			var requestPerson; //请示人
+			var num; //票数
+			var money; //总价
+			var comtent; //请示内容
+			mui.ready(function() {
+				ready();
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Caiwu/getcaiwutype', {
+					data: {
+						companyid: companyId,
+					},
+					type: 'post',
+					timeout: 10000,
+					success: function(data) {
+						mui.toast(data.msg);
+						if(data.flag == 200) {
+							var result = data.result;
+							setType(result);
+						}
+					},
+					error: function() {
+						mui.alert("网络出错");
+					}
+				});
+
+			})
+
+			function setType(result) {
+				var data = [];
+				for(var i = 0; i < result.length; i++) {
+					data.push({
+						value: result[i].id,
+						text: result[i].typename,
+					})
+				}
+				//请假类型选择器
+				var category = new mui.PopPicker();
+				category.setData(data);
+				var categorySelector = document.getElementById('category');
+				var category_result = document.getElementById('selet_category');
+				categorySelector.addEventListener('tap', function(event) {
+					category.show(function(items) {
+						category_result.innerText = items[0].text;
+						typeId = items[0].value; //获取财务类型
+					});
+				}, false);
+			}
+			var requestList = document.getElementById('requestList');
+			requestList.addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'finance_request_person.html',
+					id: 'finance_request_person.html',
+				});
+			})
+			//确定审批人id
+			window.addEventListener('requestPerson', function(event) {
+				//获得事件参数
+				var id = event.detail.id;
+				var name = event.detail.name;
+				
+				requestPerson = id;
+				document.getElementById('requesttext').innerText = name;
+			})
+			var finish = document.getElementById('finish');
+
+			finish.addEventListener('tap', function() {
+				num = document.getElementById('number').value;
+				money = document.getElementById('money').value;
+				content = document.getElementById('content').value;
+				uploadRequest();
+			})
+
+			function uploadRequest() {
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Caiwu/addcaiwu/', {
+					data: {
+						userid: phoneNum,
+						shenpiuserid: requestPerson,
+						companuid: companyId,
+						typeid: typeId,
+						zongjia: money,
+						piaojuzhongshu: num,
+						memo: content,
+					},
+					type: 'post',
+					timeout: 10000,
+					success: function(data) {
+						var finance = plus.webview.getWebviewById('finance_sub.html');
+						mui.fire(finance, 'refresh', {});
+						mui.openWindow({
+							url: 'finace_main.html',
+							id: 'finance_main.html'
+						})
+					},
+					error: function() {
+						mui.alert("上传出错");
+					}
+				})
+
+			}
+		</script>
+	</body>
+
+</html>

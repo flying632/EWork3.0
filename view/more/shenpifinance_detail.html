@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/cropper.min.css" />
+		<link rel="stylesheet" href="../../css/mui.cropper.css" />
+		<style type="text/css">
+			.headImg {
+				max-width: 45px;
+				max-height: 45px;
+				margin: 5px;
+				border-radius: 50%;
+				float: left;
+				line-height: 45px;
+			}
+			.mui-bar .mui-icon span{
+				font-size: 18px;
+			}
+			.mui-icon-bars{
+				color: #007AFF;
+				float: right;
+				display: none;
+			}
+			.mui-bar .mui-title{
+				font-size: 20px;
+			} 
+			.mui-table-view{
+				margin-top: 1px;
+			}
+			.mui-table-view-cell .name{
+				padding-top: 5px;
+				margin-left: 15px;
+				font-weight: bold;
+				font-size: 18px;
+				float: left;
+			}
+			.mui-table-view-cell .name .date{
+				margin-left: 10px;
+				color: #CCCCCC;
+				font-size: 14px;
+			}
+			.mui-btn{ 
+				font-size: 12px;
+				padding: 8px;
+			}
+			.container{
+				margin-top: 20px;
+				padding: 10px;
+				background-color: white;
+			}
+			.detail{
+				padding-left: 10px;
+				height: 35px;
+			}
+			.key{
+				width: 35%;
+				float: left;
+			}
+			.key span{
+				color:#007AFF;
+			}
+			.detail span{
+				font-family: "微软雅黑";
+				font-size: 18px;
+				
+			}
+			.value{
+				float: left;
+			}
+			.reply{
+				clear: both;
+				margin-top: 20px;
+			}
+			.reply img{
+				float: left;
+				width: 30px;
+				height: 30px;
+			}
+			.reply span{
+				margin-left: 10px;
+				line-height: 30px;
+				font-family: "微软雅黑";
+				font-size: 16px;
+			}
+			.category{
+				margin-left: 5px;
+				margin-top: 25px;
+				font-size: 14px;
+				color: red;
+				font-weight: lighter;
+			}
+			.mui-input-row{
+				padding: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+			<span class="mui-icon mui-action-back mui-icon-arrowleft mui-icon-back mui-badge-primary mui-badge-inverted"> </span>
+			<h1 id="xiangqing" class="mui-title mui-badge-primary mui-badge-inverted">财务详情</h1>
+			<a id="pick" href="#cropper-sheet" class="mui-icon mui-icon-bars"></a>
+		</header>
+		
+		<div id='body' class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<img class="mui-pull-left headImg" src="../../images/Assets.xcassets/AppIcon.appiconset/logo_80.png" />
+					<div class="mui-pull-left name">刘国奇 
+						<div class="date">4月23日</div>
+					</div>
+					<button type="button" class="mui-btn mui-btn-outlined mui-btn-primary mui-pull-right">未回复</button>
+				</li>
+			</ul>
+			
+			<div class="container">
+				<div class="detail">
+					<div class="key"><span>报销金额</span></div>
+					<div class="value"><span>7</span></div>
+				</div>
+				
+				<div class="detail">
+					<div class="key"><span>票据张数</span></div>
+					<div class="value"><span>1</span></div>
+				</div>
+				
+				<div class="detail">
+					<div class="key"><span>报销类型</span></div>
+					<div class="value"><span>餐饮费</span></div>
+				</div>
+				
+				<div class="detail">
+					<div class="key"><span>审批人员</span></div>
+					<div class="value"><span>订立</span></div>
+				</div>
+				
+				<div class="detail">
+					<div class="key" style="letter-spacing: 30px;"><span>时间</span></div>
+					<div class="value"><span>1月1日</span></div>
+				</div>
+				
+				<div class="detail">
+					<div class="key" style="letter-spacing: 30px;"><span>备注</span></div>
+					<div class="value"><span>还是</span></div>
+				</div>
+			</div>
+			
+			<ul class="mui-table-view reply">
+				<li class="mui-table-view-cell">
+						<img class="mui-icon" src="../../images/Assets.xcassets/comment.imageset/comment@2x.png" /><span>1条回复</span>
+				</li>
+			</ul>
+			
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<img class="mui-pull-left" src="../../images/Assets.xcassets/AppIcon.appiconset/logo_80.png" />
+					<div class="mui-pull-left name">刘国奇 
+						<span class="date">2017-01-01 00:23:17</span>
+						<div class="category">餐饮费</div>
+					</div>
+					
+					<button type="button" class="mui-btn mui-btn-outlined mui-btn-primary mui-pull-right">通过</button>
+				</li>
+			</ul>
+			
+		</div>
+		<!--选择照片-->
+			<div id="cropper-sheet" class="mui-popover mui-popover-bottom mui-popover-action">
+				<!-- 可选择菜单 -->
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a id="tonggguo" data-type="pass">通过</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a id="jujue" data-type="notpass">拒绝</a>
+					</li>
+				</ul>
+			<!--<div class="mui-input-row">
+				<input type="text" placeholder="收到任务给个回复吧~" />
+			</div>-->
+			
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+		
+		<script type="text/javascript" src="../../js/cropper.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var id;
+			var companyId=localStorage.getItem('companyId');
+			mui.plusReady(function(){
+				ready();
+				var self = plus.webview.currentWebview(); 
+			//	console.log(self.getURL())
+				id = self.the_id; 
+				sendRequest();
+			})
+			mui('#cropper-sheet').on('tap', '.mui-table-view-cell > a', function() {
+				var type = this.getAttribute('data-type');
+				mui("#cropper-sheet").popover('hide');
+				//20通过 30不通过
+				switch(type) {
+					case 'pass':
+						pass(20);
+						break;
+					case 'notpass':
+						pass(30);
+						break;
+					default:
+						break;
+				}
+			})
+			function pass(pstatus){
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Caiwu/changecaiwustatus/',{
+					data:{
+						companyid:companyId,
+						id:id,
+						status:pstatus
+					},
+					type:'post',
+					timeout:1000,
+					success:function(data){
+						//mui.alert(JSON.stringify(data));
+						sendRequest();
+					},
+					error:function(){
+						mui.toast("error");
+					}
+				})
+			}
+			var url = 'http://121.42.29.124/workoa/index.php?s=/Api/Caiwu/getcaiwubyid/';
+			function sendRequest(){
+				mui.ajax(url,{
+					data:{
+						id:id,
+					},
+					timeout:1000,
+					type:'post',
+					success:function(data){
+						//mui.alert(JSON.stringify(data));
+						var body = document.getElementById('body');
+						mui.toast(data.msg);
+						if(data.flag==200){
+							var result = data.result[0];
+							var status = "";
+							var statusId=""; 
+							if(result.status=="30"){
+								status="未通过";
+								statusId="weitongguo";
+							}else if(result.status=="10"){
+								status="审批中";
+								statusId="shengpizhong";
+								document.getElementById('pick').style.display='block';
+							}else{
+								
+								staus="通过";
+								statusId="tongguo";
+							}
+							var innerCode='<ul class="mui-table-view"><li class="mui-table-view-cell"><img class="mui-pull-left headImg" src="'+result.fabupersonlogo+'" />'
+													+'<div class="mui-pull-left name">'+result.username+'<div class="date">'+result.writetime+'</div></div>'
+													+'<button type="button" id="'+statusId+'" class="mui-btn mui-btn-outlined mui-btn-primary mui-pull-right">'+status+'</button></li>'
+													+'	</ul><div class="container">	<div class="detail"><div class="key"><span id="jine" >报销金额</span></div>'
+													+'<div class="value"><span>'+result.zongjia+'</span></div></div><div class="detail"><div class="key"><span id="piaojuzhangshu">票据张数</span></div>'
+													+'<div class="value"><span>'+result.piaojuzhangshu+'</span></div></div><div class="detail"><div class="key"><span id="leixing">报销类型</span></div>'
+													+'	<div class="value"><span>'+result.typename+'</span></div></div>'
+													+'<div class="detail">	<div class="key"><span id="jieshouren">审批人员</span></div><div class="value"><span>'+result.shenpiusername+'</span></div></div>'
+													+'<div class="detail"><div class="key"  ><span id="shijian">时间</span></div>'
+													+'<div class="value"><span>'+result.writetime+'</span></div></div>	<div class="detail"><div class="key"  ><span id="beizhu">备注</span></div>'
+													+'<div class="value"><span>'+result.memo+'</span></div></div></div>';
+							if(result.reply.length>0){
+								var reply = result.reply;
+								innerCode+='<ul class="mui-table-view reply"><li class="mui-table-view-cell">'
+													+'	<img class="mui-icon" src="../../images/Assets.xcassets/comment.imageset/comment@2x.png" /><span>'+reply.length+'条回复</span>';
+								for(var i=0;i<reply.length;i++){ 
+									innerCode+='</li></ul>	<ul class="mui-table-view"><li class="mui-table-view-cell"><img class="mui-pull-left headImg" src="'+reply[i].personlogo+'" />'
+													+'<div class="mui-pull-left name">'+reply[i].name+'<span class="date">'+reply[i].replytime+'</span><div class="category">'+reply[i].reply+'</div>'
+													+'</div></li></ul>';
+								}
+							}
+					 
+							body.innerHTML=innerCode;
+						}
+						ready();
+					},
+					error:function(){
+						mui.alert('error');
+					}
+				})
+			} 
+			var old_back = mui.back;
+			mui.back = function(){
+				var view = plus.webview.getWebviewById('examination_sub.html');
+				mui.fire(view,"refresh",{});
+				 old_back();
+			}
+		</script>
+	</body>
+
+</html>

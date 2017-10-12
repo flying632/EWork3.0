@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-1.8.0.js"></script>
+		<script type="text/javascript" src="../../js/jquery.qrcode.js"></script>
+		<script type="text/javascript" src="../../js/utf.js"></script>
+		<style>
+			.mui-content{
+				height: 100%;
+			}
+			.mui-title{
+				color: #007AFF;
+			}
+			#qrcodeCavas {
+				margin-top: 10px;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="wodemingpian" class="mui-title">我的名片</h1>
+		</header>
+		<div class="mui-content">
+			<div id='qrcodeCavas'></div>
+		</div>
+ 
+	</body>
+	<script type="text/javascript">
+		mui.init()
+		mui.plusReady(function() {
+		
+			$("#qrcodeCavas").qrcode({
+				render: "canvas", //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
+				text: "这是修改了官文的js文件，此时生成的二维码支持中文和LOGO", //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
+				width: "200", //二维码的宽度
+				height: "200", //二维码的高度
+				background: "#ffffff", //二维码的后景色
+				foreground: "#000000", //二维码的前景色
+				//	src: 'photo.jpg' //二维码中间的图片
+			});
+			 
+		});
+	</script>
+
+</html>

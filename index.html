@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title> 
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.poppicker.js"></script>
+		<script type="text/javascript" src="js/mui.picker.js"></script>
+		<link rel="stylesheet" href="css/mui.picker.css" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			#edit {
+				float: right;
+				margin-right: 5px;
+			}
+			 
+			
+			.mui-title {
+				color: #007aff;
+			}
+			
+			.mui-icon-compose {
+				color: #007aff;
+			}
+			
+			.mui-icon-info {
+				color: #007aff;
+			}
+			
+			.mui-tabbar-center {
+				display: table-cell;
+				overflow: hidden;
+				width: 1%;
+				height: 50px;
+				text-align: center;
+				vertical-align: middle;
+			}
+			
+			.mui-tabbar-center img {
+				position: fixed;
+				left: 50%;
+				bottom: 0px;
+				width: 50px;
+				height: 50px;
+				margin-left: -30px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header id="head" class="mui-bar mui-bar-nav">
+			<h1 id="dongtai" class="mui-title">动态</h1>
+			<div id="edit" class="mui-icon mui-icon-compose"> </div> 
+			</a>
+		</header>
+		<div class="mui-content">
+
+		</div>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="js/language.js" ></script>
+		
+	</body>
+	<script type="text/javascript">
+		mui.init(); 
+		 
+		var subpages = ['view/dynamics/dynamics.html', 'view/task/task_main.html', 'view/company/company.html', 'view/mine/mine.html'];
+		var subpage_style = {
+			top: '45px',
+			bottom: '50px',
+			zindex: 99
+		};
+		//重新加载数据
+		window.addEventListener("reload_data", function() {
+			var dynamicsPage = plus.webview.getWebviewById('view/dynamics/dynamics.html');
+			mui.fire(dynamicsPage,'refresh',{});
+		})
+		//加载底部选项卡
+		var tabPage = null;
+		var tabbar = "tabbar.html";
+		var tabbar_style = {
+			height: '60px',
+			bottom: '0px',
+			background: 'transparent',
+			zindex: 999
+		}
+
+		var aniShow = {};
+		var taskTypePicker = null;
+		mui.plusReady(function() {
+			ready();
+			//获取当前子页
+			var self = plus.webview.currentWebview();
+
+			//加载子页
+			for(var i = 0; i < 4; i++) {
+				var temp = {};
+
+				var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+
+				if(i > 0) {
+					sub.hide();
+				} else {
+					temp[subpages[i]] = "true";
+					mui.extend(aniShow.temp);
+				}
+				self.append(sub);
+			}
+			//加载底部选项卡
+			tabPage = plus.webview.create(tabbar, tabbar, tabbar_style);
+			self.append(tabPage);
+
+			/*//任务栏选项弹出
+			taskTypePicker = new mui.PopPicker();
+			taskTypePicker.setData([{
+				value: 'all',
+				text: '全部任务'
+			}, {
+				value: 'send',
+				text: '发出的任务'
+			}, {
+				value: 'receive',
+				text: '收到的任务'
+			}]);*/
+
+		});
+
+		//当前激活的选项卡
+		var activeTab = subpages[0];
+		var edit = document.getElementById("edit");
+		var sel = document.getElementById("select");
+		window.addEventListener('tagTab', function(event) {
+			//获取选项卡点击事件参数
+			var targetTitle = event.detail.targetTitle;
+			var targetTab = event.detail.targetTab;
+			if(targetTab == activeTab)
+				return;
+
+			//更换标题
+			mui(".mui-title")[0].innerHTML = targetTitle;
+
+			if(targetTab == "view/task/task.html") { 
+				edit.style.display = 'block';
+			} else if(targetTab == "view/dynamics/dynamics.html") { 
+				edit.style.display = 'block';
+			} else { 
+				edit.style.display = 'none';
+			}
+
+			if(!plus.webview.getWebviewById(targetTab)) {
+				var sub = plus.webview.create(targetTab, targetTab, subpage_style);
+				plus.webview.currentWebview().append(sub);
+				plus.webview.show(sub, 'pop-in', 300);
+			} else {
+				//显示目标选项卡
+				plus.webview.show(targetTab);
+			}
+			//重新加载tabbar
+			tabPage.show();
+			//隐藏当前
+			plus.webview.hide(activeTab);
+			//更改当前活跃的选项卡
+			activeTab = targetTab;
+		});
+		edit.addEventListener('tap', function() {
+			var page = plus.webview.getWebviewById(activeTab);
+			mui.fire(page, 'new', {});
+		});
+
+		 
+		 var first=null;
+		mui.back = function(){
+			if(!first){
+				first = new Date().getTime();  
+                mui.toast('再按一次退出应用');  
+                setTimeout(function(){  
+                        first = null;  
+                    },2000);  
+			}else{
+				if(new Date().getTime() - first < 2000){  
+                        plus.runtime.quit();  
+                    }  
+			}
+		}
+	</script>
+
+</html>

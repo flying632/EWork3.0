@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/imageViewer.css" />
+		<script src="../../js/mui.min.js"></script> 
+		<style>
+			#text {
+				margin: 10px;
+			}
+			
+			.mui-icon {
+				margin: 3px;
+				width: 50%;
+			}
+			
+			.photo {
+				width: 30%;
+				margin: 3px;
+				max-height: 200px;
+			}
+			.commentname{
+				color: blue;
+				float: left;
+				clear: left;
+				margin:3px;
+			}
+			.commentcontent{
+				margin: 3px;
+				float: left;;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div id="table">
+				<div class="mui-card">
+					<!--<div class="mui-card-header mui-card-media">
+						<img src="../images/logo.png" />
+						<div class="mui-media-body">
+							小M
+							<p>发表于 2016-06-30 15:30</p>
+						</div>
+					</div>
+					<div class="mui-card-content">
+						<div id="text" class="mui-ellipsis-2">
+							这样可以吗？
+						</div>
+						<div class="photos">
+							<img style="width: 30%;" class="mui-icon" src="../../images/lunnbo2.jpg" data-preview-src="" data-preview-group="1" />
+						</div>
+						<p>2016-06-30 15:30</p>
+						
+					</div>
+					<div class="mui-card-footer"> 
+						<a id="like" class="mui-card-link"><img class="mui-icon" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" /> 15
+						</a>
+						<a id="comment" class="mui-card-link"> <img class="mui-icon" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png" /> 15 </a> 
+					</div>
+					<div class="comment">
+						<div class="commentname">孙宝松:</div><div class="commentcontent"> hhhhhh </div>
+					</div>-->
+				</div>
+			</div>
+		</div>
+	</body> 
+	<script type="text/javascript" src="../../js/dynamics.js"></script>
+	<script type="text/javascript" src="../../js/mui.zoom.js"></script>
+	<script type="text/javascript" src="../../js/mui.previewimage.js"></script>
+	<script type="text/javascript" charset="utf-8">  
+		//实现查看大图 
+		mui.previewImage();
+		mui.init({
+			pullRefresh: {
+				container: '#pullrefresh',
+				down: {
+					callback: pulldownRefresh
+				},
+				up: {
+					contentrefresh: '正在加载...',
+					callback: pullupRefresh
+				}
+			},
+		});
+		mui.plusReady(function() { 
+			getData(1, "");
+		});
+
+		window.addEventListener("new", function(event) {
+			mui.openWindow({
+				id: 'new_dynamics.html',
+				url: 'new_dynamics.html',
+			});
+		})
+
+		window.addEventListener('refresh', function() {
+			getData(1, "");
+		});
+		mui('#table').on('tap','.mui-card',function(event){
+			var id = this.getAttribute('id');
+			 var target = event.target;
+		 
+			 var name = target.className;
+			 console.log(name);
+			 if(name!='photo'){
+			 	if(name=='mui-icon like'){ 
+			 		like(id);
+			 	}else if(name=='mui-icon comment'){
+			 		comment(id);
+			 	}else{
+			 		mui.openWindow({
+			 			url:'dynamics_detail.html',
+			 			id:'dynamics_detail.html',
+			 			extras:{
+							the_id:id
+						}
+			 		})
+			 	}
+			 }
+		})
+		
+
+	</script>
+
+</html>

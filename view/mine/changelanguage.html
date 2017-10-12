@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="yuyan" class="mui-title">语言</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li id="hanyu" class="mui-table-view-cell">
+					汉语
+				</li>
+				<li id="yingyu" class="mui-table-view-cell">
+					英文
+				</li>
+				<li id="riyu" class="mui-table-view-cell">
+					日语
+				</li>
+			</ul>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function() {
+				ready();
+			})
+			mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
+				var the_id = this.getAttribute('id');
+
+				if(the_id == "hanyu") {
+					localStorage.setItem("lang", "zh");
+				} else if(the_id == 'yingyu') {
+					localStorage.setItem("lang", "en");
+				} else if(the_id=='riyu') {
+					localStorage.setItem("lang", "ja");
+				}else{
+					mui.toast("error");
+				}
+			 
+					var curr = plus.webview.currentWebview();
+					var wvs = plus.webview.all();
+					for(var i = 0, len = wvs.length; i < len; i++) {
+						//关闭除setting页面外的其他页面
+						wvs[i].reload(true); 
+					}
+					   
+			});
+		</script>
+	</body>
+
+</html>

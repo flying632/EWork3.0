@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<title></title>
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/mui.min.js"></script>
+		<style>
+		 
+			.headImg {
+				max-width: 45px;
+				max-height: 45px;
+				margin: 5px;
+				border-radius: 50%;
+				float: left;
+			}
+			
+			.username {
+				float: left;
+				font-size: 18px;
+				margin: 10px;
+				color: #007AFF;
+			}
+			
+			.line {
+				float: left;
+				clear: left;
+				margin: 10px;
+				width: 90%;
+			}
+			.mui-title{
+				color: #007AFF;
+			}
+			.title {
+				color: #007AFF;
+				font-size: 20px;
+				width: 30%;
+				float: left;
+			}
+			
+			.content {
+				float: right;
+				width: 70%;
+			}
+			
+			#img1{
+				width:100%;
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-transparent">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="xiangqing" class="mui-title">详情</h1>
+		</header>
+		<div id='body' class="mui-content">
+			<img id="img1" src="../../images/lunnbo2.jpg" />
+			<div class="head">
+				<img class="headImg" src="../../images/lunbo1.jpg" />
+				<div class="username">刘国奇</div>
+			</div>
+			<div class="line">
+				<div class="title">描述</div>
+				<div class="content">
+					哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+				</div>
+			</div>
+			<div class="line">
+				<div class="title">时间</div>
+				<div class="content">
+					2017年5月15日
+				</div>
+			</div>
+			<div class="line">
+				<div class="title">地点</div>
+				<div class="content">
+					浑南
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+	</body>
+	<script>
+		mui.init();
+		var id;
+		var this_phoneNum;
+		mui.plusReady(function() {
+			ready();
+			this_phoneNum = localStorage.getItem('phoneNum');
+			var self = plus.webview.currentWebview();
+			id = self.the_id;
+			sendRequest();
+		});
+		var url = 'http://121.42.29.124/workoa/index.php?s=/Api/Picture/getpicturebyid/';
+
+		function sendRequest() {
+			mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Picture/getpicturebyid/', {
+				data: {
+					id: id,
+				},
+				timeout: 1000,
+				type: 'post',
+				success: function(data) {
+					//	mui.alert(JSON.stringify(data));
+					var result = data.result[0];
+					mui.toast(data.msg);
+					if(data.flag == 200) {
+						var body = document.getElementById('body');
+						var innerCode = '<img id="img1" src="' + result.picture + '" />' +
+							'<div class="head"><img class="headImg" src="' + result.personlogo + '" />' +
+							'<div class="username">' + result.name + '</div></div>' +
+							'<div class="line"><div id="miaoshu" class="title">描述</div><div class="content">' + result.content + '</div>' +
+							'</div><div class="line">	<div id="shijian" class="title">时间</div>	<div class="content">' + result.writetime + '</div></div>' +
+							'<div class="line"><div id="didian" class="title">地点</div><div class="content">' + result.address + '</div>	</div>';
+						body.innerHTML = innerCode;
+					}
+					ready();
+				},
+				error: function() {
+
+				}
+			})
+		}
+	</script>
+
+</html>

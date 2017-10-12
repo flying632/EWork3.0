@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.mui-bar .mui-icon span {
+				font-size: 18px;
+			}
+			
+			.mui-title {
+				color: #007AFF;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-icon mui-action-back mui-icon-arrowleft mui-icon-back mui-badge-primary mui-badge-inverted"> </div>
+			<h1 id="gongsiwenzhang" class="mui-title">公司文章</h1>
+		</header>
+		<div class="mui-content">
+
+		</div>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			var article_url = localStorage.getItem('url');
+		 
+
+			mui.init({  
+				subpages: [{
+					url: article_url,
+					id: 'artical.html',
+					styles: {
+						top: '45px',
+						bottom: '0px',
+					}
+				}]
+			})
+
+			mui.plusReady(function() {
+				ready();
+				
+			});
+		</script>
+	</body>
+
+</html>

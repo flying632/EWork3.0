@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+		<style type="text/css">
+			.mui-bar .mui-icon span {
+				font-size: 16px;
+			}
+			
+			.mui-content .mui-table-view .head_image {
+				height: 100px;
+			}
+			
+			.mui-content .mui-table-view .head {
+				line-height: 100px;
+			}
+			
+			.mui-content .mui-table-view .mui-table-view-cell .mui-navigate-right .mui-badge img {
+				border-radius: 50%;
+				height: 60px;
+				width: 60px;
+				line-height: 100px;
+			}
+			
+			.mui-content .mui-table-view {
+				margin-top: 20px;
+			}
+			
+			.mui-content .mui-table-view .mui-table-view-cell {
+				font-size: 18px;
+			}
+			
+			.mui-content .mui-table-view .mui-table-view-cell .mui-navigate-right .sao {
+				float: right;
+				height: 30px;
+				width: 30px;
+				margin-right: 20px;
+			}
+			
+			.mui-content .mui-table-view .mui-table-view-cell .mui-navigate-right .mui-pull-right {
+				margin-right: 20px;
+				font-size: 16px;
+				font-family: '微软雅黑';
+			}
+			
+			.mui-content .mui-table-view .mui-table-view-cell .mui-badge {
+				background-color: white;
+				font-size: 16px;
+				font-family: '微软雅黑';
+			}
+			
+			.float {
+				float: right;
+				margin-right: 20px;
+			}
+			
+			.mui-ellipsis {
+				width: 50%;
+			}
+		</style>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" /> 
+		<link rel="stylesheet" href="../../css/mui.dtpicker.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<span class="mui-icon mui-action-back mui-icon-arrowleft mui-icon-back mui-badge-primary mui-badge-inverted"> </span>
+			<h1 id="gerenzhongxin" class="mui-title mui-badge-primary mui-badge-inverted">个人中心</h1>
+		</header>
+		<div class="mui-content">
+			<ul id="first" class="mui-table-view">
+				<li id="headImg.html" class="mui-table-view-cell head_image">
+					<a class="mui-navigate-right"><span id="touxiang" class="head">头像</span>
+						<span class="mui-badge"><img id="headImg" src="../../images/Assets.xcassets/AppIcon.appiconset/logo_180.png"></span>
+					</a>
+				</li>
+				<li id="name.html" class="mui-table-view-cell">
+					<a class='mui-navigate-right'>
+						<span id="mingzi">名字</span>
+						<span id="name" class="mui-pull-right">刘国奇</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<span id="eworkid">易沃克ID</span>
+					<span id="EWorkId" class="mui-pull-right">123456</span>
+				</li>
+			</ul>
+
+			<ul id="second" class="mui-table-view">
+				<li id="setsex" class="mui-table-view-cell">
+					<a class='mui-navigate-right'>
+						<span id="xingbie">性别</span>
+						<span id="sex" class="mui-pull-right">男</span>
+					</a>
+				</li>
+				<li id="birthday" class="mui-table-view-cell">
+					<a class='mui-navigate-right'>
+						<span id="shengri">生日</span>
+						<span id="birth" class="mui-pull-right">1978-06-06</span>
+					</a>
+				</li>
+				<li id="signature.html" class="mui-table-view-cell">
+					<a class='mui-navigate-right'>
+						<span id="gexingqianming">个性签名</span>
+						<span id="personword" class="mui-pull-right mui-ellipsis">收到否文诶客收到方法二分法v法v而非 人和</span>
+					</a>
+				</li>
+			</ul>
+		</div> 
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.picker.js"></script> 
+		<script type="text/javascript" src="../../js/mui.dtpicker.js" ></script>
+		<script type="text/javascript" src="../../js/mui.poppicker.js" ></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+	</body>
+	<script type="text/javascript" charset="utf-8">
+		mui.init();
+		var result;
+		var birth;
+		var sex;
+		var signature;
+		var name;
+		var this_phoneNum;
+		mui.plusReady(function() {
+			ready();
+			getPersonInfo();
+			//性别选择器
+				var category = new mui.PopPicker();
+				category.setData([{
+					value:'10',
+					text:'男'
+				},{
+					value:'20',
+					text:'女'
+				}]);
+				var categorySelector = document.getElementById('setsex');
+				var category_result = document.getElementById('sex');
+				categorySelector.addEventListener('tap', function(event){
+					category.show(function(items){
+						taskType = items[0].text;
+						category_result.innerText = items[0].text;
+						sex = items[0].value;
+						uploadInfo();
+					});
+				},false);
+				
+				//生日选择器
+				var end_time = new mui.DtPicker({
+						type: "date",
+						beginDate: new Date(2015,4,15),
+						endDate:new Date(2020,4,15),
+						labels: ["年","月","日"],
+					});
+					var endTime = document.getElementById('birthday');
+					var endTimeResult = document.getElementById('birth');
+					endTime.addEventListener('tap',function(event){
+						end_time.show(function(items){ 
+							endTimeResult.innerText = items; 
+							birth=items.text;
+							console.log(items.text);
+							uploadInfo();
+						});
+					},false);
+					document.getElementById('signature.html').addEventListener('tap',function(){
+						mui.openWindow({
+							url:'signature.html',
+							id:'signature.html',
+						})
+					})
+		})
+		//请求个人信息
+		function getPersonInfo() { 
+		    this_phoneNum = localStorage.getItem('phoneNum');
+			mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Search/person_info/', {
+				data: {
+					phoneNum: this_phoneNum,
+					objectID: this_phoneNum
+				},
+				dataType: 'json',
+				type: 'post',
+				timeout: 10000,
+				success: function(data) { 
+					localStorage.setItem('personInfo',JSON.stringify(data));
+					result = data.result;
+					name = result.name;
+					sex = result.sex;
+					birth = result.birth;
+					signature = result.signature;
+					document.getElementById('headImg').src = result.personlogo;
+					document.getElementById('name').innerText = result.name;
+					document.getElementById('EWorkId').innerText = result.id;
+					var ssex = "";
+					if(result.sex == 10) {
+						ssex = "男";
+					} else if(result.sex == 20) {
+						ssex = "女";
+					}
+					document.getElementById('sex').innerText = ssex;
+					document.getElementById('birth').innerText = result.birth;
+					document.getElementById('personword').innerText = result.signature;
+				},
+				error: function(xhr, type, errorThrown) {
+					//异常处理
+					mui.alert("error");
+				} 
+			});
+		}
+		window.addEventListener('refresh',function(){
+			getPersonInfo();
+		})
+		mui('#first').on('tap', '.mui-table-view-cell', function() {
+			var id = this.getAttribute('id');
+			var content = this.get
+			if(id != null) {
+				mui.openWindow({
+					url: id,
+					id: id, 
+				})
+			} 
+		})
+		 function uploadInfo(){
+		 	mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Login/info/',{
+		 		data:{
+		 			phoneNum:this_phoneNum,
+		 			name:name,
+		 			birth:birth,
+		 			sex:sex,
+		 			signature:signature,
+		 		},
+		 		timeout:1000,
+		 		type:'post',
+		 		success:function(data){
+		 			mui.toast(data.msg);
+		 		},
+		 		error:function(){
+		 			mui.toast("error");
+		 		}
+		 	})
+		 }
+		 var old_back=mui.back;
+		 mui.back = function(){
+		 	var view = plus.webview.getWebviewById('view/mine/mine.html');
+		 	mui.fire(view,"refresh",{}); 
+		 	old_back();
+		 }
+		
+	</script>
+
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.mui-title{
+				color: #007AFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 id="jieshouren" class="mui-title">接收人</h1>
+		     <a id="finish" class="mui-icon mui-icon-checkmarkempty mui-pull-right"></a>
+		</header>
+		<div  class="mui-content">
+		    <form id='body' class="mui-input-group">
+				
+					 
+					 
+			</form>
+		    
+		</div>
+		
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function(){
+				ready();
+				getPeople();
+			})
+			var companyId = localStorage.getItem('companyId');
+			var phoneNum = localStorage.getItem('phoneNum');
+			var url='http://121.42.29.124/workoa/index.php?s=/Api/Ribao/getuserinfo/';
+			function getPeople(){
+				mui.ajax(url,{
+					data:{
+						companyid:companyId,
+					},
+					timeout:1000,
+					type:'post',
+					success:function(data){
+						var body = document.getElementById('body');
+						var innerCode = "";
+						var result = data.result;
+						if(data.flag==100){
+							for(var i=0;i<result.length;i++){
+								innerCode += '<div class="mui-input-row mui-checkbox"><label>'+result[i].name+'</label><input name="check" value1="'+result[i].phonenum+'" value2="'+result[i].name+'"  type="checkbox" ></div>';
+							}
+							body.innerHTML=innerCode;
+						}
+					},
+					error:function(){
+						mui.alert('error');
+					}
+				})
+			}
+			var finish = document.getElementById('finish');
+			var result="";
+			finish.addEventListener('tap',function(){
+				result = "";
+				var x = document.getElementsByName('check');
+				var num = 0;
+				var names="";
+				for(var i=0;i<x.length;i++){
+					if(x[i].checked){
+						console.log(x[i].getAttribute('value1'));
+						if(result==""){
+							result = x[i].getAttribute('value1');
+							names = x[i].getAttribute('value2');
+						}else{
+							result+="-"+x[i].getAttribute('value1');
+							names +="、"+x[i].getAttribute('value2');
+						}
+						num++;
+					}
+				} 
+				var new_task = plus.webview.getWebviewById('new_task.html');
+				mui.fire(new_task,'jieshouPerson',{num:num,result:result,names:names});
+				mui.openWindow({
+					id:'new_task.html',
+				})
+			})
+		</script>
+	</body>
+
+</html>

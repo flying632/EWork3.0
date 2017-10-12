@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/md5.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-content-padded {
+				margin-top: 20px;
+			}
+			
+			.mui-content-padded span {
+				display: inline-block;
+				width: 100%;
+				text-align: center;
+				color: blue;
+				font-size: 26px;
+				font-family: "宋体";
+			}
+			
+			.mui-input-group {
+				margin-top: 20px;
+			}
+			
+			.mui-btn {
+				margin-top: 20px;
+				padding: 10px;
+			}
+			
+			.forgetPassword {
+				color: #007AFF;
+				text-align: center;
+				margin-top: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 id="denglu" class="mui-title mui-badge-primary mui-badge-inverted">登录</h1>
+		</header>
+
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<span > </span>
+			</div>
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label id="zhanghao">账号</label>
+					<input id="account" type="text" class="mui-input-clear"   />
+				</div>
+				<div class="mui-input-row">
+					<label id="mima">密码</label>
+					<input id="password" type="password" class="mui-input-password" />
+				</div>
+			</form>
+			<!--<form class="mui-input-group">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						<span id="zidongdenglu">自动登录</span>
+						<div id="autoLogin" class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+			</form>-->
+			<button type="button" id="login" class="mui-btn-block mui-btn mui-btn-primary"><span>登录</span></button>
+			<div id="forget" class="forgetPassword">忘记密码</div>
+
+		</div>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="js/language.js" ></script>
+	</body>
+	<script type="text/javascript" src="js/userInfo.js"></script>
+
+	<script type="text/javascript" charset="UTF-8">
+		var account;
+		var password;
+
+		mui.init({
+//			preloadPages: [{
+//				url: 'index.html',
+//				id: 'index.html'
+//			}]
+		});
+		mui.plusReady(function() { //为测试方便，设置自动登录，
+	 
+			ready();
+			var isActive = localStorage.getItem('isActive');
+			account = localStorage.getItem('phoneNum');
+			setAccount(account);
+			if(isActive=="true") {
+				password = localStorage.getItem('passWord');
+				password = hex_md5(password);
+				request_login(account, password);
+			}
+		});
+		var accountText = document.getElementById('account');
+		var pwdText = document.getElementById('password');
+		var login = document.getElementById('login'); 
+
+		login.addEventListener('tap', function() {
+			getValues(); 
+ 			
+			saveValues(account, password);
+			password = hex_md5(password);
+			request_login(account, password);
+
+		}); 
+
+		//save账号密码
+		function saveValues(account, password) {
+			localStorage.setItem('phoneNum', account);
+			localStorage.setItem('passWord', password);
+			localStorage.setItem("isActive", "true");
+		}
+
+		//提示账号
+		function setAccount(paccout) {
+			accountText.value = paccout;
+		}
+		//得到账号密码中的值
+		function getValues() {
+			account = accountText.value;
+			password = pwdText.value;
+		}
+
+		//登录请求  
+		function request_login(account, password) {
+			mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Login/login/', {
+
+				data: {
+					phoneNum: account,
+					pwd: password,
+				},
+				dataType: 'json',
+				type: 'post',
+				timeout: 10000,
+				success: function(data) {
+
+					if(data.flag == '200') { 
+						getUserInfo();
+						plus.nativeUI.toast("登录成功");
+						var indexPage = plus.webview.getWebviewById('index.html');
+						mui.fire(indexPage, 'reload_data', {});
+						mui.openWindow({
+							url: 'index.html',
+							id: 'index.html',
+
+						});
+
+					} else {
+						mui.toast(data.msg);
+					}
+				},
+				error: function(xhr, type, errorThrown) {
+					//异常处理
+					mui.toast(this.id + "网络异常");
+				}
+			});
+		}
+
+		document.getElementById('forget').addEventListener('tap', function() {
+			mui.openWindow({
+				url: 'reset_password.html',
+			});
+		})
+		 
+       
+	</script>
+
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css"></style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="xinzen" class="mui-title" style="color: #007AFF;">记事本</h1>
+			<div id='finish' class="mui-icon mui-icon-checkmarkempty mui-pull-right"></div>
+		</header>
+		<div class="mui-content">
+			<textarea id="content" rows="15"></textarea>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			var content;
+			var finish = document.getElementById('finish');
+			var phoneNum = localStorage.getItem('phoneNum');
+			var companyId = localStorage.getItem('companyId');
+			mui.plusReady(function(){
+				ready();
+			})
+			finish.addEventListener('tap', function() {
+				content = document.getElementById('content').value;
+
+				addJishiben();
+			})
+
+			function addJishiben() {
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Jishiben/addjishiben', {
+					data: {
+						userid: phoneNum,
+						companyid: companyId,
+						content: content,
+					},
+					timeout: 1000,
+					type: 'post',
+					success: function(data) {
+						mui.toast(data.msg);
+						var notepad = plus.webview.getWebviewById('notepad_sub.html');
+						mui.fire(notepad, 'refresh', {});
+						mui.openWindow({
+							url: 'notepad_main.html',
+							id: 'notepad_main.html',
+						})
+					},
+					error: function() {
+						mui.alert('error');
+					}
+				})
+			}
+		</script>
+	</body>
+
+</html>

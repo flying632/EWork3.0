@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		
+		<link rel="stylesheet" href="../../css/mui.min.css">
+			<script src="../../js/mui.min.js"></script>
+		<style type="text/css">
+			header h1{
+				font-family: "微软雅黑";
+			}
+			.mui-content .mui-input-row{
+				width: 80%;
+				margin-top: 10px;
+			}
+			.mui-content .mui-btn{
+				margin-top: 10px;
+				color: #CCCCCC;
+				font-size: 16px;
+				margin-right: 3px;
+			}
+			.mui-scroll-wrapper .mui-scroll .mui-table-view .mui-table-view-cell .item{
+				font-family:"微软雅黑";
+				font-size: 16px;
+				color: #000000;
+				margin-bottom: 5px;
+			}
+			.mui-scroll-wrapper .mui-scroll .mui-table-view .mui-table-view-cell span{
+				font-family:"微软雅黑";
+				font-size: 14px;
+				color: #CCCCCC;
+			}
+			.mui-search .mui-btn{
+				line-height: 45px;
+			}
+			
+			.mui-scroll-wrapper .mui-scroll{
+				margin-top: 0px;
+			}
+			.mui-scroll-wrapper .mui-scroll .mui-table-view .mui-table-view-cell .mui-pull-right{
+				padding-right: 5px;
+			}
+			 
+		</style>
+	</head>
+
+	<body>
+			
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper"> 
+				<div class="mui-scroll">
+					<ul id="table" class="mui-table-view mui-table-view-chevron">
+						<li class="mui-table-view-cell">
+							<div class="item">nfbejfeirfunfdsjkfyfeidmfnkfh</div>
+							<span class="mui-pull-left">无附加文本</span>
+							<span class="mui-pull-right">5月12日</span>
+						</li> 
+					</ul>
+				</div>
+			</div>
+		 
+		<script type="text/javascript">
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+						contentrefresh:'正在加载...',
+						callback: pullupRefresh
+					},
+					
+					down: {
+						contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+      					callback : pulldownRefresh
+					}
+				}
+			});
+			mui.plusReady(function(){
+				pulldownRefresh()
+			});
+			
+			mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
+				var id = this.getAttribute('id');
+				mui.openWindow({
+					url:'notepad_detail.html',
+					extras:{
+						the_id:id,
+					}
+				});
+			});
+		
+			var phoneNum = localStorage.getItem('phoneNum');
+			var companyId = localStorage.getItem('companyId');
+			var thePage = 1;
+			var number = 10;
+			window.addEventListener('refresh',function(){
+				pulldownRefresh();
+			})
+			//上拉加载
+			function pullupRefresh(){
+				thePage++;
+				 mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Jishiben/getjishiben',{
+				 	data:{
+						userid:phoneNum,
+						page:thePage,
+						num:number,
+						keyword:"", 
+					},
+					type:'post',
+					timeout:10000,
+					success:function(data){
+					//	mui.alert(JSON.stringify(data));
+						localStorage.setItem('notepadData',JSON.stringify(data));
+						if(data.flag==200){
+							var result = data.result;
+							var table = document.getElementById('table');
+					 
+							for(var i=0;i<result.length;i++){
+								var li = document.createElement('li');
+								li.className = 'mui-table-view-cell';
+								li.id=result.id;
+								li.innerHTML = '<div class="item mui-ellipsis-2">'+result[i].content+'</div>'
+													+'<span class="mui-pull-left">无附加文本</span><span class="mui-pull-right">'+result[i].writedate+'</span>';
+						 		table.append(li);
+							}
+						}
+					},
+					error:function(){
+						mui.alert("网络问题");
+					},
+				})
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+			}
+			function pulldownRefresh(){
+				
+				thePage = 1;
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Jishiben/getjishiben',{
+					data:{
+						userid:phoneNum,
+						page:thePage,
+						num:number,
+						keyword:"", 
+					},
+					type:'post',
+					timeout:10000,
+					success:function(data){
+						localStorage.setItem('notepadData',JSON.stringify(data));
+						var table = document.getElementById('table');
+						table.innerHTML = "";
+					  //  mui.alert(JSON.stringify(data));
+						if(data.flag==200){
+							var result = data.result;
+							
+							for(var i=0;i<result.length;i++){
+								var li = document.createElement('li');
+								li.className = 'mui-table-view-cell';
+								li.id=result[i].id;
+								li.innerHTML = '<div class="item mui-ellipsis-2">'+result[i].content+'</div>'
+													+'<span class="mui-pull-left">无附加文本</span><span class="mui-pull-right">'+result[i].writedate+'</span>';
+						 		table.append(li);
+							}
+						}
+					},
+					error:function(){
+					//	mui.alert("网络问题");
+					},
+				})
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+				
+			}
+			
+		</script>
+	</body>
+
+</html>

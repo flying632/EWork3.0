@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" /> 
+		<link href="../../css/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" /> 
+		<link rel="stylesheet" href="../../css/mui.dtpicker.css" />
+		<style type="text/css">
+			header h1{
+				font-family: "微软雅黑";
+			}
+			img {
+				width: 100px;
+				height: 100px;
+				margin: 10px;
+				float: left;
+			}
+			.task textarea{
+				height: 100px;
+			}
+			.publish{
+				font-size: 18px;
+				color: #ACACB4;
+			}
+			.add{ 
+				width: 100px;
+				height: 100px;
+			}
+			.mui-table-view{
+				margin-top: 0px;
+			}
+			.mui-table-view-cell{
+				padding: 15px;
+			}
+			.mui-table-view-cell .mui-navigate-right{
+				font-size: 20px; 
+			}
+			.mui-table-view-cell .mui-navigate-right span{
+				font-size: 18px; 
+				margin-right: 20px;
+			}
+			#jieshouren{
+				float:left;
+				width:20%;
+			}
+			
+			#jieshouList{
+				float: left;
+				font-size: 18px;
+				width:80%; 
+			}
+		
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<button id="finish" class="mui-btn mui-btn-primary mui-btn-nav mui-btn-link mui-pull-right">
+				<span class="mui-icon mui-icon-checkmarkempty"></span>
+			</button>
+			<h1 id="xinzen" class="mui-title" style="color: #007AFF;">新建任务</h1>
+		</header>
+		
+		<div class="mui-content">
+			 <div class="task">
+			 	<textarea id="content" placeholder=" "></textarea>
+			 </div>
+					
+			<ul class="mui-table-view">
+				<li id='jieshou' class="mui-table-view-cell">
+					<a  class="mui-navigate-right">
+						<div id="jieshouren">接收人</div>
+						 <span id="jieshounum"></span>
+						<div id="jieshouList" class="mui-pull-right mui-ellipsis-2"></div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="endTime">
+					<a class="mui-navigate-right">
+						<span id="jiezhishijian">截止时间</span>
+						<span class="mui-pull-right" id="endTimeResult"> </span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="category">
+					<a class="mui-navigate-right">
+						<span id="leixing">任务类型</span>
+						<span class="mui-pull-right" id="selet_category"> </span>
+					</a>
+				</li>
+			</ul>
+					 
+			<div style="text-align: center;">
+				<div id="photos"> 
+				</div>
+				<a id="pick" href="#cropper-sheet">
+					<img id="image" src="../../images/Assets.xcassets/+.imageset/+@2x.png" />
+				</a>
+			</div>
+			<!--选择照片-->
+			<div id="cropper-sheet" class="mui-popover mui-popover-bottom mui-popover-action">
+				<!-- 可选择菜单 -->
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a id="paizhao" data-type="camera">拍照</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a id="xiangce" data-type="gallery">相册</a>
+					</li>
+				</ul>
+				 <!--取消菜单 
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="#cropper-sheet"><b style="color: #ff0000;">取消</b></a>
+					</li>
+				</ul>-->
+			</div>
+			
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.picker.js"></script>
+		<script type="text/javascript" src="../../js/new_task.js" ></script>
+		<script type="text/javascript" src="../../js/mui.dtpicker.js" ></script>
+		<script type="text/javascript" src="../../js/mui.poppicker.js" ></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+		<script type="text/javascript">
+			mui.init()
+			var jieshouPeople = "";
+			var taskType = "";
+			var date;
+			mui.plusReady(function(){
+				ready();
+				createUploader();
+			})
+			mui.ready(function(){
+				
+				//请假类型选择器
+				var category = new mui.PopPicker();
+				category.setData([{
+					value:'normal',
+					text:'普通任务'
+				},{
+					value:'abnormal',
+					text:'紧急任务'
+				}]);
+				var categorySelector = document.getElementById('category');
+				var category_result = document.getElementById('selet_category');
+				categorySelector.addEventListener('tap', function(event){
+					category.show(function(items){
+						taskType = items[0].text;
+						category_result.innerText = items[0].text;
+					});
+				},false);
+				
+				//截止时间选择器
+				var end_time = new mui.DtPicker({
+						type: "date",
+						beginDate: new Date(2015,4,15),
+						endDate:new Date(2020,4,15),
+						labels: ["年","月","日"],
+					});
+					var endTime = document.getElementById('endTime');
+					var endTimeResult = document.getElementById('endTimeResult');
+					endTime.addEventListener('tap',function(event){
+						end_time.show(function(items){
+							date = items;
+							endTimeResult.innerText = items;
+							end_date = new Date(items);
+						});
+					},false);
+			})
+			mui(".mui-table-view").on('tap','#jieshou',function(){
+				mui.openWindow({
+					url:'jieshouPerson.html',
+					id:'jieshouPerson.html',
+				})
+			})
+			window.addEventListener('jieshouPerson',function(event){
+				//获得事件参数
+				var people = event.detail.result;
+				var num = event.detail.num;
+				var names = event.detail.names;
+				jieshouPeople = people;  
+				document.getElementById('jieshounum').innerText='('+num+')';
+				document.getElementById('jieshouList').innerText = names;
+			})
+			mui('#cropper-sheet').on('tap', '.mui-table-view-cell > a', function() {
+				var type = this.getAttribute('data-type');
+				mui("#cropper-sheet").popover('hide');
+				switch(type) {
+					case 'camera':
+						clickCamera();
+						break;
+					case 'gallery':
+						clickGallery();
+						break;
+					default:
+						break;
+				}
+			})
+		</script>
+	</body>
+
+</html>

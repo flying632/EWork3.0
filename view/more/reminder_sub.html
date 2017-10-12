@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/mui.min.js"></script>
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul  class="mui-table-view mui-table-view-chevron">
+
+				</ul>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			mui.plusReady(function() {
+				pulldownRefresh();
+			})
+			window.addEventListener('refresh',function(){
+				pulldownRefresh();
+			})
+			var thePage = 1;
+			var num = 10;
+			var phoneNum = localStorage.getItem('phoneNum');
+
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				thePage=1;
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Tixing/gettixingshixiang', {
+					data: {
+						userid: phoneNum,
+						page: thePage,
+						num: 10,
+						keyword: ""
+					},
+					type: 'post',
+					timeout: 1000,
+					success: function(data) {
+						//mui.alert(JSON.stringify(data));
+						var result = data.result; 
+						localStorage.setItem('reminderData',JSON.stringify(data));
+						var table = document.body.querySelector('.mui-table-view');
+						table.innerHTML = "";
+						if(data.flag = 200) {
+							for(var i = 0; i < result.length; i++) {
+								var li = document.createElement('li');
+								li.className = 'mui-table-view-cell';
+								li.id=result[i].id;
+								li.innerHTML = '<div class="item mui-ellipsis-2">' + result[i].content + '</div>' +
+									'<p class="mui-pull-right">' + result[i].writedate + '</p>';
+								//下拉刷新，新纪录插到最前面；
+								table.append(li);
+							}
+							if(result.length<num){
+								this.endPullupToRefresh();
+							}
+						}
+
+					},
+					error: function() {
+						mui.alert('error');
+					}
+
+				})
+			
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+
+			}
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+			 		thePage++;
+					mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Tixing/gettixingshixiang', {
+					data: {
+						userid: phoneNum,
+						page: thePage,
+						num: 10,
+						keyword: ""
+					},
+					type: 'post',
+					timeout: 1000,
+					success: function(data) {
+						//mui.alert(JSON.stringify(data));
+						var result = data.result;
+						
+						var table = document.body.querySelector('.mui-table-view');
+						if(data.flag = 200) {
+							for(var i = 0; i < result.length; i++) {
+								var li = document.createElement('li');
+								li.className = 'mui-table-view-cell';
+								li.id=result[i].id;
+								li.innerHTML = '<div class="item mui-ellipsis-2">' + result[i].content + '</div>' +
+									'<p class="mui-pull-right">' + result[i].writedate + '</p>';
+								//下拉刷新，新纪录插到最前面；
+								table.append(li);
+							}
+							if(result.length<10){
+								this.endPullToRefresh();
+							}
+						}else if(data.flag=300){
+								this.endPullToRefresh();
+						}
+
+					},
+					error: function() {
+						mui.alert('error');
+					}
+
+				})
+
+				 	mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //refresh completed
+			}
+			if(mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
+
+				});
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+			mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
+				var cell_id = this.getAttribute('id');
+				mui.openWindow({
+					url: 'reminder_detail.html',
+					id:'reminder_detail.html',
+					extras:{
+						the_id:cell_id,
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,85 @@
+.mui-bar .mui-icon span {
+				font-size: 18px;
+			}
+			
+			.mui-bar .mui-title {
+				font-size: 20px;
+			}
+			
+			.mui-table-view-cell .name {
+				padding-top: 25px;
+				margin-left: 15px;
+				font-weight: bold;
+				font-size: 20px;
+				float: left;
+			}
+			
+			.mui-table-view-cell .name .date {
+				margin-left: 10px;
+				color: #CCCCCC;
+				font-size: 14px;
+			}
+			
+			.mui-table-view-cell img {
+				width: 80px;
+				height: 80px;
+			}
+			
+			.mui-btn {
+				margin-top: 20px;
+				font-size: 12px;
+				padding: 8px;
+			} 
+			
+			.key {
+				width: 100%;
+				float: left;
+			}
+			
+			.key div{
+				float: left;
+				width: 25%;
+				color: #007AFF;
+			}
+			.key p{
+				float: right;
+				width: 75%;
+			}
+			
+			 .photos {
+			 	width: 100%;
+			 	background: white;
+				float: left;
+				clear: left;
+			}
+			
+			.photo {
+				max-width: 200px;
+				max-width: 200px;
+				float: left;
+				margin: 3px;
+				width: 30%;
+				height: 150px;
+			}
+			
+			.value {
+				float: left;
+			}
+			
+			.reply {
+				clear: both;
+				margin-top: 20px;
+			}
+			
+			.reply img {
+				float: left;
+				width: 30px;
+				height: 30px;
+			}
+			
+			.reply span {
+				margin-left: 10px;
+				line-height: 30px;
+				font-family: "微软雅黑";
+				font-size: 16px;
+			}

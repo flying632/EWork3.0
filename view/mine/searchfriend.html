@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.mui-title {
+				color: #007AFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="sousuohaoyou" class="mui-title">搜索好友</h1>
+		</header>
+		<div class="mui-content">
+			<ul id='table' class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+
+					<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+					<div class="mui-media-body">
+						幸福
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			var companyId;
+			var this_phoneNum;
+			mui.init()
+			mui.plusReady(function() {
+				ready();
+				this_phoneNum = localStorage.getItem('phoneNum');
+				companyId = localStorage.getItem('companyId');
+				getPeople();
+			})
+
+			function getPeople() {
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Ribao/getuserinfo/', {
+					data: {
+						companyid: companyId,
+					},
+					type: 'post',
+					timeout: 10000,
+					success: function(data) {
+						//	mui.alert(JSON.stringify(data));
+						mui.toast(data.msg);
+						if(data.flag == 100) {
+							var table = document.getElementById('table');
+							table.innerHTML = "";
+							var result = data.result;
+							for(var i = 0; i < result.length; i++) {
+								var li = document.createElement('li');
+								li.className = "mui-table-view-cell mui-media";
+								li.id = result[i].phonenum;
+								li.innerHTML = '<img class="mui-media-object mui-pull-left" src="' + result[i].personlogo + '" onerror="imgerror(this)"/>' +
+									'<div class="mui-media-body">' + result[i].name + '</div> ';
+								table.appendChild(li);
+							}
+						}
+
+					},
+					error: function() {
+						mui.toast(contentWebview.id + "网络问题");
+					}
+				})
+			}
+
+			function imgerror(img) {
+				img.src = "../../images/Assets.xcassets/card.imageset/card@2x.png";
+				img.onerror = null;
+			}
+			mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
+				//console.log(this_phoneNum);
+				var oth_phoneNum = this.getAttribute('id');
+				//console.log(oth_phoneNum);
+				mui.ajax("http://121.42.29.124/workoa/index.php?s=/Api/User/searcheruser/", {
+					data: {
+						own_num: this_phoneNum,
+						oth_num: oth_phoneNum,
+					},
+					type: 'post',
+					timeout: 1000,
+					success: function(data) {
+						//mui.alert(JSON.stringify(data));
+						if(data.flag == 200) {
+							var result = data.result;
+							if(result.status == 20) {
+								var btnArray = ['否', '是'];
+								mui.confirm('关注此人，确认？', '', btnArray, function(e) {
+									if(e.index == 1) {
+										followIt(oth_phoneNum);
+									}
+								})
+							}else if(result.status==10){
+								var btnArray = ['否', '是'];
+								mui.confirm('已关注，是否取消关注', '', btnArray, function(e) {
+									if(e.index == 1) {
+										notFollow(oth_phoneNum);
+									}
+								})
+							}
+						}
+						//mui.alert(JSON.stringify(data));
+
+					},
+					error: function() {
+						mui.toast("error");
+					}
+				})
+			});
+			function followIt(oth_phoneNum){
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/User/attention/',{
+					data:{
+						own_num:this_phoneNum,
+						oth_num:oth_phoneNum,
+					},
+					type:'post',
+					timeout:1000,
+					success:function(data){
+						mui.toast(data.msg);
+					},
+					error:function(){
+						mui.toast("error");
+					}
+				})
+			}
+			function notFollow(oth_phoneNum){
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/User/cancelattention/',{
+					data:{
+						own_num:this_phoneNum,
+						oth_num:oth_phoneNum,
+					},
+					type:'post',
+					timeout:1000,
+					success:function(data){
+						mui.toast(data.msg);
+					},
+					error:function(){
+						mui.toast("error");
+					}
+				})
+			}
+		</script>
+	</body>
+
+</html>

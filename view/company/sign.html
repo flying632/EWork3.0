@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<script src="../../js/mui.min.js"></script>
+		<style type="text/css">
+		 
+			.mui-title{
+				color: #007aff;
+			} 
+			.mui-icon span {
+				font-size: 18px;
+			}
+			
+			.mui-icon-location {
+				color: #007aff;
+				float: right;
+				margin-right: 5px;
+			}
+			.name{
+				float: left;
+			}
+			.address{
+				float: left;
+				clear: left;
+			}
+			.date {
+				margin-top: 3px;
+				color: darkgrey;
+				font-size: 15px;
+				float:right; 
+			}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kTXsdvEmz65B7bef2MAVKG2nx4wlA9It"></script>
+		<title>地图展示</title>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="qiandao" class="mui-title">签到打卡</h1> 
+		</header>
+ 		<div class="mui-content">
+ 		    	<div class="mui-input-row mui-search">
+					<input id="sort" type="search" class="mui-input-clear" placeholder="">
+					 
+				</div>
+			<ul id="table" class="mui-table-view">
+			        <!--<li class="mui-table-view-cell">
+			             <div class="name">孙宝松</div>
+			              <div class="date">2017/9/26</div>
+			             <div class="address">沈阳</div>
+			         
+			        </li>
+			        <li class="mui-table-view-cell">
+			            <a class="mui-navigate-right">
+			                  Item 2
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell">
+			            <a class="mui-navigate-right">
+			                 Item 3
+			            </a>
+			        </li>-->
+			    </ul>
+ 		</div>
+		
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+	</body>
+
+</html>
+<script type="text/javascript">
+	mui.init();
+	mui.plusReady(function() {
+		ready();
+		getInfo("");
+		
+	}) 
+	var companyId = localStorage.getItem('companyId');
+	var phoneNum = localStorage.getItem('phoneNum');
+
+	function getInfo(keyword) {
+		mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Qiandao/getqdforleader/', {
+			data: {
+				companyid: companyId,
+				userid: phoneNum,
+				keyword:keyword,
+			},
+			type: 'post',
+			timeout: 10000,
+			success: function(data) {
+			//mui.alert(JSON.stringify(data));
+				mui.toast(data.msg);
+				var table = document.getElementById('table');
+				table.innerHTML = "";
+				if(data.flag == 200) {
+					var result = data.result;
+					for(var i = 0; i < result.length; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell'; 
+						li.innerHTML = '<div class="name">'+result[i].name+'</div><div class="date">' + result[i].qiandaotime + '</div><div class="address">' + result[i].address+ '</div>';
+						table.appendChild(li);
+					}
+				}
+			},
+			error: function() {
+				mui.toast("申请签到信息失败");
+			},
+		});
+	}
+ 			var sort = document.getElementById('sort');
+			sort.addEventListener('input',function(){
+				var keyword = this.value;
+	 			getInfo(keyword);
+			}) 
+			mui('.mui-search').on('tap','.mui-icon-clear',function(){
+				getInfo("");
+			})
+</script>

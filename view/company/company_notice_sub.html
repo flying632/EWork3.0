@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<style>
+			.title {
+				float: left;
+				width: 80%;
+			}
+			
+			.mui-btn-link {
+				float: right;
+			}
+			
+			
+			.mui-ellipsis-2 {
+				font-size: 14px;
+				color: darkgrey;
+				float: clear;
+				float: left;
+				width: 80%;
+			}
+			
+		 
+			
+			.date {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				float: right;
+				width: 20%;
+			}
+			
+			.text {
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				
+				<ul id="table" class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<div class="title">2017/5/11 测sadddddddddd试</div>
+						<div class="mui-btn-link">
+							已读
+						</div>
+						<p class="mui-ellipsis-2">2017/5/11 测试啊这样真的可以吗，我的天啊，原来是这样啊，啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊倒萨大苏打</p>
+						<div class="date">
+							<p>5月11日</p>
+						</div>
+					</li> 
+				</ul>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script>
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			mui.plusReady(function(){
+				pulldownGetData();
+			})
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				 pulldownGetData();
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+		 
+			} 
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				 	mui.toast('已经到底了');	
+			 		mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //refresh completed
+		 	
+			}
+			
+			mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
+				var cell_id = this.getAttribute('id');
+				mui.openWindow({  
+					id:'company_notice_detail.html',
+					url: 'company_notice_detail.html',
+					extras:{
+						the_id:cell_id
+					}
+				});
+			})
+			
+			var phoneNum = localStorage.getItem('phoneNum');
+			var companyId = localStorage.getItem('companyId');
+			
+			function 	pulldownGetData(){
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Gonggao/getgonggaoall/',{
+					data:{
+						userid:phoneNum,
+						companyid:companyId
+					},
+					type:'post',
+					timeout:10000,
+					success:function(data){
+						
+						mui.toast(data.msg);
+						if(data.flag==200){
+							var result = data.result;
+							var table = document.getElementById('table');
+							table.innerHTML = "";
+							for(var i=0;i<result.length;i++){
+								var status;
+								if(result[i].status==10){
+									status="已读";
+								}else if(result[i].status==20){
+									status="未读";
+								}
+					 			var li = document.createElement('li');
+					 			li.className='mui-table-view-cell';
+					 			li.id=result[i].id; 
+					 			li.innerHTML='<div class="title">'+result[i].title+'</div><div class="mui-btn-link">'+status+'	</div>'
+					 			+'<p class="mui-ellipsis-2">'+result[i].content+'</p>	<div class="date"><p>'+result[i].writetime+'</p></div>';
+					 			table.appendChild(li);
+							}
+						}
+						
+					},
+					error:function(){
+						mui.alert("网络出错")
+					}	
+				})
+			}
+		 
+		</script>
+	</body>
+
+</html>

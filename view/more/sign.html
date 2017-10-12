@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<script src="../../js/mui.min.js"></script>
+		<style type="text/css"> 
+			
+			.mui-content #allmap {
+				width: 100%;
+				height: 300px; 
+			}
+			
+			.mui-icon span {
+				font-size: 18px;
+			}
+			
+			.mui-icon-compose {
+				color: #007aff;
+				float: right;
+			}
+			
+			 
+			
+			.date {
+				margin-top: 5px;
+				color: darkgrey;
+				font-size: 15px;
+				margin-left: 5px;
+			}
+			
+			.mui-title {
+				color: #007AFF;
+			}
+			 
+			#refresh{
+				height: 40px;
+			}
+			#dwtupiao{
+				width:20px;
+				height: 20px;
+				float:left;
+				margin: 0;
+			}
+			#dwtext{
+				font-size: 16px;
+			}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kTXsdvEmz65B7bef2MAVKG2nx4wlA9It"></script>
+		<title>地图展示</title>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="qiandao" class="mui-title">签到打卡</h1>
+			<div id="sign" class="mui-icon mui-icon-compose"></div> 
+		</header>
+
+		<div class="mui-content">
+			<div id="allmap">地图加载中...</div>
+			<div id="refresh">
+						<img id="dwtupiao" src="../../images/Assets.xcassets/location.imageset/location@2x.png" />
+					    <p id="dwtext">东北大学</p>
+			</div> 
+					
+					<ul id="table" class="mui-table-view">
+						 
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+
+	</body>
+
+</html>
+<script type="text/javascript">
+	var map; 
+	mui.plusReady(function() {
+		ready();
+		getInfo();
+		map = new plus.maps.Map("allmap");
+		var pcenter = new plus.maps.Point(116.3975, 39.9074);
+		map.centerAndZoom(pcenter, 15);
+		getGeocode();
+	})
+
+	// 通过定位模块获取位置信息
+	function getGeocode() {
+		plus.nativeUI.showWaiting();
+		var getOptions = {
+			//是否使用高精度设备，如GPS。默认是true  
+			enableHighAccuracy: true,
+			//超时时间，单位毫秒，默认为0  
+			timeout: 5000,
+			//使用设置时间内的缓存数据，单位毫秒  
+			//默认为0，即始终请求新数据  
+			//如设为Infinity，则始终使用缓存数据  
+			maximumAge: 0
+		};
+		plus.geolocation.getCurrentPosition(showLocation, function(e) {
+			mui.toast("获取定位位置信息失败：" + e.message);
+			plus.nativeUI.closeWaiting();
+		}, getOptions);
+	} 
+	var jingDu;
+	var weiDu;
+	var Address;
+	var centerPointer;
+	//处理定位后的信息
+	function showLocation(r) {
+		jingDu = r.coords.longitude;
+		weiDu = r.coords.latitude;
+		Address = r.addresses;
+		document.getElementById('dwtext').innerText=Address;
+		console.log(Address);
+		var centerPoint = new plus.maps.Point(jingDu, weiDu);
+		map.centerAndZoom(centerPoint, 15);
+		var maker = new plus.maps.Marker(centerPoint);
+		map.addOverlay(maker);
+		plus.nativeUI.closeWaiting();
+		//	centerPointer = new BMap.Point(r.coords.longitude, r.coords.latitude);
+		//	exchange();
+	}
+	document.getElementById('refresh').addEventListener('tap',function(){
+		getGeocode();
+	})
+	//将GPS坐标转换成百度地图的坐标
+	function exchange() {
+		var convertor = new BMap.Convertor();
+		var pointArr = [];
+		pointArr.push(centerPointer);
+		convertor.translate(pointArr, 1, 5, translateCallback);
+	}
+
+	function translateCallback(data) {
+		if(data.status == 0) {
+			var marker = new BMap.Marker(data.points[0]);
+			map.addOverlay(marker);
+			map.setCenter(data.points[0]);
+			plus.nativeUI.closeWaiting();
+		}
+	}
+	var companyId = localStorage.getItem('companyId');
+	var phoneNum = localStorage.getItem('phoneNum');
+
+	function getInfo() {
+		mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Qiandao/getqiandao/', {
+			data: {
+				companyid: companyId,
+				userid: phoneNum,
+			},
+			type: 'post',
+			timeout: 10000,
+			success: function(data) {
+				//	mui.alert(JSON.stringify(data));
+				mui.toast(data.msg);
+				var table = document.getElementById('table');
+				table.innerHTML = "";
+				if(data.flag == 200) {
+					var result = data.result;
+					for(var i = 0; i < result.length; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell';
+						li.innerHTML = '<div>' + result[i].address + '</div><div class="date">' + result[i].qiandaotime + '</div>';
+						table.appendChild(li);
+					}
+
+				}
+			},
+			error: function() {
+				mui.toast("申请签到信息失败");
+			},
+		});
+	}
+	var addQiandao = document.getElementById('sign');
+	addQiandao.addEventListener('tap', function() {
+		qiaodao();
+	});
+
+	function qiaodao() {
+		mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Qiandao/addqiandao/', {
+			data: {
+				companyid: companyId,
+				userid: phoneNum,
+				jingdu: jingDu,
+				weidu: weiDu,
+				address: Address,
+			},
+			type: 'post',
+			timeout: 10000,
+			success: function(data) {
+				//	mui.alert(JSON.stringify(data));
+				mui.toast(data.msg);
+				//刷新显示最新的签到内容
+				getInfo();
+			},
+			error: function() {
+				mui.alert("上传有问题");
+			}
+		})
+	}
+</script>

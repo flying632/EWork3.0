@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" /> 
+		<style type="text/css">
+			header h1 {
+				font-family: "微软雅黑";
+			}
+			
+			 
+			.mui-search {
+				width: 80%;
+				float: left;
+				margin: 5px;
+				line-height: 35px;
+			}
+			
+			.cancle {
+				float: left;
+				margin: 10px;
+				color: darkgray;
+				line-height: 35px;
+			}
+			.mui-scroll-wrapper .mui-scroll {
+				margin-top: 5px;
+			}
+			
+			.top img {
+				width: 40px;
+				height: 40px;
+				float: left;
+				margin-right: 5px;
+			}
+			
+			.top .information {
+				padding-top: 10px;
+				font-size: 20px;
+			}
+			
+			.top .information .date {
+				font-size: 14px;
+				color: #B6B6B6;
+				margin-left: 5px;
+			}
+			
+			.top .mui-btn {
+				float: right;
+				font-size: 12px;
+				padding: 3px;
+				margin-top: 20px;
+			}
+			
+			.small_content {
+				margin-top: 20px;
+				padding-left: 45px;
+			}
+			
+			.small_content div {
+				font-size: 16px;
+				font-family: "微软雅黑";
+				margin-bottom: 5px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: normal !important;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+			}
+			
+			.picture img {
+				width: 40%;
+				margin-right: 10px;
+			}
+			.mui-table-view-cell { 
+				margin-bottom: 5px;
+			}
+			
+		 
+			
+			#queren_list {
+				color: #007AFF;
+				text-align: center;
+				font-size: 16px;
+				margin-top: 5px;
+			}
+			
+			.mui-btn-block option {
+				height: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+
+			<!--<div class="mui-input-row mui-search">
+				<input type="search" class="mui-input-clear" placeholder="搜索日报" />
+			</div>
+			<div class="cancle">取消</div>-->
+			
+			<div class="mui-scroll">
+
+				<ul id="table" class="mui-table-view mui-table-view-chevron"> 
+						       
+						       
+				</ul>
+			</div>
+		</div>
+
+		<script src="../../js/mui.min.js"></script> 
+		<script type="text/javascript" src="../../js/task.js"></script>
+		<script type="text/javascript" charset="utf-8">
+		 
+			var thePage = 1;
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			mui.plusReady(function() {
+				pullDownGetData(1);
+			})
+			window.addEventListener("new", function(event) {
+				mui.openWindow({
+					id: 'new_task.html',
+					url: 'new_task.html',
+				});
+			})
+
+			mui('.mui-table-view').on('tap', '.mui-table-view-cell', function(event) { 
+				var cell_id = this.getAttribute('id');
+				var target = event.target;
+				if(target.id=='click'){
+					return;
+				}else{
+					mui.openWindow({
+					url: 'task_detail.html',
+					id: 'task_detail.html',
+					extras: {
+						theId: cell_id
+					}
+				})
+				}
+				
+			})
+		window.addEventListener('refresh',function(){
+			pullDownGetData(1);
+		})
+			/**
+			 * 下拉具体业务的实现
+			 */
+			function pulldownRefresh() {
+				thePage = 1;
+				pullDownGetData(thePage);
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+			}
+			/*	mui('.mui-scroll-wrapper').scroll({
+					deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+				});*/
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				thePage++;
+				pullUpGetData(thePage);
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //refresh completed  
+
+			}
+		</script>
+
+</html>

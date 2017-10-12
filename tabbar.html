@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<title></title>
+		<style>
+			body{
+	    		background: transparent;
+	    	}
+			.mui-tabbar-center {
+				display: table-cell;
+				overflow: hidden;
+				width: 1%;
+				height: 50px;
+				text-align: center;
+				vertical-align: middle;
+			}
+			
+			.mui-tabbar-center img {
+				position: fixed;
+				left: 50%;
+				bottom: 0px;
+				width: 60px;
+				height: 60px;
+				margin-left: -30px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<nav id="bar-tab" class="mui-bar mui-bar-tab">
+			<a id="dynamics" class="mui-tab-item mui-active" href="view/dynamics/dynamics.html">
+				<span class="mui-icon mui-icon-pengyouquan"></span>
+				<span id="dongtai" class="mui-tab-label">动态</span>
+			</a>
+			<a id="task" class="mui-tab-item" href="view/task/task.html">
+				<span class="mui-icon mui-icon-phone"></span>
+				<span id="renwu" class="mui-tab-label">任务</span>
+			</a>
+			<!--
+            	作者：offline
+            	时间：2017-05-14
+            	描述：做成弹窗模式
+            -->
+			<a id="openPopover" class="mui-tabbar-center" href="view/more/more.html">
+				<img src="images/Assets.xcassets/Tabbar/tabbar_add.imageset/tabbar_add@2x.png" />
+			</a>
+			<a id="company" class="mui-tab-item" href="view/company/company.html">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span id="gongsi" class="mui-tab-label">公司</span>
+			</a>
+			<a id="mine" class="mui-tab-item" href="view/mine/mine.html">
+				<span class="mui-icon mui-icon-person"></span>
+				<span id="wode" class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="js/language.js" ></script>
+	</body>
+	
+
+	<script type="text/javascript">
+		mui.init();
+		var moreWebview = null;
+		var moreTab = 'view/more/more.html';
+		mui.plusReady(function() {
+			ready();
+			moreWebview = mui.preload({
+				url: moreTab,
+				id: moreTab,
+				styles: {
+					top: '0px',
+					bottom: '0px', 
+					background: 'transparent'
+				}
+			});
+		})
+		//选项卡点击事件
+		mui('.mui-bar-tab').on('tap','a',function(e){
+			//获取当前点击的选项
+			var targetTab = this.getAttribute('href');
+			
+			//如果点击中间的菜单栏弹出菜单
+			if(targetTab == moreTab){
+				if(window.plus){
+					//创建mask遮罩
+//					plus.webview.create("","mask",{
+//						mask:"rgba(0,0,0,0.4)",
+//						background:"transparent"
+//					}).show();
+					//打开弹层
+					plus.webview.show(moreWebview,"slide-in-bottom",10);
+					
+				}else{
+					mui.alert("请在html5+引擎环境使用");
+				}
+		 
+				return;
+			}
+			//当前选项值传到父webView
+			if(window.plus){
+				var curPage = plus.webview.currentWebview();
+				var targetTitle = this.querySelector('.mui-tab-label').innerHTML;
+				//触发详情页面的targetTab事件
+				mui.fire(curPage.parent(),'tagTab',{
+					targetTitle:targetTitle,
+					targetTab:targetTab
+				});
+			}
+		});
+		
+	</script>
+
+</html>

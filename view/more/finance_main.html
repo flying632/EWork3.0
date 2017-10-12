@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+			<script src="../../js/mui.min.js"></script>
+		<style>
+			.edit {
+				float: right;
+				margin-right: 5px;
+			}
+			
+			.select {
+				float: right;
+				margin-right: 15px;
+			}
+			.mui-title {
+				color: #007aff;
+			}
+			
+			.mui-icon-compose {
+				color: #007aff;
+			}
+			
+			.mui-icon-info {
+				color: #007aff;
+			}
+			.mui-bar .mui-icon span {
+				font-size: 18px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="head" class="mui-bar mui-bar-nav">
+			
+			<div class="mui-icon mui-action-back mui-icon-arrowleft mui-icon-back mui-badge-primary mui-badge-inverted"> </div>
+			<h1 id="caiwu" class="mui-title">财务</h1>
+
+			<div id="edit" class="edit"><span class="mui-icon mui-icon-compose"></span></div>
+<!--	 	<div id="select" class="select"><span class="mui-icon mui-icon-info"></span></div>-->
+		</header>
+		<div class="mui-content"></div>
+				<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+	</body> 
+	<script type="text/javascript">
+		//启用双击监听
+		mui.init({
+			gestureConfig: {
+				doubletap: true
+			},
+			subpages: [{
+				url: 'finance_sub.html',
+				id: 'finance_sub.html',
+				styles: {
+					top: '45px',
+					bottom: '0px',
+				}
+			}]
+		});
+		document.getElementById('edit').onclick=function(){
+			mui.openWindow({
+				url:'new_finance.html',
+			});
+		}
+		mui.plusReady(function(){
+			ready();
+		})
+		var contentWebview = null;
+		document.querySelector('header').addEventListener('doubletap', function() {
+			if(contentWebview == null) {
+				contentWebview = plus.webview.currentWebview().children()[0];
+			}
+			contentWebview.evalJS("mui('#pullrefresh').pullRefresh().scrollTo(0,0,100)");
+		});
+	</script>
+
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/mui.min.js"></script>
+		<style type="text/css">
+			.mui-content .mui-table-view {
+				padding-top: 50px; 
+			}
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+				border-right: 0px;
+				border-left: 0px;
+			}
+			.mui-table-view .mui-table-view-cell .mui-icon {
+				width: 50px;
+				height: 50px;
+			}
+			
+			 
+			.closeBtn {
+				position: fixed;
+				left: 0px;
+				right: 0px;
+				bottom: 0px;
+				text-align: center;
+				background-color: #fff;
+				cursor: pointer;
+			}
+			
+			.closeBtn span {
+				color: #ff7e00;
+				font-size: 50px;
+				padding: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<ul class="mui-table-view mui-grid-view mui-grid-9">
+					<li id="day_paper" class="mui-table-view-cell mui-col-xs-4">
+						<a href="#">
+							<img class="mui-icon" src="../../images/icon/tabbar_log.png" />
+							<div id="ribao" class="mui-media-body">日报</div>
+						</a>
+					</li>
+					<li id="week_paper" class="mui-table-view-cell mui-col-xs-4">
+						<a href="#">
+							<img class="mui-icon" src="../../images/icon/tabbar_weekly.png" />
+							<div id="zhoubao" class="mui-media-body">周报</div>
+						</a>
+					</li>
+					<li id="pictrue" class="mui-table-view-cell mui-col-xs-4">
+						<a href="#">
+							<img class="mui-icon" src="../../images/icon/tabbar_image.png" />
+							<div id="tupian" class="mui-media-body">图片</div>
+						</a>
+					</li>
+					<li id="sign" class="mui-table-view-cell mui-col-xs-4">
+						<a href="#">
+							<img class="mui-icon" src="../../images/icon/tabbar_attend.png" />
+							<div id="qiandao" class="mui-media-body">签到打卡</div>
+						</a>
+					</li>
+					<li id="request" class="mui-table-view-cell mui-col-xs-4">
+						<a href="#">
+							<img class="mui-icon" src="../../images/icon/tabbar_timeoff.png" />
+							<div id="qingshi" class="mui-media-body">个人请示</div>
+						</a>
+					</li>
+					<li id="reminder" class="mui-table-view-cell mui-col-xs-4">
+						<a href="#">
+							<img class="mui-icon" src="../../images/icon/tabbar_remind.png" />
+							<div id="tixingshixiang" class="mui-media-body">提醒事项</div>
+						</a>
+					</li>
+					<li id="finance" class="mui-table-view-cell mui-col-xs-4">
+						<a href="#">
+							<img class="mui-icon" src="../../images/icon/tabbar_finance.png" />
+							<div id="caiwu" class="mui-media-body">财务管理</div>
+						</a>
+					</li>
+					<li id="note" class="mui-table-view-cell mui-col-xs-4">
+						<a href="#">
+							<img class="mui-icon" src="../../images/icon/tabbar_work_arrange.png" />
+							<div id="jishiben" class="mui-media-body">记事本</div>
+						</a>
+					</li>
+					<li id="examination" class="mui-table-view-cell mui-col-xs-4">
+						<a href="#">
+							<img class="mui-icon" src="../../images/icon/tabbar_audit.png" />
+							<div id="shenpi" class="mui-media-body">审批</div>
+						</a>
+					</li>
+				</ul>
+		</div>
+
+		<div class="mui-action-back closeBtn">
+			<span class="mui-icon mui-icon-closeempty"></span>
+		</div>
+ 			<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				ready();
+			})
+			mui.back = function() {
+				// 隐藏弹出层
+				plus.webview.currentWebview().hide();
+				// 隐藏遮罩
+				//plus.webview.getWebviewById('mask').close();
+			}
+		/**
+		 * 更多的页面跳转问题
+		 */
+		mui(".mui-table-view").on('tap', '.mui-table-view-cell', function() {
+			var id = this.getAttribute('id');
+			var target; 
+			switch(id) {
+				case 'week_paper':
+					target = 'week_paper_main.html';
+					break;
+				case 'day_paper':
+					target = 'day_paper_main.html';
+					break;
+				case 'pictrue':
+					target = 'pictrue_main.html';
+					break;
+				case 'sign':
+					target = 'sign.html';
+					break;
+				case 'request':
+					target = 'request_main.html';
+					break;
+				case 'reminder':
+					target = 'reminder_main.html';
+					break;
+				case 'finance':
+					target = "finance_main.html";
+					break;
+				case 'note':
+					target = 'notepad_main.html';
+					break;
+				case 'examination':
+					target = 'examination_main.html';
+					break;
+			}
+			mui.openWindow({
+				url: target,
+				id:target,
+			});
+		});
+		</script>
+	</body>
+
+</html>

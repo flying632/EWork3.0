@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		
+		 <style>
+		 	.mui-title{
+		 		color: #007AFF;
+		 	}
+		 </style>
+	</head>
+
+	<body  >
+		 <header class="mui-bar mui-bar-nav">
+		     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		     <h1 id="shezhi" class="mui-title">设置</h1>
+		 </header>
+		 <div class="mui-content">
+		     <ul class="mui-table-view">
+		             <li id="yuyan" class="mui-table-view-cell">
+		                  语言
+		             </li>
+		             <li  id="zhuxiao" class="mui-table-view-cell">
+		                  注销
+		             </li> 
+		         </ul>
+		 </div>
+		 <script src="../../js/mui.min.js"></script>
+	</body>
+	<script src="../../js/mui.view.js "></script>
+	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+	<script type="text/javascript" src="../../js/languagemore.js"></script>
+	<script>
+		mui.init();
+	 	mui.plusReady(function(){
+	 		ready();
+	 	})
+		document.getElementById('yuyan').addEventListener('tap',function(){
+			 mui.openWindow({
+			 	url:"changelanguage.html",
+			 	id:"changelanguage.html",
+			 })
+		})
+		document.getElementById('zhuxiao').addEventListener('tap', function() {
+
+			// 获取所有Webview窗口
+			var curr = plus.webview.currentWebview();
+			var wvs = plus.webview.all();
+			for(var i = 0, len = wvs.length; i < len; i++) {
+				//关闭除setting页面外的其他页面
+				if(wvs[i].getURL() == curr.getURL())
+					continue;
+				plus.webview.close(wvs[i]);
+			}
+			localStorage.setItem('isActive',"flase")
+			//打开login页面后再关闭setting页面
+			plus.webview.open('../../login.html');
+			curr.close();
+		})
+	</script>
+
+</html>

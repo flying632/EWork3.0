@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/mui.min.js"></script>
+		<style type="text/css">
+			.mui-bar .mui-icon span {
+				font-size: 18px;
+			}
+			
+			.mui-bar .mui-title {
+				font-size: 20px;
+			}
+			
+			.mui-table-view-cell .name {
+				padding-top: 5px;
+				margin-left: 15px;
+				font-weight: bold;
+				font-size: 18px;
+				float: left;
+			}
+			
+			.headImg {
+				height: 50px;
+				width: 50px;
+			}
+			
+			.mui-table-view-cell .name .date {
+				margin-left: 10px;
+				color: #CCCCCC;
+				font-size: 14px;
+			}
+			
+			.mui-btn {
+				margin-top: 15px;
+				font-size: 12px;
+				padding: 8px;
+			}
+			
+			.container {
+				margin-top: 20px;
+				padding: 10px;
+				background-color: white;
+			}
+			
+			.detail {
+				padding-left: 10px;
+				height: 35px;
+			}
+			
+			.key {
+				width: 30%;
+				float: left;
+			}
+			
+			.key span {
+				color: #007AFF;
+			}
+			
+			.detail span {
+				font-family: "微软雅黑";
+				font-size: 18px;
+			}
+			
+			.value {
+				float: left;
+			}
+			
+			.mui-input-row {
+				width: 100%;
+				height: 50px;  
+				position: fixed;
+				bottom: 0;
+			}
+			
+			.mui-input-row input {
+				width: 85%;
+			}
+			
+			.top .information_below {
+				padding-top: 10px;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			.top .information_below .date {
+				font-weight: lighter;
+				font-size: 14px;
+				color: #B6B6B6;
+				margin: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<span class="mui-icon mui-action-back mui-icon-arrowleft mui-icon-back mui-badge-primary mui-badge-inverted"> </span>
+			<h1 id="xiangqing" class="mui-title mui-badge-primary mui-badge-inverted">请示详情</h1>
+		</header>
+
+		<div id="body" class="mui-content">
+		 
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<img class="mui-pull-left headImg" src="../../images/Assets.xcassets/AppIcon.appiconset/logo_80.png" />
+						<div class="mui-pull-left name">刘国奇
+							<span class="date">4月23日</span>
+						</div>
+						<button type="button" class="mui-btn mui-btn-outlined mui-btn-primary mui-pull-right">未回复</button>
+					</li>
+				</ul>
+
+				<div class="container">
+					<div class="detail">
+						<div class="key"><span>请假类型</span></div>
+						<div class="value"><span>事假</span></div>
+					</div>
+
+					<div class="detail">
+						<div class="key"><span>请假天数</span></div>
+						<div class="value"><span>1</span></div>
+					</div>
+
+					<div class="detail">
+						<div class="key"><span>开始时间</span></div>
+						<div class="value"><span>2017-4-23</span></div>
+					</div>
+
+					<div class="detail">
+						<div class="key"><span>结束时间</span></div>
+						<div class="value"><span>2017-4-23</span></div>
+					</div>
+
+					<div class="detail">
+						<div class="key" style="letter-spacing: 30px;"><span>事由</span></div>
+						<div class="value"><span>国寺桥没了</span></div>
+					</div>
+
+					<div class="detail">
+						<div class="key"><span>审批人员</span></div>
+						<div class="value"><span>刘国奇</span></div>
+					</div>
+
+					<div class="detail">
+						<div class="key"><span>审批状态</span></div>
+						<div class="value"><span>未回复</span></div>
+					</div>
+				</div>
+
+				<ul  style="margin-bottom: 50px;" class="mui-table-view">
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right " href="#"> 回复</a>
+						<div class="mui-collapse-content">
+							<div>
+								<div class="top">
+									<img src="images/Assets.xcassets/AppIcon.appiconset/logo_58.png" />
+									<div class="information_below">
+										刘国奇
+										<span class="date">45分钟前</span>
+									</div>
+									<div class="small_content">
+										<div>恭喜恭喜</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</li>
+				</ul>
+				<div class="mui-input-row">
+					<input type="text" class="mui-input" placeholder=" ">
+					<button class="mui-icon mui-icon-paperplane" onclick="sendComment()"> </button>
+				</div> 
+		</div>
+
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">  
+			mui.init();
+			var id;
+			var requestData;
+			var phoneNum;
+			mui.plusReady(function() {
+				ready();
+				phoneNum = localStorage.getItem('phoneNum');
+				requestData = JSON.parse(localStorage.getItem('requestData'));
+				var self = plus.webview.currentWebview();
+				id = self.the_id;
+				showContent();
+			})
+
+			function showContent() {
+				var body = document.getElementById('body');
+				var result = requestData.result;
+				for(var i = 0; i < result.length; i++) {
+					if(result[i].requestid == id) {
+						//mui.alert(JSON.stringify(result[i]));
+						var innerCode = '<ul class="mui-table-view">	<li class="mui-table-view-cell"><img class="mui-pull-left headImg" src="' + result[i].iconpath + '" onerror="imgerror(this)"/>' +
+							'<div class="mui-pull-left name">' + result[i].uploadername + '<span class="date">' + result[i].date + '</span></div>' +
+							'<button type="button" class="mui-btn mui-btn-outlined mui-btn-primary mui-pull-right">' + result[i].replycount + '回复</button></li></ul>';
+						innerCode += '<div class="container"><div class="detail"><div class="key"><span>请假类型</span></div><div class="value"><span>' + result[i].type + '</span></div></div>';
+						innerCode += '<div class="detail"><div class="key"><span>请假天数</span></div><div class="value"><span>' + result[i].days + '</span></div>	</div>';
+						var begindate = formatDateTime(new Date(result[i].begin));
+						innerCode += '<div class="detail"><div class="key"><span>开始时间</span></div><div class="value"><span>' + begindate + '</span></div>	</div>';
+						var enddate = formatDateTime(new Date(result[i].end));
+						innerCode += '<div class="detail"><div class="key"><span>结束时间</span></div><div class="value"><span>' + enddate + '</span></div></div>';
+						innerCode += '<div class="detail"><div class="key" style="letter-spacing: 30px;"><span>事由</span></div><div class="value"><span>' + result[i].content + '</span></div></div>';
+						innerCode += '<div class="detail"><div class="key"><span>审批人员</span></div><div class="value"><span>' + result[i].superiorname + '<span></div></div>';
+
+						innerCode += '<div class="detail"><div class="key"><span>审批状态</span></div><div class="value"><span>' + result[i].status + '</span></div></div></div>';
+						var reply = result[i].reply;
+						innerCode += '<ul class="mui-table-view" style="margin-bottom: 50px;"><li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right " href="#"> 回复(' + reply.length + ')</a><div class="mui-collapse-content">';
+						for(var j = 0; j < reply.length; j++) {
+							innerCode += '<div><div class="top"> <div class="information_below">' + reply[j].name + '<span class="date">' + reply[j].replytime + '</span></div>' +
+								'<div class="small_content"><div>' + reply[j].replycontent + '</div></div></div></div>';
+						}
+						innerCode += '</div></li></ul>';
+						innerCode += '<div class="mui-input-row"><input type="text" id="comment" class="mui-input" placeholder=" "><button class="mui-icon mui-icon-paperplane" onclick="sendComment()"> </button></div>';
+
+						body.innerHTML = innerCode;
+						break;
+					}
+				}
+			}
+			var formatDateTime = function(date) {
+				var y = date.getFullYear();
+				var m = date.getMonth() + 1;
+				m = m < 10 ? ('0' + m) : m;
+				var d = date.getDate();
+				d = d < 10 ? ('0' + d) : d;
+				return y + '-' + m + '-' + d;
+			};
+
+			function sendComment() {
+				var content = document.getElementById('comment').value;
+
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Shenpi/addshenpipinglun', {
+					data: {
+						shenpiid: id,
+						replyuserid: phoneNum,
+						replycontent: content,
+					},
+					timeout: 1000,
+					type: 'post',
+					success: function(data) {
+						mui.alert(JSON.stringify(data));
+						showContent()
+					},
+					error: function() {
+						mui.toast("error");
+					}
+				})
+			}
+
+			function imgerror(img) {
+				img.src = "../../images/Assets.xcassets/card.imageset/card@2x.png";
+				img.onerror = null;
+			}
+		</script>
+	</body>
+
+</html>

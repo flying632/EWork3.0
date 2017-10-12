@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/imageViewer.css" />
+		<title></title>
+		<style>
+			body {
+				background: white;
+			}
+			
+			.mui-bar .mui-icon span {
+				font-size: 18px;
+			}
+			
+			.mui-bar .mui-title {
+				font-size: 20px;
+			}
+			
+			.content {
+				margin: 10px;
+				float: left;
+				clear: left;
+			}
+			
+			.headImg {
+				max-width: 45px;
+				max-height: 45px;
+				margin: 5px;
+				border-radius: 50%;
+				float: left;
+			}
+			
+			.username {
+				float: left;
+				font-size: 18px;
+				margin: 10px;
+			}
+			
+			.talk_all {
+				font-style: normal;
+				font-size: 14px;
+				color: black;
+			}
+			
+			.talk {
+				font-style: normal;
+				font-size: 14px;
+				color: black;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: normal !important;
+				display: -webkit-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+			}
+			
+			.date {
+				float: right;
+				margin:5px;
+				color: darkgrey;
+				font-size: 15px
+			}
+			
+			.photos {
+				float: left;
+				clear: left;
+			}
+			
+			.photo {
+				max-width: 200px;
+				max-width: 200px;
+				float: left;
+				margin: 3px;
+				width: 30%;
+				height: 150px;
+			}
+			
+			.like {
+				float: left;
+				clear: left;
+				color: #007AFF;
+				margin: 10px;
+			}
+			
+			.comments {
+				margin-top: 10px;
+				width: 100%;
+				float: left;
+				clear: left;
+			}
+			
+			.comment {
+				margin: 10px;
+				float: left;
+				clear: left;
+				width: 100%;
+			}
+			
+			.comment_content {
+				float: left;
+				margin: 5px;
+			}
+			
+			.comment_name {
+				float: left;
+				margin: 3px
+			}
+			
+			.discribe {
+				float: left;
+				clear: left;
+				margin: 5px;
+				font-size: 15px;
+			}
+			
+			.comment_date {
+				float: right;
+				margin-right: 10px;
+				color: darkgrey;
+				font-size: 15px
+			}
+			
+			.bottom {
+				width: 100%;
+				float: left;
+				clear: left;
+			}
+			
+			.likeImg {
+				float: left;
+				margin-left: 10px;
+			}
+			
+			.commentImg {
+				margin-right: 10px;
+				float: right;
+			}
+			
+			.like_img {
+				width: 25px;
+				float: left;
+			}
+			
+			.num_like {
+				float: left;
+				margin: 5px;
+			}
+			
+			.comment_img {
+				float: right;
+				margin: 5px;
+			}
+			
+			.num_comment {
+				width: 25px;
+				float: right
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<span class="mui-icon mui-action-back mui-icon-back mui-badge-primary mui-badge-inverted"> </span>
+			<h1 id="xiangqing" class="mui-title mui-badge-primary mui-badge-inverted">动态详情</h1>
+		</header>
+		<div id="body" class="mui-content">
+			<!--<div class="head">
+				<img class="headImg" src="../../images/lunbo1.jpg" />
+				<div class="username">刘国奇</div>
+				<div class="date">5月2号</div>
+			</div>
+			<div class="content">
+				<div id="content_talk" class="talk">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈今天天气很好</div>
+				
+			</div>
+			<div class="photos">
+
+				<img style="width: 100%;" class="mui-icon" src="../../images/lunnbo2.jpg" data-preview-src="" data-preview-group="1" />
+
+			</div>
+			<div class="bottom">
+				<div id="like">
+					<img class="like_img" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />
+					<div class="num_like">0</div>
+				</div>
+
+				<div id="comment">
+					<div class="comment_img">0</div>
+					<img class="num_comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png" />
+
+				</div>
+
+			</div>
+
+			<div class="like">
+				孙宝松觉得很赞
+			</div> 
+			<div class="comments">
+				<div class="comment">
+					<img class="headImg" src="../../images/lunbo1.jpg" />
+
+					<div class="comment_content">
+						<div class="comment_name">刘国奇</div>
+						<div class="discribe">这样啊</div>
+					</div>
+					<div class="comment_date">5月2号</div>
+				</div>
+			</div>
+
+		</div>-->
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script type="text/javascript" src="../../js/mui.zoom.js"></script>
+	<script type="text/javascript" src="../../js/mui.previewimage.js"></script>
+	<script type="text/javascript" src="../../js/dynamics_detail.js" ></script>
+	<script type="text/javascript">
+		//实现查看大图 
+		mui.previewImage();
+		mui.init({
+			swipeBack:true,
+		});
+		var result = [];
+		var id;
+		var this_phoneNum;
+		mui.plusReady(function() {
+			ready();
+			this_phoneNum = localStorage.getItem('phoneNum');
+			var self = plus.webview.currentWebview();
+			id = self.the_id;
+			sendRequest();
+		});
+		window.addEventListener('refresh', function() {
+			sendRequest();
+		});
+
+	</script>
+
+</html>

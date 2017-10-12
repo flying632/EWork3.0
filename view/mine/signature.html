@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-title{
+				color: #007AFF;
+			}
+			.mui-icon-checkmarkempty{
+				float: right;
+			}
+			.mui-content {
+				background-color: white;
+				line-height: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 id="gexingqianming" class="mui-title">个性签名</h1>
+		    <a id="finish" class="mui-icon mui-icon-checkmarkempty"></a>
+		</header>
+		<div contenteditable="true" id="content"  class="mui-content">
+		 
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function(){
+				ready();
+				var phoneNum = localStorage.getItem('phoneNum');
+				//console.log(phoneNum);
+				var data = JSON.parse(localStorage.getItem('personInfo'));
+				var signature = data.result.signature;
+				var birth = data.result.birth; 
+				var content = document.getElementById('content');
+				content.innerText=signature;  
+				
+				document.getElementById('finish').addEventListener('tap',function(){
+					signature = content.innerText; 
+					console.log(content.innerText);
+					mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Login/info/',{
+						data:{
+							phoneNum:phoneNum, 
+							name:data.result.name,
+							sex:data.result.sex,
+							birth:birth,	
+							signature:signature,
+						},
+						timeout:1000,
+						type:'post',
+						success:function(data){
+							mui.toast(data.msg);
+							var view = plus.webview.getWebviewById('person.html');
+							mui.fire(view,"refresh",{});
+							mui.openWindow({
+								url:"person.html",
+								id:'person.html',
+							})
+						},
+						error:function(){
+							mui.toast("error");
+						}
+					})
+				})
+			})
+		</script>
+	</body>
+
+</html>

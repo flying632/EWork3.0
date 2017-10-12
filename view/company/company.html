@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/mui.min.js"></script>
+
+		<style>
+			.title {
+				width: 80%;
+				float: left;
+			}
+			
+			.mui-btn-link {
+				float: right;
+			}
+			
+			.mui-table-view.mui-grid-view {
+				float: center;
+				width: 95%;
+				margin: 0 auto;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
+				width: 80%;
+			}
+			
+			.mui-ellipsis-2 {
+				font-size: 14px;
+				color: darkgrey;
+				float: clear;
+				float: left;
+				width: 75%;
+			}
+			
+			.mui-media-body {
+				font-size: 14px;
+				color: darkgrey;
+			}
+			
+			.date {  
+				float: right;
+				width:22%;
+			}
+			
+			.text {
+				margin: 10px;
+			}
+			
+			.mui-navigate-right {
+				font-size: 14px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="pullrefresh" class="mui-content">
+			<ul id="works" class="mui-table-view mui-grid-view">
+				<li id="day_paper" class="mui-table-view-cell mui-media mui-col-xs-3">
+					<a href="#">
+						<img class="mui-media-object" src="../../images/tabbar_log.png">
+						<div id="ribao" class="mui-media-body">日报</div>
+					</a>
+				</li>
+				<li id="week_paper" class="mui-table-view-cell mui-media mui-col-xs-3">
+					<a href="#">
+						<img class="mui-media-object" src="../../images/tabbar_weekly.png">
+						<div id="zhoubao" class="mui-media-body">周报</div>
+					</a>
+				</li>
+				<li id="request" class="mui-table-view-cell mui-media mui-col-xs-3">
+					<a href="#">
+						<img class="mui-media-object" src="../../images/tabbar_timeoff.png">
+						<div id="qingshi" class="mui-media-body">请示</div>
+					</a>
+				</li>
+				<li id="sign" class="mui-table-view-cell mui-media mui-col-xs-3">
+					<a href="#">
+						<img class="mui-media-object" src="../../images/tabbar_attend.png">
+						<div id="qiandao" class="mui-media-body">签到打卡</div>
+					</a>
+				</li>
+				<li id="company_notice" class="mui-table-view-cell mui-media mui-col-xs-3">
+					<a href="#">
+						<img class="mui-media-object" src="../../images/tabbar_audit.png">
+						<div id="gongsigonggao" class="mui-media-body">公司公告</div>
+					</a>
+				</li>
+				<li id="picture" class="mui-table-view-cell mui-media mui-col-xs-3">
+					<a href="#">
+						<img class="mui-media-object" src="../../images/tabbar_image.png">
+						<div id="tupian" class="mui-media-body">图片</div>
+					</a>
+				</li>
+			</ul>
+
+			<div id="gongsiggtext" class="text">公司公告</div>
+
+			<ul id="table" class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="title">2017/5/11 测试</div>
+					<div class="mui-btn-link">
+						已读
+					</div>
+					<p class="mui-ellipsis-2">2017/5/11 测试啊这样真的可以吗，我的天啊，原来是这样啊，啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊倒萨大苏打</p>
+					<div class="date">
+						<p>5月11日</p>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="title">2017/5/11 测试</div>
+					<div class="mui-btn-link">
+						已读
+					</div>
+					<div class="mui-ellipsis-2">2017/5/11 测试啊这样真的可以吗，我的天啊，原来是这样啊，啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊倒萨大苏打</div>
+					<div class="date">
+						<p>5月11日</p>
+					</div>
+				</li>
+
+			</ul>
+
+			<div id="wenzhang" class="text">
+				文章
+			</div>
+
+			<div class="mui-scroll">
+				<ul id="articles" class="mui-table-view">
+
+				</ul>
+			</div>
+
+		</div>
+
+		</div>
+	    <script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+	</body>
+	<script>
+		mui.init({
+			pullRefresh: {
+				container: '#pullrefresh',
+				down: {
+					callback: pulldownRefresh
+				},
+				up: {
+					contentrefresh: '正在加载...',
+					callback: pullupRefresh
+				}
+			}
+
+		});
+
+		mui.plusReady(function() {
+			ready();
+			pulldownRefresh();
+		})
+		mui("#works").on('tap', '.mui-table-view-cell', function() {
+			var id = this.getAttribute('id');
+			var target;
+			switch(id) {
+				case 'week_paper':
+					target = '../company/week_paper_main.html';
+					break;
+				case 'day_paper':
+					target = '../company/day_paper_main.html';
+					break;
+				case 'picture':
+					target = '../company/pictrue_main.html';
+					break;
+				case 'sign':
+					target = '../company/sign.html';
+					break;
+				case 'request':
+					target = '../company/request_main.html';
+					break;
+				case 'company_notice':
+					target = 'company_notice_main.html';
+			}
+			mui.openWindow({
+				url: target,
+
+			});
+		});
+
+		var phoneNum = localStorage.getItem('phoneNum');
+		var companyId = localStorage.getItem('companyId');
+
+		var articles_result;
+		/**
+		 * 下拉具体业务的实现
+		 */
+		function pulldownRefresh() {
+			getGonggao();
+			mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/User/article_hot_list', {
+				data: {
+					companyid: companyId,
+					page: '',
+					num: '',
+				},
+				dataType: 'json',
+				type: 'post',
+				timeout: 10000,
+				success: function(data) {
+					if(data.flag == 200) {
+						var table = document.getElementById('articles');
+						table.innerHTML = "";
+						articles_result = data.result;
+						for(var i = 0; i < articles_result.length; i++) {
+							var li = document.createElement('li');
+							li.id = articles_result[i].id;
+							li.className = 'mui-table-view-cell';
+							li.innerHTML = '<a class="mui-navigate-right">' + articles_result[i].title + '</a>';
+							table.appendChild(li);
+						}
+					}
+
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+				},
+				error: function(xhr, type, errorThrown) {
+					//异常处理
+					mui.alert("error");
+				}
+
+			});
+		}
+
+		//获取未读公告
+		function getGonggao() {
+			mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Gonggao/getweidugonggao/', {
+				data: {
+					userid: phoneNum,
+					companyid: companyId
+				},
+				type: 'post',
+				timeout: 10000,
+				success: function(data) {
+					mui.toast(data.msg);
+					var result = data.result;
+			//		mui.alert(JSON.stringify(data));
+					var table = document.getElementById('table');
+					table.innerHTML = "";
+					for(var i = 0; i < result.length; i++) {
+						var li = document.createElement('li');
+						li.id=result.id;
+						li.className = 'mui-table-view-cell';
+						li.innerHTML = '<div class="title">' + result[i].title + '</div><div class="mui-btn-link">未读	</div>' +
+							'<p class="mui-ellipsis-2">' + result[i].content + '</p>	<div class="date"><p>' + result[i].writetime + '</p></div>';
+						table.appendChild(li);
+					}
+				},
+				error: function() {
+					mui.alert("网络出错")
+				}
+			})
+		}
+		
+		//为公告添加点击事件
+		mui('#table').on('tap','.mui-table-view-cell',function(){
+			var cell_id = this.getAttribute('id');
+				mui.openWindow({  
+					id:'company_notice_detail.html',
+					url: 'company_notice_detail.html',
+					extras:{
+						the_id:cell_id
+					}
+				});
+		})
+		//为文章添加点击事件
+		mui('#articles').on('tap', '.mui-table-view-cell', function() {
+
+			var id = this.getAttribute('id');
+			var article_url;
+			for(var i = 0; i < articles_result.length; i++) {
+				if(articles_result[i].id == id) {
+					article_url = articles_result[i].url;
+				}
+			}
+			localStorage.setItem('url', article_url);
+			mui.openWindow({
+				url: 'article.html',
+				id: 'article.html'
+
+			});
+		})
+
+		/**
+		 * 上拉加载具体业务实现
+		 */
+		function pullupRefresh() {
+
+			mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //refresh completed  
+			mui.toast("已经到底了");
+		}
+	</script>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/mui.min.js"></script>
+		<style>
+			.img {
+				max-width: 180px;
+				max-height: 180px;
+				margin: 5px;
+			}
+			
+ 
+			.headImg {
+				max-width: 45px;
+				max-height: 45px;
+				margin: 5px;
+				border-radius: 50%;
+				float: left;
+				line-height: 45px;
+			}
+			
+			.username {
+				float: left;
+				line-height: 45px;
+			}
+			
+			.date {
+				float: left;
+				color: darkgray;
+				line-height: 45px;
+				margin-left: 5px;
+				font-size: 14px;
+			}
+			
+			.line {
+				float: left;
+				clear: left;
+			}
+			
+			.second {
+				float: left;
+				clear: left;
+			}
+			
+			.title {
+				color: #007aff;
+				margin-right: 10px;
+			}
+			
+			.imgs {
+				float: left;
+				clear: left;
+			}
+			
+			.mui-table-view {
+				background: #EFEFF4;
+			}
+			
+			.mui-table-view-cell {
+				background: white;
+				margin-bottom: 5px;
+			}
+			
+			.photos {
+				float: left;
+				clear: left;
+			}
+			
+			.mui-table-view .mui-table-view-cell .mui-icon {
+				max-width: 200px;
+				max-width: 200px;
+				float: left;
+				margin: 3px;
+				width: 30%;
+				height: 150px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<!--<div class="mui-input-row mui-search">
+					<input id="sort" type="search"  class="mui-input-clear"  placeholder=""> 
+				</div> -->
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<div class="mui-input-row mui-search">
+					<input id="sort" type="search" class="mui-input-clear" placeholder="">
+					 
+				</div>
+				<ul id="table" class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						<div class="first_line">
+							<img class="headImg" src="../../images/lunnbo2.jpg" />
+							<div class="username">刘国奇</div>
+							<div class="date">5月12日</div>
+						</div>
+						<div class="second">
+							<span class="line"><span class="title">已完成</span> 只有文字weishe威威威威巨大石块来决定了撒asdsadsadassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</span>
+							<span class="line"><span class="title">未完成</span> 啊倒萨倒萨打算</span>
+							<span class="line"><span class="title">需协调</span> 只有文字</span>
+							<span class="line"><span class="title">备注</span> 暂无</span>
+						</div>
+						<div class="imgs">
+							<img class="img" src="../../images/lunbo3.jpg" />
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="first_line">
+							<img class="headImg" src="../../images/lunnbo2.jpg" />
+							<div class="username">刘国奇</div>
+							<div class="date">5月12日</div>
+						</div>
+						<div class="second">
+							<span class="line"><span class="title">已完成</span> 只有文字</span>
+							<span class="line"><span class="title">未完成</span> 啊倒萨倒萨打算</span>
+							<span class="line"><span class="title">需协调</span> 只有文字</span>
+							<span class="line"><span class="title">备注</span> 暂无</span>
+						</div>
+						<div class="imgs">
+							<img class="img" src="../../images/lunbo3.jpg" />
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="first_line">
+							<img class="headImg" src="../../images/lunnbo2.jpg" />
+							<div class="username">刘国奇</div>
+							<div class="date">5月12日</div>
+						</div>
+						<div class="second">
+							<span class="line"><span class="title">已完成</span> 只有文字</span>
+							<span class="line"><span class="title">未完成</span> 啊倒萨倒萨打算</span>
+							<span class="line"><span class="title">需协调</span> 只有文字</span>
+							<span class="line"><span class="title">备注</span> 暂无</span>
+						</div>
+						<div class="imgs">
+							<img class="img" src="../../images/lunbo3.jpg" />
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js"></script>
+		<script type="text/javascript" src="../../js/languagemore.js"></script>
+		<script type="text/javascript" src="../../js/day_paper.js"></script>
+		<script>
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			mui.plusReady(function() {
+				ready();
+				plus.nativeUI.showWaiting();
+				pullDownGetData("");
+			});
+			mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
+				var cell_id = this.getAttribute('id');
+				mui.openWindow({
+					id: 'day_paper_detail.html',
+					url: 'day_paper_detail.html',
+
+					extras: {
+						the_id: cell_id
+					}
+				});
+			});
+
+			/**
+			 * 下拉具体业务的实现
+			 */
+			function pulldownRefresh() {
+				pullDownGetData("");
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+
+			}
+
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				pullUpGetData("")
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //refresh completed  
+
+			}
+			var sort = document.getElementById('sort');
+			sort.addEventListener('input',function(){
+				var keyword = this.value;
+	 			pullUpGetData(keyword);
+			}) 
+			mui('.mui-search').on('tap','.mui-icon-clear',function(){
+				pullDownGetData("");
+			})
+			
+		</script>
+	</body>
+
+</html>
