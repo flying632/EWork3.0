@@ -12,12 +12,7 @@
 	<style>
 		#text {
 			margin: 10px;
-		}
-		
-		.mui-icon {
-			margin: 3px;
-			width: 50%;
-		}
+		} 
 		
 		.photo {
 			width: 30%;
@@ -29,6 +24,7 @@
 	<body>
 		<!--下拉刷新容器-->
 		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
 			<div id="table">
 				<div class="mui-card">
 					<div class="mui-card-header mui-card-media">
@@ -102,7 +98,19 @@
 			 * 下拉刷新具体业务实现
 			 */
 			function pulldownRefresh() {
-				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				setTimeout(function() {
+//					'var table = document.body.querySelector('.mui-table-view');
+//					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+//					for (var i = cells.length, len = i + 3; i < len; i++) {
+//						var li = document.createElement('li');
+//						li.className = 'mui-table-view-cell';
+//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+//						//下拉刷新，新纪录插到最前面；
+//						table.insertBefore(li, table.firstChild);
+//					}'
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1500);
+//				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
 
 			}
 			var count = 0;

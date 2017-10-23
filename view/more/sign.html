@@ -91,6 +91,7 @@
 		var pcenter = new plus.maps.Point(116.3975, 39.9074);
 		map.centerAndZoom(pcenter, 15);
 		getGeocode();
+		console.log(plus.device.imei);
 	})
 
 	// 通过定位模块获取位置信息
@@ -194,6 +195,7 @@
 				jingdu: jingDu,
 				weidu: weiDu,
 				address: Address,
+				shebeiid:plus.device.imei,
 			},
 			type: 'post',
 			timeout: 10000,

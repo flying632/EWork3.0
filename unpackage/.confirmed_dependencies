@@ -1,1386 +1,1386 @@
 {
-	"index.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"img/lunbo1.jpg",
-			"index_refresh.html",
-			"dynamics.html",
-			"images/icon/tabbar_image.png",
-			"images/icon/tabbar_finance.png",
-			"images/icon/tabbar_weekly.png",
-			"images/icon/tabbar_attend.png",
-			"images/icon/tabbar_remind.png",
-			"images/icon/tabbar_timeoff.png",
-			"images/icon/tabbar_log.png",
-			"images/icon/tabbar_audit.png",
-			"images/icon/tabbar_work_arrange.png",
-			"images/Assets.xcassets/Tabbar/tabbar_add.imageset/tabbar_add@2x.png",
-			"view/dynamics/dynamics.html",
-			"view/more/more.html",
-			"js/mui.picker.js",
-			"js/mui.poppicker.js",
-			"css/mui.poppicker.css",
-			"css/mui.picker.css",
-			"css/cropper.min.css",
-			"css/mui.cropper.css",
-			"js/mui.cropper.js",
-			"js/cropper.min.js",
-			"view/dynamics/dynamics_main.html",
-			"view/task/task.html",
-			"js/jquery.i18n.properties-min-1.0.9.js",
-			"js/jquery-3.2.1.js",
-			"i18n/strings_en.properties",
-			"js/language.js",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"index_refresh.html",
-			"company.html",
-			"company2.html",
-			"login.html",
-			"dynamics.html",
-			"more.html",
-			"mine.html",
-			"task.html",
-			"request_main.html",
-			"week_paper_main.html",
-			"day_paper_main.html",
-			"finance_main.html",
-			"notepad_main.html",
-			"examination_main.html",
-			"reminder_main.html",
-			"view/more/more.html",
-			"view/mine/mine.html",
-			"view/dynamics/dynamics.html",
-			"view/task/task.html",
-			"view/company/company_main.html",
-			"view/company/company.html",
-			"view/dynamics/dynamics_main.html",
-			"view/task/task_main.html",
-			"tabbar.html"
-		]
-	},
-	"index_refresh.html": {
-		"resources": [
-			"css/mui.min.css",
-			"img/lunbo1.jpg"
-		],
-		"refer": []
-	},
-	"company.html": {
-		"resources": [
-			"img/tabbar_log.png",
-			"img/tabbar_audit.png",
-			"img/tabbar_attend.png",
-			"img/tabbar_image.png",
-			"img/tabbar_timeoff.png",
-			"img/tabbar_weekly.png",
-			"css/mui.min.css",
-			"images/tabbar_image.png",
-			"images/tabbar_weekly.png",
-			"images/tabbar_audit.png",
-			"images/tabbar_attend.png",
-			"images/tabbar_log.png",
-			"images/tabbar_timeoff.png"
-		],
-		"refer": [
-			"index.html"
-		]
-	},
-	"company2.html": {
-		"resources": [
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"login.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"js/md5.js",
-			"js/userInfo.js",
-			"js/jquery.i18n.properties-min-1.0.9.js",
-			"js/language.js",
-			"i18n/strings_en.properties",
-			"js/jquery-3.2.1.js",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"view/index.html",
-			"index.html",
-			"reset_password.html",
-			"popover.html",
-			"view/task/task_main.html",
-			"task_main.html"
-		]
-	},
-	"dynamics.html": {
-		"resources": [
-			"img/lunbo1.jpg",
-			"css/mui.min.css",
-			"images/lunbo1.jpg"
-		],
-		"refer": []
-	},
-	"more.html": {
-		"resources": [
-			"images/icon/tabbar_image.png",
-			"images/icon/tabbar_finance.png",
-			"images/icon/tabbar_weekly.png",
-			"images/icon/tabbar_attend.png",
-			"images/icon/tabbar_remind.png",
-			"images/icon/tabbar_timeoff.png",
-			"images/icon/tabbar_compose_background_icon_close@2x.png",
-			"images/icon/tabbar_log.png",
-			"images/icon/tabbar_audit.png",
-			"images/icon/tabbar_work_arrange.png",
-			"css/mui.min.css",
-			"day_paper_main.html",
-			"week_paper_main.html",
-			"notepad_main.html",
-			"request_main.html"
-		],
-		"refer": [
-			"day_paper_main.html",
-			"week_paper_main.html",
-			"notepad_main.html",
-			"request_main.html"
-		]
-	},
-	"mine.html": {
-		"resources": [
-			"images/Assets.xcassets/setting.imageset/setting@2x.png",
-			"images/Assets.xcassets/find.imageset/find@2x.png",
-			"images/Assets.xcassets/Tabbar/moment.imageset/moment@2x.png",
-			"images/Assets.xcassets/card.imageset/card@2x.png",
-			"images/Assets.xcassets/scanning.imageset/scanning@2x.png",
-			"images/lunnbo2.jpg",
-			"person.html"
-		],
-		"refer": [
-			"person.html"
-		]
-	},
-	"person.html": {
-		"resources": [
-			"images/Assets.xcassets/QRCode.imageset/QRCode@2x.png",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_180.png",
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"task.html": {
-		"resources": [
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"week_paper_sub.html": {
-		"resources": [
-			"images/lunbo3.jpg",
-			"images/lunnbo2.jpg",
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"week_paper_main.html": {
-		"resources": [
-			"week_paper_sub.html",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"week_paper_sub.html"
-		]
-	},
-	"day_paper_main.html": {
-		"resources": [
-			"week_paper_sub.html",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"week_paper_sub.html"
-		]
-	},
-	"notepad_main.html": {
-		"resources": [
-			"notepad_sub.html",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"notepad_sub.html"
-		]
-	},
-	"notepad_sub.html": {
-		"resources": [
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"request_main.html": {
-		"resources": [
-			"request_sub.html",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"request_sub.html"
-		]
-	},
-	"request_sub.html": {
-		"resources": [
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"finance_main.html": {
-		"resources": [
-			"finance_sub.html"
-		],
-		"refer": [
-			"finance_sub.html"
-		]
-	},
-	"examination_main.html": {
-		"resources": [
-			"examination_sub.html",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"examination_sub.html"
-		]
-	},
-	"reminder_main.html": {
-		"resources": [
-			"reminder_sub.html",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"reminder_sub.html"
-		]
-	},
-	"view/more/more.html": {
-		"resources": [
-			"images/icon/tabbar_compose_background_icon_close@2x.png",
-			"css/mui.min.css",
-			"view/more/day_paper_main.html",
-			"images/icon/tabbar_image.png",
-			"images/icon/tabbar_finance.png",
-			"images/icon/tabbar_weekly.png",
-			"images/icon/tabbar_attend.png",
-			"images/icon/tabbar_remind.png",
-			"images/icon/tabbar_timeoff.png",
-			"images/icon/tabbar_log.png",
-			"images/icon/tabbar_audit.png",
-			"images/icon/tabbar_work_arrange.png",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"view/more/day_paper_main.html",
-			"view/more/week_paper_main.html",
-			"view/more/pictrue_main.html",
-			"view/more/request_main.html",
-			"view/more/notepad_main.html",
-			"view/more/reminder_main.html",
-			"view/more/finance_main.html",
-			"view/more/examination_main.html",
-			"view/more/sign.html"
-		]
-	},
-	"view/mine/mine.html": {
-		"resources": [
-			"images/Assets.xcassets/setting.imageset/setting@2x.png",
-			"images/Assets.xcassets/find.imageset/find@2x.png",
-			"images/Assets.xcassets/Tabbar/moment.imageset/moment@2x.png",
-			"images/Assets.xcassets/card.imageset/card@2x.png",
-			"images/Assets.xcassets/scanning.imageset/scanning@2x.png",
-			"images/lunnbo2.jpg",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"i18n/strings_en.properties",
-			"js/languagemore.js",
-			"images/Assets.xcassets/eye_gray.imageset/eye_gray@2x.png",
-			"images/Assets.xcassets/chat.imageset/chat@2x.png",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"view/mine/person.html",
-			"view/mine/scan.html",
-			"view/mine/setting.html",
-			"view/mine/myDynamics_main.html",
-			"view/mine/myCard.html",
-			"view/mine/changelanguage.html",
-			"login.html",
-			"view/mine/searchfriend.html"
-		]
-	},
-	"view/dynamics/dynamics.html": {
-		"resources": [
-			"css/mui.min.css",
-			"images/lunbo1.jpg",
-			"js/mui.min.js",
-			"css/imageViewer.css",
-			"js/mui.zoom.js",
-			"js/mui.previewimage.js",
-			"js/dynamics.js",
-			"images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png",
-			"images/Assets.xcassets/heart.imageset/heart@2x.png",
-			"js/userInfo.js",
-			"images/lunnbo2.jpg"
-		],
-		"refer": [
-			"view/dynamics/new_dynamics.html",
-			"view/dynamics/dynamics_detail.html",
-			"view/dynamics/new_comment.html",
-			"view/dynamics/Dnew_comment.html"
-		]
-	},
-	"view/company/company_main.html": {
-		"resources": [
-			"view/company/company_sub.html",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"view/company/company_sub.html"
-		]
-	},
-	"view/company/company_sub.html": {
-		"resources": [
-			"images/tabbar_image.png",
-			"images/tabbar_weekly.png",
-			"images/tabbar_audit.png",
-			"images/tabbar_attend.png",
-			"images/tabbar_log.png",
-			"images/tabbar_timeoff.png",
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"view/more/day_paper_sub.html": {
-		"resources": [
-			"images/lunbo3.jpg",
-			"css/mui.min.css",
-			"images/lunnbo2.jpg",
-			"js/mui.min.js",
-			"js/day_paper.js",
-			"js/geren_day_paper.js",
-			"js/userInfo.js",
-			"fonts/mui.ttf"
-		],
-		"refer": [
-			"view/more/day_paper_detail.html"
-		]
-	},
-	"view/more/day_paper_main.html": {
-		"resources": [
-			"view/more/day_paper_sub.html",
-			"css/mui.min.css",
-			"view/more/more.html",
-			"js/mui.min.js",
-			"js/day_paper.js",
-			"fonts/mui.ttf",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"view/more/day_paper_sub.html",
-			"view/more/more.html",
-			"view/more/new_day_paper.html"
-		]
-	},
-	"view/more/week_paper_main.html": {
-		"resources": [
-			"view/more/week_paper_sub.html",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"js/week_paper.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"view/more/week_paper_sub.html",
-			"view/more/new_week_paper.html"
-		]
-	},
-	"view/more/week_paper_sub.html": {
-		"resources": [
-			"images/lunbo3.jpg",
-			"css/mui.min.css",
-			"images/lunnbo2.jpg",
-			"js/week_paper.js",
-			"js/mui.min.js",
-			"js/geren_day_paper.js",
-			"js/geren_week_paper.js"
-		],
-		"refer": [
-			"view/more/day_paper_detail.html",
-			"view/more/week_paper_detail.html"
-		]
-	},
-	"view/more/pictrue_main.html": {
-		"resources": [
-			"view/more/pictrue_sub.html",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_ja.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/more/pictrue_sub.html",
-			"view/more/new_picture.html"
-		]
-	},
-	"view/more/request_main.html": {
-		"resources": [
-			"view/more/request_sub.html",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/more/request_sub.html",
-			"view/more/new_request.html"
-		]
-	},
-	"view/more/notepad_main.html": {
-		"resources": [
-			"css/mui.min.css",
-			"view/more/notepad_sub.html",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/more/notepad_sub.html",
-			"view/more/new_notepad.html"
-		]
-	},
-	"view/more/reminder_main.html": {
-		"resources": [
-			"view/more/reminder_sub.html",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/more/reminder_sub.html",
-			"view/more/new_reminder.html"
-		]
-	},
-	"view/more/examination_sub.html": {
-		"resources": [
-			"css/mui.min.css",
-			"images/lunbo1.jpg",
-			"js/examination.js",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"images/Assets.xcassets/card.imageset/card@2x.png"
-		],
-		"refer": [
-			"view/more/request_detail.html",
-			"view/more/finance_detail.html",
-			"view/more/shenpifinance_detail.html"
-		]
-	},
-	"view/more/finance_main.html": {
-		"resources": [
-			"view/more/finance_sub.html",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/more/finance_sub.html",
-			"view/more/new_finance.html"
-		]
-	},
-	"view/more/examination_main.html": {
-		"resources": [
-			"view/more/examination_sub.html",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/more/examination_sub.html"
-		]
-	},
-	"view/more/finance_sub.html": {
-		"resources": [
-			"css/mui.min.css",
-			"images/lunbo1.jpg",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/more/request_detail.html",
-			"view/more/finance_detail.html"
-		]
-	},
-	"view/more/reminder_sub.html": {
-		"resources": [
-			"css/mui.min.css"
-		],
-		"refer": [
-			"view/more/finance_detail.html",
-			"view/more/reminder_detail.html"
-		]
-	},
-	"view/company/company.html": {
-		"resources": [
-			"images/tabbar_image.png",
-			"images/tabbar_weekly.png",
-			"images/tabbar_audit.png",
-			"images/tabbar_attend.png",
-			"images/tabbar_log.png",
-			"images/tabbar_timeoff.png",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"i18n/strings_en.properties",
-			"js/languagemore.js",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"view/company/article.html",
-			"view/company/day_paper_main.html",
-			"view/company/week_paper_main.html",
-			"view/company/request_main.html",
-			"view/company/sign.html",
-			"view/company/pictrue_main.html",
-			"view/company/company_notice_main.html",
-			"view/company/day_paper_detail.html",
-			"view/company/company_notice_detail.html"
-		]
-	},
-	"view/more/pictrue_sub.html": {
-		"resources": [
-			"images/lunbo3.jpg",
-			"css/mui.min.css",
-			"images/lunbo1.jpg",
-			"js/mui.min.js",
-			"js/picture.js",
-			"js/geren_picture.js"
-		],
-		"refer": [
-			"view/more/pictrue_detail.html"
-		]
-	},
-	"view/more/pictrue_detail.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"images/lunnbo2.jpg",
-			"images/lunbo1.jpg",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"reset_password.html": {
-		"resources": [
-			"css/mui.min.css",
-			"i18n/strings_ja.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/mine/person.html": {
-		"resources": [
-			"images/Assets.xcassets/QRCode.imageset/QRCode@2x.png",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_180.png",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties",
-			"js/mui.dtpicker.js",
-			"css/mui.dtpicker.css",
-			"css/mui.poppicker.css",
-			"css/mui.picker.css"
-		],
-		"refer": [
-			"view/mine/name.html",
-			"view/mine/signature.html",
-			"view/mine/headImg.html"
-		]
-	},
-	"view/more/request_detail.html": {
-		"resources": [
-			"images/Assets.xcassets/comment.imageset/comment@2x.png",
-			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/more/request_sub.html": {
-		"refer": [
-			"view/more/request_detail.html"
-		],
-		"resources": [
-			"css/mui.min.css",
-			"images/lunbo1.jpg",
-			"js/request.js",
-			"js/mui.min.js",
-			"js/geren_request.js"
-		]
-	},
-	"view/more/finance_detail.html": {
-		"resources": [
-			"images/Assets.xcassets/comment.imageset/comment@2x.png",
-			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"css/cropper.min.css",
-			"css/mui.cropper.css",
-			"js/cropper.min.js"
-		],
-		"refer": []
-	},
-	"view/more/new_day_paper.html": {
-		"resources": [
-			"css/mui.min.css",
-			"images/Assets.xcassets/+.imageset/+@2x.png",
-			"js/mui.min.js",
-			"js/new_day_paper.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": []
-	},
-	"view/more/new_week_paper.html": {
-		"resources": [
-			"images/Assets.xcassets/+.imageset/addHeadIcon.png",
-			"css/mui.min.css",
-			"images/Assets.xcassets/+.imageset/+@2x.png",
-			"js/mui.min.js",
-			"js/new_day_paper.js",
-			"js/new_week_paper.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": []
-	},
-	"view/more/new_request.html": {
-		"resources": [
-			"js/mui.picker.js",
-			"js/mui.poppicker.js",
-			"css/mui.dtpicker.css",
-			"css/mui.poppicker.css",
-			"css/mui.picker.css",
-			"js/mui.dtpicker.js",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/more/request_person.html"
-		]
-	},
-	"view/more/new_notepad.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/more/notepad_sub.html": {
-		"refer": [
-			"view/more/notepad_detail.html"
-		],
-		"resources": [
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf"
-		]
-	},
-	"popover.html": {
-		"resources": [
-			"css/mui.min.css",
-			"css/cropper.min.css",
-			"css/mui.cropper.css",
-			"js/mui.cropper.js",
-			"js/cropper.min.js"
-		],
-		"refer": []
-	},
-	"view/dynamics/dynamics_main.html": {
-		"resources": [
-			"view/dynamics/dynamics_sub.html",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"view/dynamics/dynamics_sub.html"
-		]
-	},
-	"view/dynamics/dynamics_sub.html": {
-		"resources": [
-			"css/mui.min.css",
-			"images/lunbo1.jpg"
-		],
-		"refer": []
-	},
-	"view/task/task_main.html": {
-		"resources": [
-			"css/mui.min.css",
-			"view/task/task_sub.html",
-			"css/cropper.min.css",
-			"css/mui.cropper.css",
-			"js/mui.cropper.js",
-			"js/cropper.min.js",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_58.png",
-			"images/icon/tabbar_image.png",
-			"js/mui.min.js"
-		],
-		"refer": [
-			"view/task/task_sub.html",
-			"view/task/new_task.html"
-		]
-	},
-	"view/task/task_sub.html": {
-		"resources": [
-			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_58.png",
-			"images/icon/tabbar_image.png"
-		],
-		"refer": []
-	},
-	"view/task/new_task.html": {
-		"resources": [
-			"images/Assets.xcassets/+.imageset/+@2x.png",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"js/mui.picker.js",
-			"js/mui.poppicker.js",
-			"css/mui.dtpicker.css",
-			"css/mui.poppicker.css",
-			"css/mui.picker.css",
-			"js/mui.dtpicker.js",
-			"js/new_task.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"view/task/jieshouPerson.html"
-		]
-	},
-	"view/more/notepad_detail.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/more/new_picture.html": {
-		"resources": [
-			"images/Assets.xcassets/+.imageset/+@2x.png",
-			"css/cropper.min.css",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/mui.cropper.css",
-			"js/cropper.min.js",
-			"js/mui.cropper.js",
-			"js/new_picture.js",
-			"view/more/new_picture.html",
-			"i18n/strings_en.properties",
-			"i18n/strings_ja.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/more/new_picture.html"
-		]
-	},
-	"task_main.html": {
-		"resources": [
-			"css/cropper.min.css",
-			"task_sub.html",
-			"css/mui.cropper.css",
-			"js/mui.cropper.js",
-			"js/cropper.min.js"
-		],
-		"refer": [
-			"task_sub.html"
-		]
-	},
-	"tabbar.html": {
-		"resources": [
-			"images/Assets.xcassets/Tabbar/tabbar_add.imageset/tabbar_add@2x.png",
-			"css/mui.min.css",
-			"fonts/mui.ttf",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"view/more/more.html"
-		]
-	},
-	"view/task/task.html": {
-		"resources": [
-			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_58.png",
-			"images/icon/tabbar_image.png",
-			"fonts/mui.ttf",
-			"js/mui.zoom.js",
-			"js/mui.min.js",
-			"js/mui.previewimage.js",
-			"js/task.js"
-		],
-		"refer": [
-			"view/task/new_task.html",
-			"view/task/task_detail.html"
-		]
-	},
-	"view/more/day_paper_detail.html": {
-		"resources": [
-			"js/mui.min.js",
-			"images/Assets.xcassets/comment.imageset/comment@2x.png",
-			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
-			"js/day_paper_detail.js",
-			"images/lunnbo2.jpg",
-			"i18n/strings_en.properties",
-			"js/mui.zoom.js",
-			"css/imageViewer.css",
-			"js/mui.previewimage.js",
-			"css/paper_detail.css",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/dynamics/new_dynamics.html": {
-		"resources": [
-			"images/Assets.xcassets/+.imageset/+@2x.png",
-			"css/cropper.min.css",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/mui.cropper.css",
-			"js/cropper.min.js",
-			"js/new_dynamics.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties",
-			"images/Assets.xcassets/location.imageset/location@2x.png"
-		],
-		"refer": [
-			"index.html"
-		]
-	},
-	"view/dynamics/dynamics_detail.html": {
-		"resources": [
-			"css/mui.min.css",
-			"images/lunbo1.jpg",
-			"images/lunnbo2.jpg",
-			"css/imageViewer.css",
-			"js/mui.min.js",
-			"js/mui.zoom.js",
-			"js/mui.previewimage.js",
-			"js/dynamics_detail.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"view/dynamics/new_comment.html"
-		]
-	},
-	"view/dynamics/new_comment.html": {
-		"resources": [
-			"images/Assets.xcassets/+.imageset/+@2x.png",
-			"css/cropper.min.css",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"js/new_comment.js",
-			"css/mui.cropper.css",
-			"js/cropper.min.js",
-			"_doc/file:///storage/emulated/0/Tencent/TIMfile_recv/DLN~6IF7HIIM%0H_ILVSR)V.png",
-			"i18n/strings_en.properties",
-			"i18n/strings_ja.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/company/article.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": []
-	},
-	"view/company/day_paper_sub.html": {
-		"resources": [
-			"js/day_paper.js",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"images/lunbo3.jpg",
-			"images/lunnbo2.jpg"
-		],
-		"refer": [
-			"view/company/day_paper_detail.html"
-		]
-	},
-	"view/company/day_paper_main.html": {
-		"resources": [
-			"css/mui.min.css",
-			"view/company/day_paper_sub.html",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/company/day_paper_sub.html",
-			"view/company/new_day_paper.html"
-		]
-	},
-	"view/company/new_day_paper.html": {
-		"resources": [
-			"images/Assets.xcassets/+.imageset/+@2x.png",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"js/new_day_paper.js"
-		],
-		"refer": []
-	},
-	"view/company/week_paper_main.html": {
-		"resources": [
-			"js/mui.min.js",
-			"view/company/week_paper_sub.html",
-			"css/mui.min.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/company/week_paper_sub.html"
-		]
-	},
-	"view/company/week_paper_sub.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/week_paper.js"
-		],
-		"refer": [
-			"view/company/day_paper_detail.html",
-			"view/company/week_paper_detail.html"
-		]
-	},
-	"view/more/sign.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"images/Assets.xcassets/location.imageset/location@2x.png"
-		],
-		"refer": []
-	},
-	"view/company/request_sub.html": {
-		"resources": [
-			"js/request.js",
-			"images/lunbo1.jpg",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"images/Assets.xcassets/card.imageset/card@2x.png"
-		],
-		"refer": [
-			"view/company/request_detail.html"
-		]
-	},
-	"view/company/request_main.html": {
-		"resources": [
-			"view/company/request_sub.html",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/company/request_sub.html"
-		]
-	},
-	"view/company/request_detail.html": {
-		"resources": [
-			"images/Assets.xcassets/comment.imageset/comment@2x.png",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"images/Assets.xcassets/card.imageset/card@2x.png"
-		],
-		"refer": []
-	},
-	"view/company/sign.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/company/pictrue_sub.html": {
-		"resources": [
-			"js/picture.js",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"view/company/pictrue_detail.html"
-		]
-	},
-	"view/company/pictrue_main.html": {
-		"resources": [
-			"view/company/pictrue_sub.html",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/company/pictrue_sub.html"
-		]
-	},
-	"view/company/day_paper_detail.html": {
-		"resources": [
-			"js/mui.min.js",
-			"images/Assets.xcassets/comment.imageset/comment@2x.png",
-			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
-			"js/day_paper_detail.js",
-			"i18n/strings_en.properties",
-			"css/paper_detail.css",
-			"js/mui.zoom.js",
-			"css/imageViewer.css",
-			"js/mui.previewimage.js",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/mine/scan.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"view/more/new_finance.html": {
-		"resources": [
-			"js/mui.picker.js",
-			"js/mui.min.js",
-			"js/mui.poppicker.js",
-			"css/mui.dtpicker.css",
-			"css/mui.min.css",
-			"css/mui.poppicker.css",
-			"css/mui.picker.css",
-			"js/mui.dtpicker.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/more/request_person.html",
-			"view/more/finance_request_person.html"
-		]
-	},
-	"view/more/request_person.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"images/Assets.xcassets/card.imageset/card@2x.png"
-		],
-		"refer": []
-	},
-	"view/more/finance_request_person.html": {
-		"resources": [
-			"css/mui.min.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"images/Assets.xcassets/card.imageset/card@2x.png"
-		],
-		"refer": []
-	},
-	"view/company/company_notice_main.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"view/company/company_notice_sub.html",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/company/company_notice_sub.html"
-		]
-	},
-	"view/company/company_notice_sub.html": {
-		"resources": [
-			"css/mui.min.css"
-		],
-		"refer": [
-			"view/company/company_notice_detail.html"
-		]
-	},
-	"view/mine/setting.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/mui.view.js",
-			"js/mui.min.js",
-			"i18n/strings_zh.properties",
-			"i18n/strings_en.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": [
-			"login.html",
-			"view/mine/changelanguage.html"
-		]
-	},
-	"view/task/task_detail.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"images/lunnbo2.jpg",
-			"js/mui.zoom.js",
-			"js/mui.previewimage.js",
-			"css/imageViewer.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties",
-			"images/lunbo1.jpg",
-			"images/Assets.xcassets/comment.imageset/comment@2x.png"
-		],
-		"refer": []
-	},
-	"view/mine/myDynamics_main.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"view/mine/myDynamics_sub.html",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": [
-			"view/mine/myDynamics_sub.html"
-		]
-	},
-	"view/mine/myDynamics_sub.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"js/myDynamics.js",
-			"images/lunnbo2.jpg",
-			"images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png",
-			"images/Assets.xcassets/heart.imageset/heart@2x.png"
-		],
-		"refer": [
-			"view/mine/dynamics_detail.html"
-		]
-	},
-	"view/mine/dynamics_detail.html": {
-		"resources": [
-			"js/mui.zoom.js",
-			"js/mui.min.js",
-			"css/imageViewer.css",
-			"css/mui.min.css",
-			"js/mui.previewimage.js",
-			"js/dynamics_detail.js"
-		],
-		"refer": [
-			"view/mine/new_comment.html"
-		]
-	},
-	"view/mine/new_comment.html": {
-		"resources": [
-			"images/Assets.xcassets/+.imageset/+@2x.png",
-			"css/cropper.min.css",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"js/new_comment.js",
-			"css/mui.cropper.css",
-			"js/cropper.min.js"
-		],
-		"refer": []
-	},
-	"view/more/new_reminder.html": {
-		"resources": [
-			"css/mui.min.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/more/week_paper_detail.html": {
-		"resources": [
-			"images/Assets.xcassets/comment.imageset/comment@2x.png",
-			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
-			"js/week_paper_detail.js",
-			"i18n/strings_en.properties",
-			"js/mui.zoom.js",
-			"css/imageViewer.css",
-			"js/mui.previewimage.js",
-			"css/paper_detail.css",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/company/week_paper_detail.html": {
-		"resources": [
-			"images/Assets.xcassets/comment.imageset/comment@2x.png",
-			"css/mui.min.css",
-			"js/week_paper_detail.js",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
-			"i18n/strings_en.properties",
-			"css/paper_detail.css",
-			"js/mui.zoom.js",
-			"js/mui.previewimage.js",
-			"css/imageViewer.css",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/company/pictrue_detail.html": {
-		"resources": [
-			"css/mui.min.css",
-			"images/lunbo1.jpg",
-			"images/lunnbo2.jpg",
-			"i18n/strings_en.properties"
-		],
-		"refer": []
-	},
-	"view/mine/myCard.html": {
-		"resources": [
-			"js/jquery-1.8.0.js",
-			"css/mui.min.css",
-			"js/jquery.qrcode.js",
-			"js/utf.js",
-			"i18n/strings_en.properties"
-		],
-		"refer": []
-	},
-	"view/company/company_notice_detail.html": {
-		"resources": [
-			"css/mui.min.css",
-			"i18n/strings_en.properties"
-		],
-		"refer": []
-	},
-	"view/more/reminder_detail.html": {
-		"resources": [
-			"css/mui.min.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/task/jieshouPerson.html": {
-		"resources": [
-			"css/mui.min.css",
-			"i18n/strings_en.properties",
-			"i18n/strings_zh.properties"
-		],
-		"refer": []
-	},
-	"view/mine/changelanguage.html": {
-		"resources": [
-			"i18n/strings_en.properties",
-			"css/mui.min.css",
-			"i18n/strings_zh.properties",
-			"i18n/strings_ja.properties"
-		],
-		"refer": []
-	},
-	"view/mine/searchfriend.html": {
-		"resources": [
-			"css/mui.min.css",
-			"i18n/strings_zh.properties",
-			"images/Assets.xcassets/card.imageset/card@2x.png",
-			"i18n/strings_en.properties"
-		],
-		"refer": []
-	},
-	"view/more/shenpifinance_detail.html": {
-		"resources": [
-			"css/cropper.min.css",
-			"images/Assets.xcassets/comment.imageset/comment@2x.png",
-			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
-			"css/mui.cropper.css",
-			"i18n/strings_zh.properties",
-			"js/cropper.min.js"
-		]
-	},
-	"view/dynamics/Dnew_comment.html": {
-		"resources": [
-			"css/cropper.min.css",
-			"js/new_comment.js",
-			"css/mui.cropper.css",
-			"i18n/strings_zh.properties",
-			"js/cropper.min.js",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"view/dynamics/dynamics.html"
-		]
-	},
-	"view/mine/name.html": {
-		"resources": [
-			"css/mui.min.css",
-			"i18n/strings_zh.properties",
-			"i18n/strings_en.properties"
-		]
-	},
-	"view/mine/signature.html": {
-		"resources": [
-			"css/mui.min.css",
-			"i18n/strings_zh.properties"
-		]
-	},
-	"view/mine/headImg.html": {
-		"resources": [
-			"css/mui.min.css",
-			"i18n/strings_zh.properties",
-			"css/cropper.min.css",
-			"images/Assets.xcassets/default_empty_photo.imageset/default_empty_photo.png",
-			"css/mui.cropper.css",
-			"js/cropper.min.js",
-			"js/changeImg.js",
-			"css/imageViewer.css"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "img/lunbo1.jpg",
+      "index_refresh.html",
+      "dynamics.html",
+      "images/icon/tabbar_image.png",
+      "images/icon/tabbar_finance.png",
+      "images/icon/tabbar_weekly.png",
+      "images/icon/tabbar_attend.png",
+      "images/icon/tabbar_remind.png",
+      "images/icon/tabbar_timeoff.png",
+      "images/icon/tabbar_log.png",
+      "images/icon/tabbar_audit.png",
+      "images/icon/tabbar_work_arrange.png",
+      "images/Assets.xcassets/Tabbar/tabbar_add.imageset/tabbar_add@2x.png",
+      "view/dynamics/dynamics.html",
+      "view/more/more.html",
+      "js/mui.picker.js",
+      "js/mui.poppicker.js",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "css/cropper.min.css",
+      "css/mui.cropper.css",
+      "js/mui.cropper.js",
+      "js/cropper.min.js",
+      "view/dynamics/dynamics_main.html",
+      "view/task/task.html",
+      "js/jquery.i18n.properties-min-1.0.9.js",
+      "js/jquery-3.2.1.js",
+      "i18n/strings_en.properties",
+      "js/language.js",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "index_refresh.html",
+      "company.html",
+      "company2.html",
+      "login.html",
+      "dynamics.html",
+      "more.html",
+      "mine.html",
+      "task.html",
+      "request_main.html",
+      "week_paper_main.html",
+      "day_paper_main.html",
+      "finance_main.html",
+      "notepad_main.html",
+      "examination_main.html",
+      "reminder_main.html",
+      "view/more/more.html",
+      "view/mine/mine.html",
+      "view/dynamics/dynamics.html",
+      "view/task/task.html",
+      "view/company/company_main.html",
+      "view/company/company.html",
+      "view/dynamics/dynamics_main.html",
+      "view/task/task_main.html",
+      "tabbar.html"
+    ]
+  },
+  "index_refresh.html": {
+    "resources": [
+      "css/mui.min.css",
+      "img/lunbo1.jpg"
+    ],
+    "refer": []
+  },
+  "company.html": {
+    "resources": [
+      "img/tabbar_log.png",
+      "img/tabbar_audit.png",
+      "img/tabbar_attend.png",
+      "img/tabbar_image.png",
+      "img/tabbar_timeoff.png",
+      "img/tabbar_weekly.png",
+      "css/mui.min.css",
+      "images/tabbar_image.png",
+      "images/tabbar_weekly.png",
+      "images/tabbar_audit.png",
+      "images/tabbar_attend.png",
+      "images/tabbar_log.png",
+      "images/tabbar_timeoff.png"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "company2.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "login.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "js/md5.js",
+      "js/userInfo.js",
+      "js/jquery.i18n.properties-min-1.0.9.js",
+      "js/language.js",
+      "i18n/strings_en.properties",
+      "js/jquery-3.2.1.js",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "view/index.html",
+      "index.html",
+      "reset_password.html",
+      "popover.html",
+      "view/task/task_main.html",
+      "task_main.html"
+    ]
+  },
+  "dynamics.html": {
+    "resources": [
+      "img/lunbo1.jpg",
+      "css/mui.min.css",
+      "images/lunbo1.jpg"
+    ],
+    "refer": []
+  },
+  "more.html": {
+    "resources": [
+      "images/icon/tabbar_image.png",
+      "images/icon/tabbar_finance.png",
+      "images/icon/tabbar_weekly.png",
+      "images/icon/tabbar_attend.png",
+      "images/icon/tabbar_remind.png",
+      "images/icon/tabbar_timeoff.png",
+      "images/icon/tabbar_compose_background_icon_close@2x.png",
+      "images/icon/tabbar_log.png",
+      "images/icon/tabbar_audit.png",
+      "images/icon/tabbar_work_arrange.png",
+      "css/mui.min.css",
+      "day_paper_main.html",
+      "week_paper_main.html",
+      "notepad_main.html",
+      "request_main.html"
+    ],
+    "refer": [
+      "day_paper_main.html",
+      "week_paper_main.html",
+      "notepad_main.html",
+      "request_main.html"
+    ]
+  },
+  "mine.html": {
+    "resources": [
+      "images/Assets.xcassets/setting.imageset/setting@2x.png",
+      "images/Assets.xcassets/find.imageset/find@2x.png",
+      "images/Assets.xcassets/Tabbar/moment.imageset/moment@2x.png",
+      "images/Assets.xcassets/card.imageset/card@2x.png",
+      "images/Assets.xcassets/scanning.imageset/scanning@2x.png",
+      "images/lunnbo2.jpg",
+      "person.html"
+    ],
+    "refer": [
+      "person.html"
+    ]
+  },
+  "person.html": {
+    "resources": [
+      "images/Assets.xcassets/QRCode.imageset/QRCode@2x.png",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_180.png",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "task.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "week_paper_sub.html": {
+    "resources": [
+      "images/lunbo3.jpg",
+      "images/lunnbo2.jpg",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "week_paper_main.html": {
+    "resources": [
+      "week_paper_sub.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "week_paper_sub.html"
+    ]
+  },
+  "day_paper_main.html": {
+    "resources": [
+      "week_paper_sub.html",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "week_paper_sub.html"
+    ]
+  },
+  "notepad_main.html": {
+    "resources": [
+      "notepad_sub.html",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "notepad_sub.html"
+    ]
+  },
+  "notepad_sub.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "request_main.html": {
+    "resources": [
+      "request_sub.html",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "request_sub.html"
+    ]
+  },
+  "request_sub.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "finance_main.html": {
+    "resources": [
+      "finance_sub.html"
+    ],
+    "refer": [
+      "finance_sub.html"
+    ]
+  },
+  "examination_main.html": {
+    "resources": [
+      "examination_sub.html",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "examination_sub.html"
+    ]
+  },
+  "reminder_main.html": {
+    "resources": [
+      "reminder_sub.html",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "reminder_sub.html"
+    ]
+  },
+  "view/more/more.html": {
+    "resources": [
+      "images/icon/tabbar_compose_background_icon_close@2x.png",
+      "css/mui.min.css",
+      "view/more/day_paper_main.html",
+      "images/icon/tabbar_image.png",
+      "images/icon/tabbar_finance.png",
+      "images/icon/tabbar_weekly.png",
+      "images/icon/tabbar_attend.png",
+      "images/icon/tabbar_remind.png",
+      "images/icon/tabbar_timeoff.png",
+      "images/icon/tabbar_log.png",
+      "images/icon/tabbar_audit.png",
+      "images/icon/tabbar_work_arrange.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "view/more/day_paper_main.html",
+      "view/more/week_paper_main.html",
+      "view/more/pictrue_main.html",
+      "view/more/request_main.html",
+      "view/more/notepad_main.html",
+      "view/more/reminder_main.html",
+      "view/more/finance_main.html",
+      "view/more/examination_main.html",
+      "view/more/sign.html"
+    ]
+  },
+  "view/mine/mine.html": {
+    "resources": [
+      "images/Assets.xcassets/setting.imageset/setting@2x.png",
+      "images/Assets.xcassets/find.imageset/find@2x.png",
+      "images/Assets.xcassets/Tabbar/moment.imageset/moment@2x.png",
+      "images/Assets.xcassets/card.imageset/card@2x.png",
+      "images/Assets.xcassets/scanning.imageset/scanning@2x.png",
+      "images/lunnbo2.jpg",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "i18n/strings_en.properties",
+      "js/languagemore.js",
+      "images/Assets.xcassets/eye_gray.imageset/eye_gray@2x.png",
+      "images/Assets.xcassets/chat.imageset/chat@2x.png",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "view/mine/person.html",
+      "view/mine/scan.html",
+      "view/mine/setting.html",
+      "view/mine/myDynamics_main.html",
+      "view/mine/myCard.html",
+      "view/mine/changelanguage.html",
+      "login.html",
+      "view/mine/searchfriend.html"
+    ]
+  },
+  "view/dynamics/dynamics.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/lunbo1.jpg",
+      "js/mui.min.js",
+      "css/imageViewer.css",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "js/dynamics.js",
+      "images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png",
+      "images/Assets.xcassets/heart.imageset/heart@2x.png",
+      "js/userInfo.js",
+      "images/lunnbo2.jpg"
+    ],
+    "refer": [
+      "view/dynamics/new_dynamics.html",
+      "view/dynamics/dynamics_detail.html",
+      "view/dynamics/new_comment.html",
+      "view/dynamics/Dnew_comment.html"
+    ]
+  },
+  "view/company/company_main.html": {
+    "resources": [
+      "view/company/company_sub.html",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "view/company/company_sub.html"
+    ]
+  },
+  "view/company/company_sub.html": {
+    "resources": [
+      "images/tabbar_image.png",
+      "images/tabbar_weekly.png",
+      "images/tabbar_audit.png",
+      "images/tabbar_attend.png",
+      "images/tabbar_log.png",
+      "images/tabbar_timeoff.png",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "view/more/day_paper_sub.html": {
+    "resources": [
+      "images/lunbo3.jpg",
+      "css/mui.min.css",
+      "images/lunnbo2.jpg",
+      "js/mui.min.js",
+      "js/day_paper.js",
+      "js/geren_day_paper.js",
+      "js/userInfo.js",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "view/more/day_paper_detail.html"
+    ]
+  },
+  "view/more/day_paper_main.html": {
+    "resources": [
+      "view/more/day_paper_sub.html",
+      "css/mui.min.css",
+      "view/more/more.html",
+      "js/mui.min.js",
+      "js/day_paper.js",
+      "fonts/mui.ttf",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "view/more/day_paper_sub.html",
+      "view/more/more.html",
+      "view/more/new_day_paper.html"
+    ]
+  },
+  "view/more/week_paper_main.html": {
+    "resources": [
+      "view/more/week_paper_sub.html",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/week_paper.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "view/more/week_paper_sub.html",
+      "view/more/new_week_paper.html"
+    ]
+  },
+  "view/more/week_paper_sub.html": {
+    "resources": [
+      "images/lunbo3.jpg",
+      "css/mui.min.css",
+      "images/lunnbo2.jpg",
+      "js/week_paper.js",
+      "js/mui.min.js",
+      "js/geren_day_paper.js",
+      "js/geren_week_paper.js"
+    ],
+    "refer": [
+      "view/more/day_paper_detail.html",
+      "view/more/week_paper_detail.html"
+    ]
+  },
+  "view/more/pictrue_main.html": {
+    "resources": [
+      "view/more/pictrue_sub.html",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_ja.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/more/pictrue_sub.html",
+      "view/more/new_picture.html"
+    ]
+  },
+  "view/more/request_main.html": {
+    "resources": [
+      "view/more/request_sub.html",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/more/request_sub.html",
+      "view/more/new_request.html"
+    ]
+  },
+  "view/more/notepad_main.html": {
+    "resources": [
+      "css/mui.min.css",
+      "view/more/notepad_sub.html",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/more/notepad_sub.html",
+      "view/more/new_notepad.html"
+    ]
+  },
+  "view/more/reminder_main.html": {
+    "resources": [
+      "view/more/reminder_sub.html",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/more/reminder_sub.html",
+      "view/more/new_reminder.html"
+    ]
+  },
+  "view/more/examination_sub.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/lunbo1.jpg",
+      "js/examination.js",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "images/Assets.xcassets/card.imageset/card@2x.png"
+    ],
+    "refer": [
+      "view/more/request_detail.html",
+      "view/more/finance_detail.html",
+      "view/more/shenpifinance_detail.html"
+    ]
+  },
+  "view/more/finance_main.html": {
+    "resources": [
+      "view/more/finance_sub.html",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/more/finance_sub.html",
+      "view/more/new_finance.html"
+    ]
+  },
+  "view/more/examination_main.html": {
+    "resources": [
+      "view/more/examination_sub.html",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/more/examination_sub.html"
+    ]
+  },
+  "view/more/finance_sub.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/lunbo1.jpg",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/more/request_detail.html",
+      "view/more/finance_detail.html"
+    ]
+  },
+  "view/more/reminder_sub.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "view/more/finance_detail.html",
+      "view/more/reminder_detail.html"
+    ]
+  },
+  "view/company/company.html": {
+    "resources": [
+      "images/tabbar_image.png",
+      "images/tabbar_weekly.png",
+      "images/tabbar_audit.png",
+      "images/tabbar_attend.png",
+      "images/tabbar_log.png",
+      "images/tabbar_timeoff.png",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "i18n/strings_en.properties",
+      "js/languagemore.js",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "view/company/article.html",
+      "view/company/day_paper_main.html",
+      "view/company/week_paper_main.html",
+      "view/company/request_main.html",
+      "view/company/sign.html",
+      "view/company/pictrue_main.html",
+      "view/company/company_notice_main.html",
+      "view/company/day_paper_detail.html",
+      "view/company/company_notice_detail.html"
+    ]
+  },
+  "view/more/pictrue_sub.html": {
+    "resources": [
+      "images/lunbo3.jpg",
+      "css/mui.min.css",
+      "images/lunbo1.jpg",
+      "js/mui.min.js",
+      "js/picture.js",
+      "js/geren_picture.js"
+    ],
+    "refer": [
+      "view/more/pictrue_detail.html"
+    ]
+  },
+  "view/more/pictrue_detail.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "images/lunnbo2.jpg",
+      "images/lunbo1.jpg",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "reset_password.html": {
+    "resources": [
+      "css/mui.min.css",
+      "i18n/strings_ja.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/mine/person.html": {
+    "resources": [
+      "images/Assets.xcassets/QRCode.imageset/QRCode@2x.png",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_180.png",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties",
+      "js/mui.dtpicker.js",
+      "css/mui.dtpicker.css",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css"
+    ],
+    "refer": [
+      "view/mine/name.html",
+      "view/mine/signature.html",
+      "view/mine/headImg.html"
+    ]
+  },
+  "view/more/request_detail.html": {
+    "resources": [
+      "images/Assets.xcassets/comment.imageset/comment@2x.png",
+      "css/mui.min.css",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/more/request_sub.html": {
+    "refer": [
+      "view/more/request_detail.html"
+    ],
+    "resources": [
+      "css/mui.min.css",
+      "images/lunbo1.jpg",
+      "js/request.js",
+      "js/mui.min.js",
+      "js/geren_request.js"
+    ]
+  },
+  "view/more/finance_detail.html": {
+    "resources": [
+      "images/Assets.xcassets/comment.imageset/comment@2x.png",
+      "css/mui.min.css",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "css/cropper.min.css",
+      "css/mui.cropper.css",
+      "js/cropper.min.js"
+    ],
+    "refer": []
+  },
+  "view/more/new_day_paper.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/Assets.xcassets/+.imageset/+@2x.png",
+      "js/mui.min.js",
+      "js/new_day_paper.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": []
+  },
+  "view/more/new_week_paper.html": {
+    "resources": [
+      "images/Assets.xcassets/+.imageset/addHeadIcon.png",
+      "css/mui.min.css",
+      "images/Assets.xcassets/+.imageset/+@2x.png",
+      "js/mui.min.js",
+      "js/new_day_paper.js",
+      "js/new_week_paper.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": []
+  },
+  "view/more/new_request.html": {
+    "resources": [
+      "js/mui.picker.js",
+      "js/mui.poppicker.js",
+      "css/mui.dtpicker.css",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "js/mui.dtpicker.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/more/request_person.html"
+    ]
+  },
+  "view/more/new_notepad.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/more/notepad_sub.html": {
+    "refer": [
+      "view/more/notepad_detail.html"
+    ],
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf"
+    ]
+  },
+  "popover.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/cropper.min.css",
+      "css/mui.cropper.css",
+      "js/mui.cropper.js",
+      "js/cropper.min.js"
+    ],
+    "refer": []
+  },
+  "view/dynamics/dynamics_main.html": {
+    "resources": [
+      "view/dynamics/dynamics_sub.html",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "view/dynamics/dynamics_sub.html"
+    ]
+  },
+  "view/dynamics/dynamics_sub.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/lunbo1.jpg"
+    ],
+    "refer": []
+  },
+  "view/task/task_main.html": {
+    "resources": [
+      "css/mui.min.css",
+      "view/task/task_sub.html",
+      "css/cropper.min.css",
+      "css/mui.cropper.css",
+      "js/mui.cropper.js",
+      "js/cropper.min.js",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_58.png",
+      "images/icon/tabbar_image.png",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "view/task/task_sub.html",
+      "view/task/new_task.html"
+    ]
+  },
+  "view/task/task_sub.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_58.png",
+      "images/icon/tabbar_image.png"
+    ],
+    "refer": []
+  },
+  "view/task/new_task.html": {
+    "resources": [
+      "images/Assets.xcassets/+.imageset/+@2x.png",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "js/mui.picker.js",
+      "js/mui.poppicker.js",
+      "css/mui.dtpicker.css",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "js/mui.dtpicker.js",
+      "js/new_task.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "view/task/jieshouPerson.html"
+    ]
+  },
+  "view/more/notepad_detail.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/more/new_picture.html": {
+    "resources": [
+      "images/Assets.xcassets/+.imageset/+@2x.png",
+      "css/cropper.min.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/mui.cropper.css",
+      "js/cropper.min.js",
+      "js/mui.cropper.js",
+      "js/new_picture.js",
+      "view/more/new_picture.html",
+      "i18n/strings_en.properties",
+      "i18n/strings_ja.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/more/new_picture.html"
+    ]
+  },
+  "task_main.html": {
+    "resources": [
+      "css/cropper.min.css",
+      "task_sub.html",
+      "css/mui.cropper.css",
+      "js/mui.cropper.js",
+      "js/cropper.min.js"
+    ],
+    "refer": [
+      "task_sub.html"
+    ]
+  },
+  "tabbar.html": {
+    "resources": [
+      "images/Assets.xcassets/Tabbar/tabbar_add.imageset/tabbar_add@2x.png",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "view/more/more.html"
+    ]
+  },
+  "view/task/task.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_58.png",
+      "images/icon/tabbar_image.png",
+      "fonts/mui.ttf",
+      "js/mui.zoom.js",
+      "js/mui.min.js",
+      "js/mui.previewimage.js",
+      "js/task.js"
+    ],
+    "refer": [
+      "view/task/new_task.html",
+      "view/task/task_detail.html"
+    ]
+  },
+  "view/more/day_paper_detail.html": {
+    "resources": [
+      "js/mui.min.js",
+      "images/Assets.xcassets/comment.imageset/comment@2x.png",
+      "css/mui.min.css",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+      "js/day_paper_detail.js",
+      "images/lunnbo2.jpg",
+      "i18n/strings_en.properties",
+      "js/mui.zoom.js",
+      "css/imageViewer.css",
+      "js/mui.previewimage.js",
+      "css/paper_detail.css",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/dynamics/new_dynamics.html": {
+    "resources": [
+      "images/Assets.xcassets/+.imageset/+@2x.png",
+      "css/cropper.min.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/mui.cropper.css",
+      "js/cropper.min.js",
+      "js/new_dynamics.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties",
+      "images/Assets.xcassets/location.imageset/location@2x.png"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "view/dynamics/dynamics_detail.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/lunbo1.jpg",
+      "images/lunnbo2.jpg",
+      "css/imageViewer.css",
+      "js/mui.min.js",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "js/dynamics_detail.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "view/dynamics/new_comment.html"
+    ]
+  },
+  "view/dynamics/new_comment.html": {
+    "resources": [
+      "images/Assets.xcassets/+.imageset/+@2x.png",
+      "css/cropper.min.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/new_comment.js",
+      "css/mui.cropper.css",
+      "js/cropper.min.js",
+      "_doc/file:///storage/emulated/0/Tencent/TIMfile_recv/DLN~6IF7HIIM%0H_ILVSR)V.png",
+      "i18n/strings_en.properties",
+      "i18n/strings_ja.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/company/article.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": []
+  },
+  "view/company/day_paper_sub.html": {
+    "resources": [
+      "js/day_paper.js",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "images/lunbo3.jpg",
+      "images/lunnbo2.jpg"
+    ],
+    "refer": [
+      "view/company/day_paper_detail.html"
+    ]
+  },
+  "view/company/day_paper_main.html": {
+    "resources": [
+      "css/mui.min.css",
+      "view/company/day_paper_sub.html",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/company/day_paper_sub.html",
+      "view/company/new_day_paper.html"
+    ]
+  },
+  "view/company/new_day_paper.html": {
+    "resources": [
+      "images/Assets.xcassets/+.imageset/+@2x.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/new_day_paper.js"
+    ],
+    "refer": []
+  },
+  "view/company/week_paper_main.html": {
+    "resources": [
+      "js/mui.min.js",
+      "view/company/week_paper_sub.html",
+      "css/mui.min.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/company/week_paper_sub.html"
+    ]
+  },
+  "view/company/week_paper_sub.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/week_paper.js"
+    ],
+    "refer": [
+      "view/company/day_paper_detail.html",
+      "view/company/week_paper_detail.html"
+    ]
+  },
+  "view/more/sign.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "images/Assets.xcassets/location.imageset/location@2x.png"
+    ],
+    "refer": []
+  },
+  "view/company/request_sub.html": {
+    "resources": [
+      "js/request.js",
+      "images/lunbo1.jpg",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "images/Assets.xcassets/card.imageset/card@2x.png"
+    ],
+    "refer": [
+      "view/company/request_detail.html"
+    ]
+  },
+  "view/company/request_main.html": {
+    "resources": [
+      "view/company/request_sub.html",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/company/request_sub.html"
+    ]
+  },
+  "view/company/request_detail.html": {
+    "resources": [
+      "images/Assets.xcassets/comment.imageset/comment@2x.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "images/Assets.xcassets/card.imageset/card@2x.png"
+    ],
+    "refer": []
+  },
+  "view/company/sign.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/company/pictrue_sub.html": {
+    "resources": [
+      "js/picture.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "view/company/pictrue_detail.html"
+    ]
+  },
+  "view/company/pictrue_main.html": {
+    "resources": [
+      "view/company/pictrue_sub.html",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/company/pictrue_sub.html"
+    ]
+  },
+  "view/company/day_paper_detail.html": {
+    "resources": [
+      "js/mui.min.js",
+      "images/Assets.xcassets/comment.imageset/comment@2x.png",
+      "css/mui.min.css",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+      "js/day_paper_detail.js",
+      "i18n/strings_en.properties",
+      "css/paper_detail.css",
+      "js/mui.zoom.js",
+      "css/imageViewer.css",
+      "js/mui.previewimage.js",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/mine/scan.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "view/more/new_finance.html": {
+    "resources": [
+      "js/mui.picker.js",
+      "js/mui.min.js",
+      "js/mui.poppicker.js",
+      "css/mui.dtpicker.css",
+      "css/mui.min.css",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "js/mui.dtpicker.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/more/request_person.html",
+      "view/more/finance_request_person.html"
+    ]
+  },
+  "view/more/request_person.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "images/Assets.xcassets/card.imageset/card@2x.png"
+    ],
+    "refer": []
+  },
+  "view/more/finance_request_person.html": {
+    "resources": [
+      "css/mui.min.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "images/Assets.xcassets/card.imageset/card@2x.png"
+    ],
+    "refer": []
+  },
+  "view/company/company_notice_main.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "view/company/company_notice_sub.html",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/company/company_notice_sub.html"
+    ]
+  },
+  "view/company/company_notice_sub.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "view/company/company_notice_detail.html"
+    ]
+  },
+  "view/mine/setting.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.view.js",
+      "js/mui.min.js",
+      "i18n/strings_zh.properties",
+      "i18n/strings_en.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": [
+      "login.html",
+      "view/mine/changelanguage.html"
+    ]
+  },
+  "view/task/task_detail.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/lunnbo2.jpg",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "css/imageViewer.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties",
+      "images/lunbo1.jpg",
+      "images/Assets.xcassets/comment.imageset/comment@2x.png"
+    ],
+    "refer": []
+  },
+  "view/mine/myDynamics_main.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "view/mine/myDynamics_sub.html",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": [
+      "view/mine/myDynamics_sub.html"
+    ]
+  },
+  "view/mine/myDynamics_sub.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "js/myDynamics.js",
+      "images/lunnbo2.jpg",
+      "images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png",
+      "images/Assets.xcassets/heart.imageset/heart@2x.png"
+    ],
+    "refer": [
+      "view/mine/dynamics_detail.html"
+    ]
+  },
+  "view/mine/dynamics_detail.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "js/mui.min.js",
+      "css/imageViewer.css",
+      "css/mui.min.css",
+      "js/mui.previewimage.js",
+      "js/dynamics_detail.js"
+    ],
+    "refer": [
+      "view/mine/new_comment.html"
+    ]
+  },
+  "view/mine/new_comment.html": {
+    "resources": [
+      "images/Assets.xcassets/+.imageset/+@2x.png",
+      "css/cropper.min.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/new_comment.js",
+      "css/mui.cropper.css",
+      "js/cropper.min.js"
+    ],
+    "refer": []
+  },
+  "view/more/new_reminder.html": {
+    "resources": [
+      "css/mui.min.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/more/week_paper_detail.html": {
+    "resources": [
+      "images/Assets.xcassets/comment.imageset/comment@2x.png",
+      "css/mui.min.css",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+      "js/week_paper_detail.js",
+      "i18n/strings_en.properties",
+      "js/mui.zoom.js",
+      "css/imageViewer.css",
+      "js/mui.previewimage.js",
+      "css/paper_detail.css",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/company/week_paper_detail.html": {
+    "resources": [
+      "images/Assets.xcassets/comment.imageset/comment@2x.png",
+      "css/mui.min.css",
+      "js/week_paper_detail.js",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+      "i18n/strings_en.properties",
+      "css/paper_detail.css",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "css/imageViewer.css",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/company/pictrue_detail.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/lunbo1.jpg",
+      "images/lunnbo2.jpg",
+      "i18n/strings_en.properties"
+    ],
+    "refer": []
+  },
+  "view/mine/myCard.html": {
+    "resources": [
+      "js/jquery-1.8.0.js",
+      "css/mui.min.css",
+      "js/jquery.qrcode.js",
+      "js/utf.js",
+      "i18n/strings_en.properties"
+    ],
+    "refer": []
+  },
+  "view/company/company_notice_detail.html": {
+    "resources": [
+      "css/mui.min.css",
+      "i18n/strings_en.properties"
+    ],
+    "refer": []
+  },
+  "view/more/reminder_detail.html": {
+    "resources": [
+      "css/mui.min.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/task/jieshouPerson.html": {
+    "resources": [
+      "css/mui.min.css",
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
+    ],
+    "refer": []
+  },
+  "view/mine/changelanguage.html": {
+    "resources": [
+      "i18n/strings_en.properties",
+      "css/mui.min.css",
+      "i18n/strings_zh.properties",
+      "i18n/strings_ja.properties"
+    ],
+    "refer": []
+  },
+  "view/mine/searchfriend.html": {
+    "resources": [
+      "css/mui.min.css",
+      "i18n/strings_zh.properties",
+      "images/Assets.xcassets/card.imageset/card@2x.png",
+      "i18n/strings_en.properties"
+    ],
+    "refer": []
+  },
+  "view/more/shenpifinance_detail.html": {
+    "resources": [
+      "css/cropper.min.css",
+      "images/Assets.xcassets/comment.imageset/comment@2x.png",
+      "css/mui.min.css",
+      "images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+      "css/mui.cropper.css",
+      "i18n/strings_zh.properties",
+      "js/cropper.min.js"
+    ]
+  },
+  "view/dynamics/Dnew_comment.html": {
+    "resources": [
+      "css/cropper.min.css",
+      "js/new_comment.js",
+      "css/mui.cropper.css",
+      "i18n/strings_zh.properties",
+      "js/cropper.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "view/dynamics/dynamics.html"
+    ]
+  },
+  "view/mine/name.html": {
+    "resources": [
+      "css/mui.min.css",
+      "i18n/strings_zh.properties",
+      "i18n/strings_en.properties"
+    ]
+  },
+  "view/mine/signature.html": {
+    "resources": [
+      "css/mui.min.css",
+      "i18n/strings_zh.properties"
+    ]
+  },
+  "view/mine/headImg.html": {
+    "resources": [
+      "css/mui.min.css",
+      "i18n/strings_zh.properties",
+      "css/cropper.min.css",
+      "images/Assets.xcassets/default_empty_photo.imageset/default_empty_photo.png",
+      "css/mui.cropper.css",
+      "js/cropper.min.js",
+      "js/changeImg.js",
+      "css/imageViewer.css"
+    ]
+  }
 }

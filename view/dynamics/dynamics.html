@@ -12,12 +12,7 @@
 			#text {
 				margin: 10px;
 			}
-			
-			.mui-icon {
-				margin: 3px;
-				width: 50%;
-			}
-			
+			 
 			.photo {
 				width: 30%;
 				margin: 3px;
@@ -39,7 +34,8 @@
 	<body>
 
 		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
-			<div id="table">
+			<div class="mui-scroll">
+				<div id="table">
 				<div class="mui-card">
 					<!--<div class="mui-card-header mui-card-media">
 						<img src="../images/logo.png" />
@@ -68,6 +64,8 @@
 					</div>-->
 				</div>
 			</div>
+			</div>
+			
 		</div>
 	</body> 
 	<script type="text/javascript" src="../../js/dynamics.js"></script>
@@ -124,7 +122,18 @@
 			 	}
 			 }
 		})
-		
+		if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
+
+				});
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
 
 	</script>
 
