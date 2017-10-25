@@ -939,7 +939,8 @@
       "css/mui.min.css",
       "js/mui.min.js",
       "i18n/strings_en.properties",
-      "i18n/strings_ja.properties"
+      "i18n/strings_ja.properties",
+      "i18n/strings_zh.properties"
     ],
     "refer": []
   },
@@ -1296,7 +1297,8 @@
   "view/company/company_notice_detail.html": {
     "resources": [
       "css/mui.min.css",
-      "i18n/strings_en.properties"
+      "i18n/strings_en.properties",
+      "i18n/strings_zh.properties"
     ],
     "refer": []
   },

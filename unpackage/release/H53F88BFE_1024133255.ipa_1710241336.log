@@ -1,0 +1,27 @@
+[2017-10-24 13:36:40 CST] <Thread-9>  INFO: Logging to file: D:\我的文档\HBuilderProjects\EWork3.0\unpackage\release\H53F88BFE_1024133255.ipa_1710241336.log
+[2017-10-24 13:36:40 CST] <Thread-9>  INFO: Logging configured successfully.
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: iTMSTransporter : iTunes Store Transporter [1.9.4]
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: OS identifier: Windows 10 10.0 (amd64); jvm=25.111-b14; jre=1.8.0_111-b14
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: Memory: [JVM] 29M free, 90M total, 786M max [System] (Physical) 730M free, 3535M total (Swap) 1486M free, 6044M total
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: Upload mode selected.
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: Examining the package at: C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1299661602.itmsp
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: Ensuring that package has well formed metadata file...
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: Gathering the list of valid files from the package ...
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: Finished gathering the list of valid files from the package.
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: Verify progress: Analyzing metadata (Step 0/?)
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: Performing authentication of package 1299661602.itmsp ...
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: Verify progress: Analyzing metadata (Step 1/2)
+[2017-10-24 13:36:42 CST] <Thread-9>  INFO: id = 20171024133642-131
+[2017-10-24 13:36:43 CST] <Thread-9>  INFO: id = 20171024133643-633
+[2017-10-24 13:36:44 CST] <Thread-9> ERROR: ERROR ITMS-4238: "Redundant Binary Upload. There already exists a binary upload with build version '83' for train '3.0'" at SoftwareAssets/PreReleaseSoftwareAsset
+[2017-10-24 13:36:44 CST] <Thread-9>  INFO: Verify progress: Operation failed (Step 2/2)
+
+
+
+Package Summary:
+ 
+1 package(s) were not uploaded because they had problems:
+	C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1299661602.itmsp - Error Messages:
+		ERROR ITMS-4238: "Redundant Binary Upload. There already exists a binary upload with build version '83' for train '3.0'" at SoftwareAssets/PreReleaseSoftwareAsset
+[2017-10-24 13:39:14 CST] <Thread-12> Invalid cookie header: "Set-Cookie: dqsid=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJLSUtBd1BsMjNYRlZmbXh3M080S2tBIn0.maNLE6a6Kx7CHKOJPcy4Gfrc6VDzEqIV30U_CRDU2V8; Max-Age=1800; Expires=Tue, 24 Oct 2017 06:09:11 GMT; Path=/; Secure; HTTPOnly". Invalid 'expires' attribute: Tue, 24 Oct 2017 06:09:11 GMT
+[2017-10-24 13:39:14 CST] <Thread-12> list apps success

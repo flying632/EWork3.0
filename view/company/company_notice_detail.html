@@ -55,8 +55,26 @@
 						if(data.flag==200){
 							var result = data.result[0];
 							document.getElementById('body').innerText = result.content;
+							changemode();
 						}
 						
+					},
+					error:function(){
+						mui.alert("error");
+					}
+				})
+			}
+			function changemode(){
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Gonggao/changegonggao/',{
+					data:{
+						gonggaoid:id,
+						userid:this_phoneNum,
+					},
+					timeout:1000,
+					type:'post',
+					success:function(data){
+						//mui.alert(JSON.stringify(data));
+						mui.toast(data.msg); 
 					},
 					error:function(){
 						mui.alert("error");

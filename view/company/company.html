@@ -232,7 +232,7 @@
 
 		//获取未读公告
 		function getGonggao() {
-			mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Gonggao/getweidugonggao/', {
+			mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Gonggao/getgonggaoall/', {
 				data: {
 					userid: phoneNum,
 					companyid: companyId
@@ -246,11 +246,18 @@
 					var table = document.getElementById('table');
 					table.innerHTML = "";
 					for(var i = 0; i < result.length; i++) {
+						var status;
+						if(result[i].status == 10) {
+							status = "已读";
+						} else if(result[i].status == 20) {
+							status = "未读";
+						}
 						var li = document.createElement('li');
-						li.id = result.id;
+						li.id = result[i].id;
 						li.className = 'mui-table-view-cell';
-						li.innerHTML = '<div class="title">' + result[i].title + '</div><div class="mui-btn-link">未读	</div>' +
+						li.innerHTML = '<div class="title">' + result[i].title + '</div><div class="mui-btn-link">' + status + '	</div>' +
 							'<p class="mui-ellipsis-2">' + result[i].content + '</p>	<div class="date"><p>' + result[i].writetime + '</p></div>';
+
 						table.appendChild(li);
 					}
 				},
