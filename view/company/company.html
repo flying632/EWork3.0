@@ -24,7 +24,7 @@
 			}
 			
 			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
-				width: 80%;
+				width: 60%;
 			}
 			
 			.mui-ellipsis-2 {
@@ -36,7 +36,7 @@
 			}
 			
 			.mui-media-body {
-				font-size: 14px;
+				font-size: 12px;
 				color: darkgrey;
 			}
 			
@@ -224,7 +224,7 @@
 				},
 				error: function(xhr, type, errorThrown) {
 					//异常处理
-					mui.alert("error");
+					mui.toast("error");
 				}
 
 			});
@@ -242,7 +242,7 @@
 				success: function(data) {
 					mui.toast(data.msg);
 					var result = data.result;
-					//		mui.alert(JSON.stringify(data));
+					//		mui.toast(JSON.stringify(data));
 					var table = document.getElementById('table');
 					table.innerHTML = "";
 					for(var i = 0; i < result.length; i++) {
@@ -262,7 +262,7 @@
 					}
 				},
 				error: function() {
-					mui.alert("网络出错")
+					mui.toast("网络出错")
 				}
 			})
 		}

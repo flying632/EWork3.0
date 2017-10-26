@@ -51,8 +51,8 @@ function getData(thePage, dateTime) {
 						}
 					}
 					innerCode += '<p>' + result[i].date + '</p>'
-					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="mui-icon like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
-						'<a  class="mui-card-link"> <img class="mui-icon comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="logImg like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
+						'<a  class="mui-card-link"> <img class="logImg comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
 
 					innerCode += '</div><div class="comment">';
 					var comments = result[i].moment_list;
@@ -91,7 +91,7 @@ function pulldownGetData(Page, dateTime) {
 		success: function(data) {
 			var table = document.getElementById('table');
 			table.innerHTML = "";
-			mui.toast(data.msg);
+			//mui.toast(data.msg);
 			if(data.flag == '200') {
 				table.innerHTML = "";
 				result = data.result;
@@ -101,8 +101,8 @@ function pulldownGetData(Page, dateTime) {
 					card.setAttribute('id', result[i].id);
 
 					var numOfPhotos = result[i].photourls.length;
-					var innerCode = '<div class="mui-card-header mui-card-media"><img src="' + result[i].personlogo + '" onerror="imgerror(this)" />' +
-						'<div class="mui-media-body">' + result[i].name + '<p>' + result[i].date + '</p></div></div>' +
+					var innerCode = '<div class="mui-card-header mui-card-media"><img src="' + result[i].personlogo + '"  onerror="imgerror(this)"/>' +
+						'<div class="mui-media-body">' + result[i].name + '<p>' + result[i].location + '</p></div></div>' +
 						'	<div class="mui-card-content"><div id="text" class="mui-ellipsis-2">' + result[i].describe + '</div>';
 					if(numOfPhotos != 0) {
 						if(numOfPhotos == 1) {
@@ -118,8 +118,10 @@ function pulldownGetData(Page, dateTime) {
 							innerCode += '</div>';
 						}
 					}
-					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="mui-icon like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
-						'<a  class="mui-card-link"> <img class="mui-icon comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+					innerCode += '<p>' + result[i].date + '</p>'
+					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="logImg like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
+						'<a  class="mui-card-link"> <img class="logImg comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+
 					innerCode += '</div><div class="comment">';
 					var comments = result[i].moment_list;
 					for(var j = 0; j < comments.length; j++) {
@@ -134,7 +136,7 @@ function pulldownGetData(Page, dateTime) {
 
 		},
 		error: function(xhr, type, errorThrown) {
-			mui.alert("wrron");
+			mui.toast("wrron");
 		}
 
 	});
@@ -157,7 +159,7 @@ function pullupGetData(Page, dateTime) {
 		},
 		success: function(data) {
 			thePage++;
-			mui.toast(data.msg);
+			//mui.toast(data.msg);
 			if(data.flag == '200') {
 				var table = document.getElementById('table');
 
@@ -169,7 +171,7 @@ function pullupGetData(Page, dateTime) {
 
 					var numOfPhotos = result[i].photourls.length;
 					var innerCode = '<div class="mui-card-header mui-card-media"><img src="' + result[i].personlogo + '"  onerror="imgerror(this)"/>' +
-						'<div class="mui-media-body">' + result[i].name + '<p>' + result[i].date + '</p></div></div>' +
+						'<div class="mui-media-body">' + result[i].name + '<p>' + result[i].location + '</p></div></div>' +
 						'	<div class="mui-card-content"><div id="text" class="mui-ellipsis-2">' + result[i].describe + '</div>';
 					if(numOfPhotos != 0) {
 						if(numOfPhotos == 1) {
@@ -185,8 +187,10 @@ function pullupGetData(Page, dateTime) {
 							innerCode += '</div>';
 						}
 					}
-					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="mui-icon like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
-						'<a  class="mui-card-link"> <img class="mui-icon comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+					innerCode += '<p>' + result[i].date + '</p>'
+					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="logImg like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
+						'<a  class="mui-card-link"> <img class="logImg comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+
 					innerCode += '</div><div class="comment">';
 					var comments = result[i].moment_list;
 					for(var j = 0; j < comments.length; j++) {
@@ -202,7 +206,7 @@ function pullupGetData(Page, dateTime) {
 
 		},
 		error: function(xhr, type, errorThrown) {
-			mui.alert("wrron");
+			mui.toast("wrron");
 		}
 
 	});
@@ -261,7 +265,7 @@ function like(id) {
 			}
 		},
 		error: function(xhr, type, errorThrown) {
-			mui.alert("无网络连接");
+			mui.toast("无网络连接");
 		}
 
 	});

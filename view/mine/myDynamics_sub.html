@@ -12,12 +12,29 @@
 	<style>
 		#text {
 			margin: 10px;
-		} 
+		}
 		
 		.photo {
 			width: 30%;
 			margin: 3px;
 			max-height: 200px;
+		}
+		
+		.commentname {
+			color: blue;
+			float: left;
+			clear: left;
+			margin: 3px;
+		}
+		
+		.commentcontent {
+			margin: 3px;
+			float: left;
+			;
+		}
+		
+		.logImg {
+			width: 30px;
 		}
 	</style>
 
@@ -25,35 +42,35 @@
 		<!--下拉刷新容器-->
 		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
-			<div id="table">
-				<div class="mui-card">
-					<div class="mui-card-header mui-card-media">
-						<img src="../images/logo.png" />
-						<div class="mui-media-body">
-							小M
-							<p>发表于 2016-06-30 15:30</p>
+				<div id="table">
+					<!--<div class="mui-card">
+						<div class="mui-card-header mui-card-media">
+							<img src="../images/logo.png" />
+							<div class="mui-media-body">
+								小M
+								<p>发表于 2016-06-30 15:30</p>
+							</div>
 						</div>
-					</div>
-					<div class="mui-card-content">
-						<div id="text" class="mui-ellipsis-2">
-							这样可以吗？
+						<div class="mui-card-content">
+							<div id="text" class="mui-ellipsis-2">
+								这样可以吗？
+							</div>
+							<div class="photos">
+								<img style="width: 30%;" class="mui-icon" src="../../images/lunnbo2.jpg" data-preview-src="" data-preview-group="1" />
+							</div>
 						</div>
-						<div class="photos">
-							<img style="width: 30%;" class="mui-icon" src="../../images/lunnbo2.jpg" data-preview-src="" data-preview-group="1" />
-						</div>
-					</div>
-					<div class="mui-card-footer">
-						<!--<div class="like"><img class="like_img" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" /> 
+						<div class="mui-card-footer">
+							<!--<div class="like"><img class="like_img" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" /> 
 								<div class="num_like">'+result[i].laud_count+'</div></div>'+
 								<div class="comment"><div class="comment_img">'+result[i].comment_count+'</div><img class="num_comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />'+
-							</div>-->
-						<a id="like" class="mui-card-link"><img class="mui-icon" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" /> 15
-						</a>
-						<a id="comment" class="mui-card-link"> <img class="mui-icon" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png" /> 15 </a>
-					</div>
+							</div>
+							<a id="like" class="mui-card-link"><img class="mui-icon" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" /> 15
+							</a>
+							<a id="comment" class="mui-card-link"> <img class="mui-icon" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png" /> 15 </a>
+						</div>
+					</div>-->
 				</div>
 			</div>
-		</div>
 		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript" src="../../js/myDynamics.js"></script>
@@ -70,8 +87,8 @@
 					}
 				}
 			});
-			mui.plusReady(function(){
-				getData(1,"");
+			mui.plusReady(function() {
+				getData(1, "");
 			})
 			mui('#table').on('tap', '.mui-card', function(event) {
 				var id = this.getAttribute('id');
@@ -79,9 +96,9 @@
 				// mui.alert(target.className);
 				var name = target.className;
 				if(name != 'photo') {
-					if(name == 'mui-icon like') {
+					if(name == 'logImg like') {
 						like(id);
-					} else if(name == 'mui-icon comment') {
+					} else if(name == 'logImg comment') {
 						comment(id);
 					} else {
 						mui.openWindow({
@@ -94,46 +111,7 @@
 					}
 				}
 			})
-			/**
-			 * 下拉刷新具体业务实现
-			 */
-			function pulldownRefresh() {
-				setTimeout(function() {
-//					'var table = document.body.querySelector('.mui-table-view');
-//					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-//					for (var i = cells.length, len = i + 3; i < len; i++) {
-//						var li = document.createElement('li');
-//						li.className = 'mui-table-view-cell';
-//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-//						//下拉刷新，新纪录插到最前面；
-//						table.insertBefore(li, table.firstChild);
-//					}'
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-				}, 1500);
-//				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-
-			}
-			var count = 0;
-			/**
-			 * 上拉加载具体业务实现
-			 */
-			function pullupRefresh() {
-
-				mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //参数为true代表没有更多数据了。
-
-			}
-			if(mui.os.plus) {
-				mui.plusReady(function() {
-					setTimeout(function() {
-						mui('#pullrefresh').pullRefresh().pullupLoading();
-					}, 1000);
-
-				});
-			} else {
-				mui.ready(function() {
-					mui('#pullrefresh').pullRefresh().pullupLoading();
-				});
-			}
+			 
 		</script>
 	</body>
 

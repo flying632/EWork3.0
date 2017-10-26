@@ -72,30 +72,10 @@
 			<div style="text-align: center;">
 				<div id="photos">
 
-				</div>
-				<a id="pick" href="#cropper-sheet">
-					<img id="image" src="../../images/Assets.xcassets/+.imageset/+@2x.png" />
-				</a>
+				</div> 
 			</div>
 
-			<!--选择照片-->
-			<div id="cropper-sheet" class="mui-popover mui-popover-bottom mui-popover-action">
-				<!-- 可选择菜单 -->
-				<ul class="mui-table-view">
-					<li class="mui-table-view-cell">
-						<a data-type="camera">拍照</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a data-type="gallery">相册</a>
-					</li>
-				</ul>
-				<!-- 取消菜单 -->
-				<ul class="mui-table-view">
-					<li class="mui-table-view-cell">
-						<a href="#cropper-sheet"><b style="color: #ff0000;">取消</b></a>
-					</li>
-				</ul>
-			</div>
+			 
 		</div>
 		<!--
         	作者：offline
@@ -122,20 +102,7 @@
 				var self = plus.webview.currentWebview();
 				id = self.the_id; 
 			})
-			mui('#cropper-sheet').on('tap', '.mui-table-view-cell > a', function() {
-				var type = this.getAttribute('data-type');
-				mui("#cropper-sheet").popover('hide');
-				switch(type) {
-					case 'camera':
-						clickCamera();
-						break;
-					case 'gallery':
-						clickGallery();
-						break;
-					default:
-						break;
-				}
-			})
+		 
 		</script>
 	</body>
 

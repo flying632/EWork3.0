@@ -322,7 +322,8 @@
       "view/mine/myCard.html",
       "view/mine/changelanguage.html",
       "login.html",
-      "view/mine/searchfriend.html"
+      "view/mine/searchfriend.html",
+      "view/mine/myDynamics.html"
     ]
   },
   "view/dynamics/dynamics.html": {
@@ -1209,7 +1210,8 @@
       "images/Assets.xcassets/heart.imageset/heart@2x.png"
     ],
     "refer": [
-      "view/mine/dynamics_detail.html"
+      "view/mine/dynamics_detail.html",
+      "view/mine/new_comment.html"
     ]
   },
   "view/mine/dynamics_detail.html": {
@@ -1383,6 +1385,16 @@
       "js/cropper.min.js",
       "js/changeImg.js",
       "css/imageViewer.css"
+    ]
+  },
+  "view/mine/myDynamics.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/myDynamics.js",
+      "images/lunnbo2.jpg"
+    ],
+    "refer": [
+      "view/mine/dynamics_detail.html"
     ]
   }
 }

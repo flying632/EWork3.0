@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style> 
+		.mui-title{
+			color: #007AFF;
+		}
+		#text {
+			margin: 10px;
+		}
+		
+		.photo {
+			width: 30%;
+			margin: 3px;
+			max-height: 200px;
+		}
+		
+		.commentname {
+			color: blue;
+			float: left;
+			clear: left;
+			margin: 3px;
+		}
+		
+		.commentcontent {
+			margin: 3px;
+			float: left;
+			;
+		}
+		
+		.logImg {
+			width: 30px;
+		}
+		
+	</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 id="wodedongtai" class="mui-title">我的动态</h1>
+		</header>
+		<!--下拉刷新容器-->
+		<div id="table" class="mui-content"> 
+					<div class="mui-card">
+						<div class="mui-card-header mui-card-media">
+							<img src="../images/logo.png" />
+							<div class="mui-media-body">
+								小M
+								<p>发表于 2016-06-30 15:30</p>
+							</div>
+						</div>
+						<div class="mui-card-content">
+							<div id="text" class="mui-ellipsis-2">
+								这样可以吗？
+							</div>
+							<div class="photos">
+								<img style="width: 30%;" class="mui-icon" src="../../images/lunnbo2.jpg" data-preview-src="" data-preview-group="1" />
+							</div>
+						</div>
+						<div class="mui-card-footer"> 
+							<a id="like" class="mui-card-link"><img class="logImg like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" /> 15
+							</a>
+							<a id="comment" class="mui-card-link"> <img class="logImg comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png" /> 15 </a>
+						</div>
+					</div>
+		</div> 
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+		<script type="text/javascript" src="../../js/languagemore.js" ></script>
+		<script type="text/javascript" src="../../js/myDynamics.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				pullRefresh: {
+					container: "#table", //下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+					down: {
+						style: 'circle', //必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+//						color: '#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+//						height: '50px', //可选,默认50px.下拉刷新控件的高度,
+//						range: '100px', //可选 默认100px,控件可下拉拖拽的范围
+//						offset: '0px', //可选 默认0px,下拉刷新控件的起始位置
+						auto: true, //可选,默认false.首次加载自动上拉刷新一次
+						callback: test //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+					},
+					up: {
+						auto:true,
+						//contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			mui.plusReady(function() {
+				getData(1, "");
+			})
+			function test(){
+				//mui.alert("asd");
+			}
+			mui('#table').on('tap', '.mui-card', function(event) {
+				var id = this.getAttribute('id');
+				var target = event.target;
+				// mui.alert(target.className);
+				var name = target.className;
+				if(name != 'photo') {
+					if(name == 'logImg like') {
+						like(id);
+					} else if(name == 'logImg comment') {
+						comment(id);
+					} else {
+						mui.openWindow({
+							url: 'dynamics_detail.html',
+							id: 'dynamics_detail.html',
+							extras: {
+								the_id: id
+							}
+						})
+					}
+				}
+			})
+
+		</script>
+	</body>
+
+</html>

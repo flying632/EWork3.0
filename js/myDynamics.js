@@ -26,6 +26,7 @@ function getData(thePage, dateTime) {
 			table.innerHTML = "";
 			if(data.flag == '200') {
 				table.innerHTML = "";
+				plus.nativeUI.showWaiting();
 				result = data.result;
 				for(var i = 0; i < result.length; i++) {
 					var card = document.createElement('div');
@@ -33,8 +34,8 @@ function getData(thePage, dateTime) {
 					card.setAttribute('id', result[i].id);
 
 					var numOfPhotos = result[i].photourls.length;
-					var innerCode = '<div class="mui-card-header mui-card-media"><img src="' + result[i].personlogo + '" onerror="imgerror(this)" />' +
-						'<div class="mui-media-body">' + result[i].name + '<p>' + result[i].date + '</p></div></div>' +
+					var innerCode = '<div class="mui-card-header mui-card-media"><img src="' + result[i].personlogo + '"  onerror="imgerror(this)"/>' +
+						'<div class="mui-media-body">' + result[i].name + '<p>' + result[i].location + '</p></div></div>' +
 						'	<div class="mui-card-content"><div id="text" class="mui-ellipsis-2">' + result[i].describe + '</div>';
 					if(numOfPhotos != 0) {
 						if(numOfPhotos == 1) {
@@ -46,20 +47,29 @@ function getData(thePage, dateTime) {
 							innerCode += '<div class="photos">';
 							for(var j = 0; j < numOfPhotos; j++) {
 								innerCode += '<img class="photo" style="width:30%"  src="' + result[i].photourls[j].url + '" data-preview-src="" data-preview-group="' + i * thePage + '"/>';
-							} 
+							}
 							innerCode += '</div>';
 						}
 					}
-					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="mui-icon like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
-						'<a  class="mui-card-link"> <img class="mui-icon comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+					innerCode += '<p>' + result[i].date + '</p>'
+					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="logImg like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
+						'<a  class="mui-card-link"> <img class="logImg comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+
+					innerCode += '</div><div class="comment">';
+					var comments = result[i].moment_list;
+					for(var j = 0; j < comments.length; j++) {
+						innerCode += ' <div class="commentname">' + comments[j].own_name + '</div><div class="commentcontent">' + comments[j].content + '</div>';
+					}
+					innerCode += '</div>';
 					card.innerHTML = innerCode;
 					table.appendChild(card);
 				}
+				plus.nativeUI.closeWaiting()
 			}
 
 		},
 		error: function(xhr, type, errorThrown) {
-			mui.alert("无网络连接");
+			mui.toast("无网络连接");
 		}
 
 	});
@@ -94,7 +104,7 @@ function pulldownGetData(Page, dateTime) {
 
 					var numOfPhotos = result[i].photourls.length;
 					var innerCode = '<div class="mui-card-header mui-card-media"><img src="' + result[i].personlogo + '"  onerror="imgerror(this)"/>' +
-						'<div class="mui-media-body">' + result[i].name + '<p>' + result[i].date + '</p></div></div>' +
+						'<div class="mui-media-body">' + result[i].name + '<p>' + result[i].location + '</p></div></div>' +
 						'	<div class="mui-card-content"><div id="text" class="mui-ellipsis-2">' + result[i].describe + '</div>';
 					if(numOfPhotos != 0) {
 						if(numOfPhotos == 1) {
@@ -106,12 +116,20 @@ function pulldownGetData(Page, dateTime) {
 							innerCode += '<div class="photos">';
 							for(var j = 0; j < numOfPhotos; j++) {
 								innerCode += '<img class="photo" style="width:30%"  src="' + result[i].photourls[j].url + '" data-preview-src="" data-preview-group="' + i * thePage + '"/>';
-							} 
+							}
 							innerCode += '</div>';
 						}
 					}
-					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="mui-icon like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
-						'<a  class="mui-card-link"> <img class="mui-icon comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+					innerCode += '<p>' + result[i].date + '</p>'
+					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="logImg like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
+						'<a  class="mui-card-link"> <img class="logImg comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+
+					innerCode += '</div><div class="comment">';
+					var comments = result[i].moment_list;
+					for(var j = 0; j < comments.length; j++) {
+						innerCode += ' <div class="commentname">' + comments[j].own_name + '</div><div class="commentcontent">' + comments[j].content + '</div>';
+					}
+					innerCode += '</div>';
 					card.innerHTML = innerCode;
 					table.appendChild(card);
 				}
@@ -120,7 +138,7 @@ function pulldownGetData(Page, dateTime) {
 
 		},
 		error: function(xhr, type, errorThrown) {
-			mui.alert("wrron");
+			mui.toast("wrron");
 		}
 
 	});
@@ -155,8 +173,8 @@ function pullupGetData(Page, dateTime) {
 					card.setAttribute('id', result[i].id);
 
 					var numOfPhotos = result[i].photourls.length;
-					var innerCode = '<div class="mui-card-header mui-card-media"><img src="' + result[i].personlogo + '" onerror="imgerror(this)"/>' +
-						'<div class="mui-media-body">' + result[i].name + '<p>' + result[i].date + '</p></div></div>' +
+					var innerCode = '<div class="mui-card-header mui-card-media"><img src="' + result[i].personlogo + '"  onerror="imgerror(this)"/>' +
+						'<div class="mui-media-body">' + result[i].name + '<p>' + result[i].location + '</p></div></div>' +
 						'	<div class="mui-card-content"><div id="text" class="mui-ellipsis-2">' + result[i].describe + '</div>';
 					if(numOfPhotos != 0) {
 						if(numOfPhotos == 1) {
@@ -168,12 +186,20 @@ function pullupGetData(Page, dateTime) {
 							innerCode += '<div class="photos">';
 							for(var j = 0; j < numOfPhotos; j++) {
 								innerCode += '<img class="photo" style="width:30%"  src="' + result[i].photourls[j].url + '" data-preview-src="" data-preview-group="' + i * thePage + '"/>';
-							} 
+							}
 							innerCode += '</div>';
 						}
 					}
-					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="mui-icon like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
-						'<a  class="mui-card-link"> <img class="mui-icon comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+					innerCode += '<p>' + result[i].date + '</p>'
+					innerCode += '</div><div class="mui-card-footer"><a class="mui-card-link"><img class="logImg like" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />' + result[i].laud_count + '</a>' +
+						'<a  class="mui-card-link"> <img class="logImg comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />' + result[i].comment_count + '</a>';
+
+					innerCode += '</div><div class="comment">';
+					var comments = result[i].moment_list;
+					for(var j = 0; j < comments.length; j++) {
+						innerCode += ' <div class="commentname">' + comments[j].own_name + '</div><div class="commentcontent">' + comments[j].content + '</div>';
+					}
+					innerCode += '</div>';
 					card.innerHTML = innerCode;
 					table.appendChild(card);
 				}
@@ -183,7 +209,7 @@ function pullupGetData(Page, dateTime) {
 
 		},
 		error: function(xhr, type, errorThrown) {
-			mui.alert("wrron");
+			mui.toast("wrron");
 		}
 
 	});
@@ -246,7 +272,7 @@ function like(id){
 					}
 				},
 				error: function(xhr, type, errorThrown) {
-					mui.alert("无网络连接");
+					mui.toast("无网络连接");
 				}
 
 			});

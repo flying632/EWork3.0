@@ -20,7 +20,7 @@
 						}
 					},
 					error: function(xhr, type, errorThrown) {
-						mui.alert("无网络连接");
+						//mui.alert("无网络连接");
 					}
 
 				});
@@ -60,7 +60,7 @@
 					getLikes();
 				},
 				error: function(xhr, type, errorThrown) {
-					mui.alert("无网络连接");
+				//	mui.alert("无网络连接");
 				}
 
 			});
@@ -92,7 +92,7 @@
 					getComments();
 				},
 				error: function(xhr, type, errorThrown) {
-					mui.alert("无网络连接");
+					//mui.alert("无网络连接");
 				}
 
 			});
@@ -125,7 +125,7 @@
 					}
 				},
 				error: function(xhr, type, errorThrown) {
-					mui.alert("无网络连接");
+					//mui.alert("无网络连接");
 				}
 
 			});
